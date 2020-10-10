@@ -5,3 +5,4 @@
     - file: notebooks
 - file: contents/IntroToGINZA
 - file: contents/spaCy
+- file: contents/da_AirPassengers/TS_tutorial
