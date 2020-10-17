@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GINZAとは &#8212; Iron Ball Run</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/ironball.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iron Ball Run</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroAndContentsInJB/intro.html">
+   Welcome to Iron Ball Run
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroAndContentsInJB/content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroToGINZA.html">
+   What is GINZA?
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/contents/spaCy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/contents/spaCy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   GINZAの概要と特徴
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spacy">
+     spaCyとは
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     spaCyの機能
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ref">
+   Ref
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="ginza">
+<h1>GINZAとは<a class="headerlink" href="#ginza" title="Permalink to this headline">¶</a></h1>
+<p>「GINZA」とは、リクルートと国立国語研究所の共同研究によって2019年4月に公開されたPython向け日本語自然言語処理ライブラリです。</p>
+<p>これまでの自然言語処理ライブラリは独立した機能の物が多く、例えば<a class="reference external" href="http://mecab.sourceforge.net/">「MeCab」</a>や<a class="reference external" href="https://mocobeta.github.io/janome/">「Janome」</a>、<a class="reference external" href="http://nlp.ist.i.kyoto-u.ac.jp/index.php?%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%BD%A2%E6%85%8B%E7%B4%A0%E8%A7%A3%E6%9E%90%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0JUMAN">「Juman」</a>等は形態素解析、<a class="reference external" href="http://code.google.com/p/cabocha/">「CaboCha」</a>や<a class="reference external" href="http://nlp.ist.i.kyoto-u.ac.jp/index.php?%E6%97%A5%E6%9C%AC%E8%AA%9E%E6%A7%8B%E6%96%87%E8%A7%A3%E6%9E%90%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0KNP">「KNP」</a>等は係り受け解析を担うなど、応用を目指すにはこれらを組み合わせる専門知識とエンジニアリングが必要でした。</p>
+<p>そこで形態素解析、係り受け解析などを標準で扱えるライブラリとしてGINZAが登場しました。</p>
+<hr class="docutils" />
+<div class="section" id="id1">
+<h2>GINZAの概要と特徴<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>「GiNZA」は、最先端の機械学習技術を取り入れた自然言語処理ライブラリ「spaCy」をフレームワークとして利用しており、また、オープンソース形態素解析器「SudachiPy」を内部に組み込み、トークン化処理に利用している。「GiNZA日本語UDモデル」にはMegagon Labsと国立国語研究所の共同研究成果が組み込まれています</p>
+</div></blockquote>
+<p>またGINZAの特徴は以下の通りです。</p>
+<blockquote>
+<div><p>1.高度な自然言語処理をワンステップで導入完了
+これまで、高度な自然言語処理を行うためには複雑な導入作業が必要でしたが、「GiNZA」はワンステップでモジュールとモデルファイルの導入を完了できます。これにより、エンジニアは即座に解析が可能です。</p>
+<p>2.高速・高精度な解析処理と依存構造解析レベルの国際化に対応
+産業用途で自然言語処理技術を活用するには、一定の処理速度を保ちながら解析精度を高めるためにチューニングを行うことが一般的です。「GiNZA」は、「spaCy」が提供する高速・高精度な依存構造解析器を使用して、産業用途に耐える性能を備えた高度な自然言語処理機能をライブラリとして提供します。同時に、「spaCy」の国際化機能により、複数の欧米言語と日本語の言語リソースを切り替えて使用することが可能となり、エンジニアは複数言語の解析を単一のライブラリで行うことができます。</p>
+<p>3.国立国語研究所との共同研究成果の学習モデルを提供
+自然言語処理系の学会を中心に、人類が用いる多様な言語を、一貫した構文構造・品詞体系で解析可能にする&gt;「Universal Dependencies」の取組みが、2014年から全世界で始まっています。日本においても当初からUDの日本語への適用に関する研究と日本語版UDコーパス（データ）構築が同時に進められてきました。Megagon Labsは、国立国語研究所と共同で、日本語版UDに基づいた高精度な依存構造解析技術の研究を行い、その成果である学習済みモデルを「GiNZA日本語UDモデル」に組み込みました。
+「GiNZA日本語UDモデル」は、国立国語研究所が長年の研究を通じて蓄積してきた大規模かつ高品質なテキストコーパスに加えて、日本語Wikipediaテキストも同時に用いて機械学習に適用することで、幅広い分野に適応可能なモデルを構築しています。</p>
+</div></blockquote>
+<p>つまりはこれまで自然言語処理を始めるには機能独立したライブラリそれぞれを準備する必要がありましたが、「GINZA」を準備するだけで始める準備が終わることになります。</p>
+<p>引用元<a class="reference external" href="https://www.recruit.co.jp/newsroom/2019/0402_18331.html">リクルートのAI研究機関、国立国語研究所との共同研究成果を用いた日本語の自然言語処理ライブラリ「GiNZA」を公開</a></p>
+<div class="section" id="spacy">
+<h3>spaCyとは<a class="headerlink" href="#spacy" title="Permalink to this headline">¶</a></h3>
+<p>「GINZA」が使用している「spaCy」は、Pythonで高度な自然言語処理(NLP)を行うためのフリーのオープンソースライブラリです。最新の研究を元に各機能は作られており、産業製品用途に耐えうるように特別に設計されています。この点が教育や研究用途のNLTKやCoreNLPのようなライブラリとは異なります。しかし、spaCyができることは数多く、情報抽出や自然言語理解システムの構築、またはDNNの前処理などに役立ちます。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h3>spaCyの機能<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>spaCyの機能についてまとめた表を示します。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>処理</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>トークン化</p></td>
+<td><p>テキストを単語や句読点などに分割します。</p></td>
+</tr>
+<tr class="row-odd"><td><p>品詞（POS: Part-of-speech）タグ付け</p></td>
+<td><p>動詞や名詞などのトークンに単語タイプを割り当てます。</p></td>
+</tr>
+<tr class="row-even"><td><p>依存関係の解析</p></td>
+<td><p>主語や目的語のように、個々のトークン間の関係を記述する構文依存性ラベルを割り当てます。</p></td>
+</tr>
+<tr class="row-odd"><td><p>語の見出し語化(Lemmatization)</p></td>
+<td><p>単語の基本形を割り当てる。例えば、”was “の見出しは “be “であり、”rats “の見出しは “rat “である。</p></td>
+</tr>
+<tr class="row-even"><td><p>文境界検出 (SBD:Sentence Boundary Detection)</p></td>
+<td><p>個々の文を見つけてセグメント化します。</p></td>
+</tr>
+<tr class="row-odd"><td><p>固有表現抽出(NER:Named Entity Recognition )</p></td>
+<td><p>人、会社、場所など、名前のついた「実世界」のオブジェクトをラベリングします。</p></td>
+</tr>
+<tr class="row-even"><td><p>エンティティリンク (EL:Entity Linking)</p></td>
+<td><p>テキストのエンティティを、知識ベース内の一意の識別子と区別します。</p></td>
+</tr>
+<tr class="row-odd"><td><p>類似性(Similarity)</p></td>
+<td><p>単語、テキストスパン、ドキュメントを比較し、それらが互いにどの程度似ているかを比較します。</p></td>
+</tr>
+<tr class="row-even"><td><p>テキスト分類</p></td>
+<td><p>文書全体または文書の一部にカテゴリやラベルを割り当てます。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ルールベースのマッチング</p></td>
+<td><p>正規表現に似た、テキストと言語的注釈に基づいて、トークンのシーケンスを見つけます。</p></td>
+</tr>
+<tr class="row-even"><td><p>トレーニング</p></td>
+<td><p>統計モデルの予測を更新したり、改善したりすること。</p></td>
+</tr>
+<tr class="row-odd"><td><p>シリアライゼーション</p></td>
+<td><p>オブジェクトをファイルやバイト文字列に保存します。</p></td>
+</tr>
+</tbody>
+</table>
+<p>上記の処理機能の一部は独立して使用可能ですが、その他は言語アノテーションを予測するための統計モデルをロードする必要があります。統計モデルには、通常、以下のコンポーネントが含まれています。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>コンポーネント</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>品詞タグ付けのためのバイナリ重み</p></td>
+<td><p>依存性パーサ、および文脈でのアノテーションを予測するための名前付きエンティティ認識器に使用</p></td>
+</tr>
+<tr class="row-odd"><td><p>語彙エントリ</p></td>
+<td><p>単語とその形やスペルなどの文脈に依存しない属性。</p></td>
+</tr>
+<tr class="row-even"><td><p>データファイル</p></td>
+<td><p>見出し語化ルールやルックアップテーブルなど。</p></td>
+</tr>
+<tr class="row-odd"><td><p>単語ベクトル</p></td>
+<td><p>単語の多次元的な意味表現で、単語同士の類似度を判断する。</p></td>
+</tr>
+<tr class="row-even"><td><p>コンフィグレーション</p></td>
+<td><p>言語や処理パイプラインの設定のような設定オプション</p></td>
+</tr>
+</tbody>
+</table>
+<p>以降はコードと共に機能について見ていきます。</p>
+</div>
+</div>
+<div class="section" id="ref">
+<h2>Ref<a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.phontron.com/nlptools.php?lang=ja">自然言語処理ライブラリ一覧</a></p></li>
+<li><p><a class="reference external" href="https://megagonlabs.github.io/ginza/">GiNZA - Japanese NLP Library</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/poyo46/items/7a4965455a8a2b2d2971">日本語ライブラリGINZAのススメ</a></p></li>
+<li><p><a class="reference external" href="https://www.virment.com/how-to-install-ginza-and-use/">自然言語処理ライブラリGiNZAをインストールして簡単に動かすまでの手順</a></p></li>
+<li><p><a class="reference external" href="https://www.koi.mashykom.com/spacy_ginza.html">spaCyとGiNZAを用いた言語処理</a></p></li>
+<li><p><a class="reference external" href="https://petitviolet.hatenablog.com/entry/20120523/1337760714">正規表現・自然言語処理</a></p></li>
+<li><p><a class="reference external" href="https://spacy.io/usage/spacy-101">spacy</a></p></li>
+<li><p><a class="reference external" href="https://note.com/npaka/n/nc608b9392300?magazine_key=m9a7d32c95ad9">spacy翻訳</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install ginza
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ginza in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (4.0.5)
+Requirement already satisfied: SudachiDict-core&gt;=20200330; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (20200722)
+Requirement already satisfied: spacy&lt;3.0.0,&gt;=2.3.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (2.3.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (0.4.9)
+Requirement already satisfied: ja-ginza&lt;4.1.0,&gt;=4.0.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (4.0.0)
+Requirement already satisfied: srsly&lt;1.1.0,&gt;=1.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.3)
+Requirement already satisfied: numpy&gt;=1.15.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.19.2)
+Requirement already satisfied: setuptools in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (41.2.0)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: thinc==7.4.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (7.4.1)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (4.50.2)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: plac&lt;1.2.0,&gt;=0.9.6 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.1.3)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.24.0)
+Requirement already satisfied: blis&lt;0.5.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.4.1)
+Requirement already satisfied: catalogue&lt;1.1.0,&gt;=0.0.7 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.0)
+Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.8.0)
+Requirement already satisfied: dartsclone~=0.9.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.9.0)
+Requirement already satisfied: sortedcontainers~=2.1.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (2.1.0)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.25.10)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.4)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2020.6.20)
+Requirement already satisfied: importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.0)
+Requirement already satisfied: Cython in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from dartsclone~=0.9.0-&gt;SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.29.21)
+Requirement already satisfied: zipp&gt;=0.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot;-&gt;catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 19.2.3, however version 20.2.3 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ginza</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;ja_ginza&quot;</span><span class="p">)</span>  <span class="c1"># GiNZAモデルの読み込み</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="s1">&#39;銀座でランチをご一緒しましょう。&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">dep_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>銀座 PROPN obl
+で ADP case
+ランチ NOUN obj
+を ADP case
+ご NOUN compound
+一緒 VERB ROOT
+し AUX advcl
+ましょう AUX aux
+。 PUNCT punct
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install ginza
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ginza in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (4.0.5)
+Requirement already satisfied: ja-ginza&lt;4.1.0,&gt;=4.0.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (4.0.0)
+Requirement already satisfied: spacy&lt;3.0.0,&gt;=2.3.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (2.3.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (0.4.9)
+Requirement already satisfied: SudachiDict-core&gt;=20200330; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (20200722)
+Requirement already satisfied: setuptools in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (41.2.0)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.2)
+Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.8.0)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (4.50.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: plac&lt;1.2.0,&gt;=0.9.6 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.1.3)
+Requirement already satisfied: catalogue&lt;1.1.0,&gt;=0.0.7 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.0)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.3)
+Requirement already satisfied: blis&lt;0.5.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.4.1)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.24.0)
+Requirement already satisfied: thinc==7.4.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (7.4.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.15.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.19.2)
+Requirement already satisfied: srsly&lt;1.1.0,&gt;=1.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: sortedcontainers~=2.1.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (2.1.0)
+Requirement already satisfied: dartsclone~=0.9.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.9.0)
+Requirement already satisfied: importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.0)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.25.10)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2020.6.20)
+Requirement already satisfied: Cython in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from dartsclone~=0.9.0-&gt;SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.29.21)
+Requirement already satisfied: zipp&gt;=0.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot;-&gt;catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 19.2.3, however version 20.2.3 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By ironball<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
