@@ -7,7 +7,7 @@
 - file: contents/IntroToGINZA
 - file: contents/spaCy
 
-- file: contents/trans/trans
-  sections:
-    - file: contents/trans/da_AirPassengers/TS_tutorial
+# - file: contents/trans/trans
+#   sections:
+#     - file: contents/trans/da_AirPassengers/TS_tutorial
 
