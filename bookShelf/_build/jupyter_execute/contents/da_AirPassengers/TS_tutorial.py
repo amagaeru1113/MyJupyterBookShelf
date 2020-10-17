@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 記事翻訳
+# # 記事翻訳 A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python and R)
 
-# # A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python and R)
-# 
 # ## リンク
 # 
 # [サイトページ](https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/)
@@ -70,6 +68,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import warnings
+
 
 warnings.simplefilter('ignore')
 
@@ -206,5 +205,41 @@ plt.plot(ts);
 # In[10]:
 
 
+import statsmodels
 from statsmodels.tsa.stattools import adfuller
+
+
+def test_stationarity(ts):
+    
+    # ローリング統計の決定
+    rolmean = pd.rolling_mean(ts, window=12)
+    rolstd = pd.rolling_std(ts, window=12)
+    
+    # ローリング統計のプロット
+    arig = plt.plot(ts, color='blue', label='Original')
+    mean = plt.plot(rolmean, color='red', label='Rolling Mean')
+    std = plt.plot(rolstd, color='black', label='Rolling Std')
+    plt.legend(loc='best')
+    plt.title('Rolling Mean & Standard Deviation')
+    plt.show(block=False)
+    
+    # ディッキーフラー検定
+    print('Results of Dickey-Fuller Test')
+    dftest = adfuller(ts, autolog='AIC')
+    dfoutput = pd.Series(dftest[0:4], index=['Test Statistic', 'p-value', '#Lags Used', 'Number of Observations Used'])
+    for key, value in dftest[4].items():
+        dfoutput['Critical Value (%s)'%key] = value
+    print(dfoutput)
+
+
+# In[12]:
+
+
+
+
+
+# In[ ]:
+
+
+
 

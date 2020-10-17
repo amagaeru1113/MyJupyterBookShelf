@@ -33,12 +33,12 @@
 # 引用元[リクルートのAI研究機関、国立国語研究所との共同研究成果を用いた日本語の自然言語処理ライブラリ「GiNZA」を公開](https://www.recruit.co.jp/newsroom/2019/0402_18331.html)
 # 
 
-# # spaCyとは
+# ### spaCyとは
 # 「GINZA」が使用している「spaCy」は、Pythonで高度な自然言語処理(NLP)を行うためのフリーのオープンソースライブラリです。最新の研究を元に各機能は作られており、産業製品用途に耐えうるように特別に設計されています。この点が教育や研究用途のNLTKやCoreNLPのようなライブラリとは異なります。しかし、spaCyができることは数多く、情報抽出や自然言語理解システムの構築、またはDNNの前処理などに役立ちます。
 # 
 # ---
 # 
-# ## spaCyの機能
+# ### spaCyの機能
 # spaCyの機能についてまとめた表を示します。
 # 
 # 処理 | 説明
@@ -69,7 +69,7 @@
 # 以降はコードと共に機能について見ていきます。
 # 
 # 
-# # Ref
+# ## Ref
 # - [自然言語処理ライブラリ一覧](http://www.phontron.com/nlptools.php?lang=ja)
 # 
 # - [GiNZA - Japanese NLP Library](https://megagonlabs.github.io/ginza/)
@@ -94,7 +94,7 @@
 get_ipython().system('pip install ginza')
 
 
-# In[1]:
+# In[2]:
 
 
 from ginza import *
@@ -107,7 +107,7 @@ for token in doc:
     print(token.text, token.pos_, token.dep_)
 
 
-# In[1]:
+# In[3]:
 
 
 get_ipython().system('pip install ginza')

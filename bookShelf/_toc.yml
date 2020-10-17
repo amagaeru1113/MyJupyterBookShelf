@@ -1,8 +1,13 @@
-- file: intro
-- file: content
+# - file: contents/intro/intro
+- file: contents/IntroAndContentsInJB/intro
+- file: contents/IntroAndContentsInJB/content
   sections:
-    - file: markdown
-    - file: notebooks
+    - file: contents/IntroAndContentsInJB/markdown
+    - file: contents/IntroAndContentsInJB/notebooks
 - file: contents/IntroToGINZA
 - file: contents/spaCy
-- file: contents/da_AirPassengers/TS_tutorial
+
+- file: contents/trans/trans
+  sections:
+    - file: contents/trans/da_AirPassengers/TS_tutorial
+

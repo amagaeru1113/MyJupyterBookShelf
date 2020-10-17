@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GINZAとは &#8212; My sample book</title>
+    <title>GINZAとは &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="記事翻訳" href="da_AirPassengers/TS_tutorial.html" />
+    <link rel="next" title="記事翻訳" href="trans/trans.html" />
     <link rel="prev" title="What is GINZA?" href="IntroToGINZA.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -80,7 +80,7 @@
   <img src="../_static/ironball.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">My sample book</h1>
+  <h1 class="site-logo" id="site-title">Iron Ball Run</h1>
   
 </a>
 </div>
@@ -93,14 +93,14 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Welcome to your Jupyter Book
+  <a class="reference internal" href="IntroAndContentsInJB/intro.html">
+   Welcome to Iron Ball Run
   </a>
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../content.html">
+  <a class="reference internal" href="IntroAndContentsInJB/content.html">
    Content in Jupyter Book
   </a>
  </li>
@@ -115,23 +115,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#spacy">
-   spaCyとは
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#ref">
-   Ref
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="da_AirPassengers/TS_tutorial.html">
+  <a class="reference internal" href="trans/trans.html">
    記事翻訳
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="da_AirPassengers/TS_tutorial.html#a-comprehensive-beginners-guide-to-create-a-time-series-forecast-with-codes-in-python-and-r">
-   A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python and R)
   </a>
  </li>
 </ul>
@@ -209,11 +194,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/contents/spaCy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         
     </div>
 </div>
@@ -228,31 +208,24 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   GINZAとは
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   GINZAの概要と特徴
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     GINZAの概要と特徴
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spacy">
+     spaCyとは
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spacy">
-   spaCyとは
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
      spaCyの機能
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ref">
    Ref
   </a>
@@ -291,14 +264,13 @@
 </div></blockquote>
 <p>つまりはこれまで自然言語処理を始めるには機能独立したライブラリそれぞれを準備する必要がありましたが、「GINZA」を準備するだけで始める準備が終わることになります。</p>
 <p>引用元<a class="reference external" href="https://www.recruit.co.jp/newsroom/2019/0402_18331.html">リクルートのAI研究機関、国立国語研究所との共同研究成果を用いた日本語の自然言語処理ライブラリ「GiNZA」を公開</a></p>
-</div>
-</div>
 <div class="section" id="spacy">
-<h1>spaCyとは<a class="headerlink" href="#spacy" title="Permalink to this headline">¶</a></h1>
+<h3>spaCyとは<a class="headerlink" href="#spacy" title="Permalink to this headline">¶</a></h3>
 <p>「GINZA」が使用している「spaCy」は、Pythonで高度な自然言語処理(NLP)を行うためのフリーのオープンソースライブラリです。最新の研究を元に各機能は作られており、産業製品用途に耐えうるように特別に設計されています。この点が教育や研究用途のNLTKやCoreNLPのようなライブラリとは異なります。しかし、spaCyができることは数多く、情報抽出や自然言語理解システムの構築、またはDNNの前処理などに役立ちます。</p>
+</div>
 <hr class="docutils" />
 <div class="section" id="id2">
-<h2>spaCyの機能<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h3>spaCyの機能<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>spaCyの機能についてまとめた表を示します。</p>
 <table class="colwidths-auto table">
 <thead>
@@ -374,7 +346,7 @@
 </div>
 </div>
 <div class="section" id="ref">
-<h1>Ref<a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h1>
+<h2>Ref<a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.phontron.com/nlptools.php?lang=ja">自然言語処理ライブラリ一覧</a></p></li>
 <li><p><a class="reference external" href="https://megagonlabs.github.io/ginza/">GiNZA - Japanese NLP Library</a></p></li>
@@ -392,195 +364,43 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ginza
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ginza in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (4.0.5)
+Requirement already satisfied: SudachiDict-core&gt;=20200330; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (20200722)
+Requirement already satisfied: SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (0.4.9)
+Requirement already satisfied: spacy&lt;3.0.0,&gt;=2.3.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (2.3.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/a6/cc/5d3a9230cf3dd8426d0fc147133eb49913acdb8a6c8828320a7c8e2ae8b9/ginza-4.0.5.tar.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting spacy&lt;3.0.0,&gt;=2.3.2 (from ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/53/66/facc29889e0be6cceb64cbb9d4dff45a3defee79b333d41c8a2597eb6b5e/spacy-2.3.2-cp37-cp37m-macosx_10_9_x86_64.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ja_ginza&lt;4.1.0,&gt;=4.0.0 (from ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/89/7d/c8778b5472082da8488b2686cbab3e34ab371fa038c1a712a8d55d8dba2b/ja_ginza-4.0.0.tar.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting SudachiPy&gt;=0.4.9 (from ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/7a/bf/2e5e4ed553aecfcff85e492c96ae39d8413b54a2b356dea9905fa66cf31d/SudachiPy-0.4.9-cp37-cp37m-macosx_10_14_x86_64.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting SudachiDict-core&gt;=20200330 (from ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/c4/8f/38c5bea51bf1c825c8774810d1bdd84f3c0b8e3526f00db954ba940e6191/SudachiDict-core-20200722.tar.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting catalogue&lt;1.1.0,&gt;=0.0.7 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/6c/f9/9a5658e2f56932e41eb264941f9a2cb7f3ce41a80cb36b2af6ab78e2f8af/catalogue-1.0.0-py2.py3-none-any.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting blis&lt;0.5.0,&gt;=0.4.0 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/85/d8/f0be9d8ebec9cbeea1427de6ac0ecc919c0bfe881eff2d2965dbc310ca8b/blis-0.4.1-cp37-cp37m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ja-ginza&lt;4.1.0,&gt;=4.0.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (4.0.0)
+Requirement already satisfied: sortedcontainers~=2.1.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (2.1.0)
+Requirement already satisfied: dartsclone~=0.9.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.9.0)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.3)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.24.0)
+Requirement already satisfied: catalogue&lt;1.1.0,&gt;=0.0.7 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.0)
+Requirement already satisfied: blis&lt;0.5.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.4.1)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.2)
+Requirement already satisfied: srsly&lt;1.1.0,&gt;=1.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (4.50.2)
+Requirement already satisfied: setuptools in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (41.2.0)
+Requirement already satisfied: plac&lt;1.2.0,&gt;=0.9.6 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.1.3)
+Requirement already satisfied: thinc==7.4.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (7.4.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.15.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.19.2)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.24.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wasabi&lt;1.1.0,&gt;=0.4.0 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/1b/10/55f3cf6b52cc89107b3e1b88fcf39719392b377a3d78ca61da85934d0d10/wasabi-0.8.0-py3-none-any.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting murmurhash&lt;1.1.0,&gt;=0.28.0 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/b9/bd/faace403086ee922afc74e5615cb8c21020fcf5d5667314e943c08f71fde/murmurhash-1.0.2-cp37-cp37m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting thinc==7.4.1 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/f8/3f/9cee434ca42cd7902c1369038daf6c78e06bc101750aa75c6eed1a7bdf03/thinc-7.4.1-cp37-cp37m-macosx_10_9_x86_64.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting srsly&lt;1.1.0,&gt;=1.0.2 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/77/21/2bfb8d559ed128b43e3a12e28579ab5f6b043f1ac079168de3025c0d0a39/srsly-1.0.2-cp37-cp37m-macosx_10_9_x86_64.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tqdm&lt;5.0.0,&gt;=4.38.0 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l  Downloading https://files.pythonhosted.org/packages/bd/cf/f91813073e4135c1183cadf968256764a6fe4e35c351d596d527c0540461/tqdm-4.50.2-py2.py3-none-any.whl (70kB)
-
-     |████▋                           | 10kB 14.1MB/s eta 0:00:01
-     |█████████▎                      | 20kB 1.0MB/s eta 0:00:01
-     |█████████████▉                  | 30kB 1.5MB/s eta 0:00:01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████▌             | 40kB 1.0MB/s eta 0:00:01
-     |███████████████████████▏        | 51kB 1.2MB/s eta 0:00:01
-     |███████████████████████████▊    | 61kB 1.4MB/s eta 0:00:01
-     |████████████████████████████████| 71kB 1.5MB/s 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied: setuptools in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (41.2.0)
-Collecting preshed&lt;3.1.0,&gt;=3.0.2 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/c7/3e/9aaba1f8c0cb69e57ebeb411cc1b65b3f6bfc3572dd68969a6d3e59288f6/preshed-3.0.2-cp37-cp37m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting plac&lt;1.2.0,&gt;=0.9.6 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-  Using cached https://files.pythonhosted.org/packages/86/85/40b8f66c2dd8f4fd9f09d59b22720cffecf1331e788b8a0cab5bafb353d1/plac-1.1.3-py2.py3-none-any.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cymem&lt;2.1.0,&gt;=2.0.2 (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/63/34/a8b682ee9b57db35a5fe4e179b77c1bda0f6a09745669a99cfc27aa2bed7/cymem-2.0.3-cp37-cp37m-macosx_10_6_intel.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sortedcontainers~=2.1.0 (from SudachiPy&gt;=0.4.9-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/13/f3/cf85f7c3a2dbd1a515d51e1f1676d971abe41bba6f4ab5443240d9a78e5b/sortedcontainers-2.1.0-py2.py3-none-any.whl
-Collecting dartsclone~=0.9.0 (from SudachiPy&gt;=0.4.9-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/26/8a/4409d6476234403ad8eea9cee23f3da81e1d52555385651f07f1db166f24/dartsclone-0.9.0-cp37-cp37m-macosx_10_13_x86_64.whl
+Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.8.0)
+Requirement already satisfied: Cython in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from dartsclone~=0.9.0-&gt;SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.29.21)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2020.6.20)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.10)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.25.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.4)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2020.6.20)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.25.10)
+Requirement already satisfied: zipp&gt;=0.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot;-&gt;catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.3.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.4)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.10)
-Collecting Cython (from dartsclone~=0.9.0-&gt;SudachiPy&gt;=0.4.9-&gt;ginza)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached https://files.pythonhosted.org/packages/2b/4d/899fb0967be8b02bdbc47f892b48f576f9c2d28f7d49710bcecf9ed1c705/Cython-0.29.21-cp37-cp37m-macosx_10_9_x86_64.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=0.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot;-&gt;catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.3.0)
-Building wheels for collected packages: ginza, ja-ginza, SudachiDict-core
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for ginza (setup.py) ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for ginza: filename=ginza-4.0.5-cp37-none-any.whl size=15899 sha256=574c14509f744808cb0f843aaaffbbebb8e82557af1b5b72e899e6fb6ba11f9e
-  Stored in directory: /Users/apple/Library/Caches/pip/wheels/a2/4f/b8/74029780ece4fedfa1f16ba6b9b86fdeee8260ade265e3756e
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for ja-ginza (setup.py) ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Created wheel for ja-ginza: filename=ja_ginza-4.0.0-cp37-none-any.whl size=51530813 sha256=86d551dc6ff3d31744c7a9edb90273a15b734be00d26206badaff8eb22876ddd
-  Stored in directory: /Users/apple/Library/Caches/pip/wheels/28/5a/c0/95ac590b39eff99c77d729f284341d15a6903e4011d70ff421
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for SudachiDict-core (setup.py) ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Created wheel for SudachiDict-core: filename=SudachiDict_core-20200722-cp37-none-any.whl size=71120192 sha256=a54f059278c29c1554a5fffbbf052b123073bd19a38fcafc1c8f82ba86d01f7f
-  Stored in directory: /Users/apple/Library/Caches/pip/wheels/aa/79/cb/ee2ca7db8ba91560158dd4b1362ca1bcc1622541d476de5145
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully built ginza ja-ginza SudachiDict-core
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: catalogue, blis, wasabi, murmurhash, srsly, tqdm, cymem, preshed, plac, thinc, spacy, ja-ginza, sortedcontainers, Cython, dartsclone, SudachiPy, SudachiDict-core, ginza
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 19.2.3, however version 20.2.3 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
 </pre></div>
 </div>
 </div>
@@ -619,73 +439,45 @@ Building wheels for collected packages: ginza, ja-ginza, SudachiDict-core
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ginza
-  Downloading https://files.pythonhosted.org/packages/99/6e/2d41f14ac730c7cb34421829677f4a1d85e06b459d4542dd618d57280c8c/ginza-4.0.0.tar.gz
-Collecting spacy&lt;3.0.0,&gt;=2.3.2
-?25l  Downloading https://files.pythonhosted.org/packages/10/b5/c7a92c7ce5d4b353b70b4b5b4385687206c8b230ddfe08746ab0fd310a3a/spacy-2.3.2-cp36-cp36m-manylinux1_x86_64.whl (9.9MB)
-     |████████████████████████████████| 10.0MB 4.0MB/s 
-?25hCollecting ja_ginza&lt;4.1.0,&gt;=4.0.0
-?25l  Downloading https://files.pythonhosted.org/packages/89/7d/c8778b5472082da8488b2686cbab3e34ab371fa038c1a712a8d55d8dba2b/ja_ginza-4.0.0.tar.gz (51.5MB)
-     |████████████████████████████████| 51.5MB 125kB/s 
-?25hCollecting SudachiPy&gt;=0.4.9
-?25l  Downloading https://files.pythonhosted.org/packages/71/18/8531c4a1c904cb24d37a09e7dff3273857ee65e0d0adb62d09c6f5492f5d/SudachiPy-0.4.9.tar.gz (67kB)
-     |████████████████████████████████| 71kB 7.1MB/s 
-?25hCollecting SudachiDict-core&gt;=20200330
-  Downloading https://files.pythonhosted.org/packages/c4/8f/38c5bea51bf1c825c8774810d1bdd84f3c0b8e3526f00db954ba940e6191/SudachiDict-core-20200722.tar.gz
-Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
-Requirement already satisfied: blis&lt;0.5.0,&gt;=0.4.0 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.4.1)
-Collecting thinc==7.4.1
-<span class=" -Color -Color-Yellow">  WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, ConnectionResetError(104, &#39;Connection reset by peer&#39;))&#39;: /packages/10/ae/ef3ae5e93639c0ef8e3eb32e3c18341e511b3c515fcfc603f4b808087651/thinc-7.4.1-cp36-cp36m-manylinux1_x86_64.whl</span>
-?25l  Downloading https://files.pythonhosted.org/packages/10/ae/ef3ae5e93639c0ef8e3eb32e3c18341e511b3c515fcfc603f4b808087651/thinc-7.4.1-cp36-cp36m-manylinux1_x86_64.whl (2.1MB)
-     |████████████████████████████████| 2.1MB 2.7MB/s 
-?25hRequirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (4.41.1)
-Requirement already satisfied: setuptools in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (49.2.0)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.23.0)
-Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.3)
-Requirement already satisfied: numpy&gt;=1.15.0 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.18.5)
-Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.2)
-Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.4.0 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.7.1)
-Requirement already satisfied: catalogue&lt;1.1.0,&gt;=0.0.7 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.0)
-Requirement already satisfied: plac&lt;1.2.0,&gt;=0.9.6 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.1.3)
-Requirement already satisfied: srsly&lt;1.1.0,&gt;=1.0.2 in /usr/local/lib/python3.6/dist-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
-Collecting sortedcontainers~=2.1.0
-  Downloading https://files.pythonhosted.org/packages/13/f3/cf85f7c3a2dbd1a515d51e1f1676d971abe41bba6f4ab5443240d9a78e5b/sortedcontainers-2.1.0-py2.py3-none-any.whl
-Collecting dartsclone~=0.9.0
-?25l  Downloading https://files.pythonhosted.org/packages/6d/34/987a076369ed086ee953e2f0b9ab5ff3e1a682ba4f781678ac5648144896/dartsclone-0.9.0-cp36-cp36m-manylinux1_x86_64.whl (474kB)
-     |████████████████████████████████| 481kB 20.2MB/s 
-?25hRequirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.6/dist-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.10)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.6/dist-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2020.6.20)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.4)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.6/dist-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.24.3)
-Requirement already satisfied: importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot; in /usr/local/lib/python3.6/dist-packages (from catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.7.0)
-Requirement already satisfied: Cython in /usr/local/lib/python3.6/dist-packages (from dartsclone~=0.9.0-&gt;SudachiPy&gt;=0.4.9-&gt;ginza) (0.29.21)
-Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.6/dist-packages (from importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot;-&gt;catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.1.0)
-Building wheels for collected packages: ginza, ja-ginza, SudachiPy, SudachiDict-core
-  Building wheel for ginza (setup.py) ... ?25l?25hdone
-  Created wheel for ginza: filename=ginza-4.0.0-cp36-none-any.whl size=15493 sha256=01b65a2a2b63287a3d8e194b26b12101bf194acb130edecdc3a317d35fa08a1f
-  Stored in directory: /root/.cache/pip/wheels/d1/72/7b/2e2396430fee86a30a88203e5fbe13ffe6417dfa7544bf1d58
-  Building wheel for ja-ginza (setup.py) ... ?25l?25hdone
-  Created wheel for ja-ginza: filename=ja_ginza-4.0.0-cp36-none-any.whl size=51530814 sha256=61836ca99db4e4fbd0f963800cbb873026e0582b3dcf0a072fbae68ea4a0c7da
-  Stored in directory: /root/.cache/pip/wheels/28/5a/c0/95ac590b39eff99c77d729f284341d15a6903e4011d70ff421
-  Building wheel for SudachiPy (setup.py) ... ?25l?25hdone
-  Created wheel for SudachiPy: filename=SudachiPy-0.4.9-cp36-cp36m-linux_x86_64.whl size=870437 sha256=68fdef6aaa1f096d09c43f0dd329c2a81e0a001db1bf2d4b96283e0fb637eaa3
-  Stored in directory: /root/.cache/pip/wheels/79/85/b4/bb2fbbf043bc8128a6cbb769604c410dc5ece89c88b7e57de0
-  Building wheel for SudachiDict-core (setup.py) ... ?25l?25hdone
-  Created wheel for SudachiDict-core: filename=SudachiDict_core-20200722-cp36-none-any.whl size=71120192 sha256=313d9f9caada061310d2fcbc9ba62ca13b577826363a19e3b46f3cd45695eabb
-  Stored in directory: /root/.cache/pip/wheels/aa/79/cb/ee2ca7db8ba91560158dd4b1362ca1bcc1622541d476de5145
-Successfully built ginza ja-ginza SudachiPy SudachiDict-core
-Installing collected packages: thinc, spacy, ja-ginza, sortedcontainers, dartsclone, SudachiPy, SudachiDict-core, ginza
-  Found existing installation: thinc 7.4.0
-    Uninstalling thinc-7.4.0:
-      Successfully uninstalled thinc-7.4.0
-  Found existing installation: spacy 2.2.4
-    Uninstalling spacy-2.2.4:
-      Successfully uninstalled spacy-2.2.4
-  Found existing installation: sortedcontainers 2.2.2
-    Uninstalling sortedcontainers-2.2.2:
-      Successfully uninstalled sortedcontainers-2.2.2
-Successfully installed SudachiDict-core-20200722 SudachiPy-0.4.9 dartsclone-0.9.0 ginza-4.0.0 ja-ginza-4.0.0 sortedcontainers-2.1.0 spacy-2.3.2 thinc-7.4.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ginza in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (4.0.5)
+Requirement already satisfied: ja-ginza&lt;4.1.0,&gt;=4.0.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (4.0.0)
+Requirement already satisfied: spacy&lt;3.0.0,&gt;=2.3.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (2.3.2)
+Requirement already satisfied: SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (0.4.9)
 </pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: SudachiDict-core&gt;=20200330; python_version &gt;= &quot;3.5&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from ginza) (20200722)
+Requirement already satisfied: thinc==7.4.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (7.4.1)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: blis&lt;0.5.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.4.1)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.2)
+Requirement already satisfied: srsly&lt;1.1.0,&gt;=1.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.2)
+Requirement already satisfied: catalogue&lt;1.1.0,&gt;=0.0.7 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.0.0)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.3)
+Requirement already satisfied: numpy&gt;=1.15.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.19.2)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.24.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: plac&lt;1.2.0,&gt;=0.9.6 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.1.3)
+Requirement already satisfied: setuptools in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (41.2.0)
+Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.4.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (0.8.0)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (4.50.2)
+Requirement already satisfied: sortedcontainers~=2.1.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (2.1.0)
+Requirement already satisfied: dartsclone~=0.9.0 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.9.0)
+Requirement already satisfied: importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot; in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.0.0)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2.10)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (1.25.10)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.0.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (2020.6.20)
+Requirement already satisfied: Cython in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from dartsclone~=0.9.0-&gt;SudachiPy&gt;=0.4.9; python_version &gt;= &quot;3.5&quot;-&gt;ginza) (0.29.21)
+Requirement already satisfied: zipp&gt;=0.5 in /Users/apple/Documents/github/MyJupyterBookShelf/.venv/lib/python3.7/site-packages (from importlib-metadata&gt;=0.20; python_version &lt; &quot;3.8&quot;-&gt;catalogue&lt;1.1.0,&gt;=0.0.7-&gt;spacy&lt;3.0.0,&gt;=2.3.2-&gt;ginza) (3.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 19.2.3, however version 20.2.3 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -720,14 +512,14 @@ Successfully installed SudachiDict-core-20200722 SudachiPy-0.4.9 dartsclone-0.9.
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="IntroToGINZA.html" title="previous page">What is GINZA?</a>
-    <a class='right-next' id="next-link" href="da_AirPassengers/TS_tutorial.html" title="next page">記事翻訳</a>
+    <a class='right-next' id="next-link" href="trans/trans.html" title="next page">記事翻訳</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By ironball<br/>
         
             &copy; Copyright 2020.<br/>
       </p>
