@@ -45,7 +45,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        poetry run jupyter-book build --all bookShelf
+        poetry run jupyter-book build bookShelf/
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
