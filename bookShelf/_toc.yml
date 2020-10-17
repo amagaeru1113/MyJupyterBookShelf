@@ -5,7 +5,7 @@
     - file: contents/IntroAndContentsInJB/markdown
     - file: contents/IntroAndContentsInJB/notebooks
 - file: contents/IntroToGINZA
-- file: contents/spaCy
+# - file: contents/spaCy
 
 # - file: contents/trans/trans
 #   sections:
