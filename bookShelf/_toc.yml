@@ -1,9 +1,9 @@
 # - file: contents/intro/intro
-- file: contents/IntroAndContentsInJB/intro
-- file: contents/IntroAndContentsInJB/content
+- file: intro
+- file: content
   sections:
-    - file: contents/IntroAndContentsInJB/markdown
-    - file: contents/IntroAndContentsInJB/notebooks
+    - file: markdown
+    - file: notebooks
 - file: contents/IntroToGINZA
 # - file: contents/spaCy
 
