@@ -25,14 +25,27 @@ jobs:
       with:
         python-version: 3.7
 
-    - name: Install dependencies
+    # Poetry そのものをインストールする
+    - name: Install Poetry
       run: |
-        pip install -r requirements.txt
+        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+
+    # Poetry へのパスを通す
+    - name: Add path for Poetry
+      run: echo "::add-path::$HOME/.poetry/bin"
+
+    # インストールした Poetry を使って必要な Python パッケージをインストールする
+    - name: Install Dependencies
+      run: poetry install --no-interaction
+
+    # - name: Install dependencies
+    #   run: |
+    #     pip install -r requirements.txt
 
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build --all bookShelf
+        poetry run jupyter-book build --all bookShelf
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
