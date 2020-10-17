@@ -1,0 +1,5 @@
+- file: contents/intro
+- file: contents/content
+  sections:
+    - file: contents/markdown
+    - file: contents/notebooks
