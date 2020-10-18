@@ -1,6 +1,6 @@
 # - file: contents/intro/intro
-- file: intro
-- file: content
+- file: contents/IntroAndContentsInJB/intro
+- file: contents/IntroAndContentsInJB/content
   sections:
     - file: contents/IntroAndContentsInJB/markdown
     - file: contents/IntroAndContentsInJB/notebooks
@@ -11,4 +11,3 @@
 #   sections:
 #     - file: contents/trans/da_AirPassengers/TS_tutorial
 
-contents/IntroAndContentsInJB
