@@ -10,3 +10,7 @@ build
 build後のページ閲覧
 `/Users/apple/Documents/github/MyJupyterBookShelf/bookShelf/_build/html/index.html`
 
+
+# ref
+https://github.com/choldgraf/deploy_configurations/tree/master/.github/workflows
+https://github.com/executablebooks/jupyter-book/blob/master/.github/workflows/pdf.yml
