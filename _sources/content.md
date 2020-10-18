@@ -1,5 +1,5 @@
 Content in Jupyter Book
 =======================
 
-JupyterBookには、コンテンツの書き方がたくさんあります。この短いセクションでは、その方法についてのいくつかのヒントを取り上げます。
-
+There are many ways to write content in Jupyter Book. This short section
+covers a few tips for how to do so.
