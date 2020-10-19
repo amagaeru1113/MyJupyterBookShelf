@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python and R) &#8212; Iron Ball Run</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="記事翻訳" href="../trans.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/ironball.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iron Ball Run</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IntroAndContentsInJB/intro.html">
+   Welcome to Iron Ball Run
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IntroAndContentsInJB/content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IntroToGINZA.html">
+   What is GINZA?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../trans.html">
+   記事翻訳
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python and R)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/contents/translation/da_AirPassengers/TStutorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/contents/translation/da_AirPassengers/TStutorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   リンク
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   概要
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   序文
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   1.何が時系列を特徴付けるか？
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas">
+   2. pandasで時系列の読み込みと処理
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   3. どのようにして時系列の定常性を判定するか？
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="a-comprehensive-beginners-guide-to-create-a-time-series-forecast-with-codes-in-python-and-r">
+<h1>A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python and R)<a class="headerlink" href="#a-comprehensive-beginners-guide-to-create-a-time-series-forecast-with-codes-in-python-and-r" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>リンク<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/">サイトページ</a></p>
+<p><a class="reference external" href="https://megalodon.jp/2020-1009-0951-57/https://www.analyticsvidhya.com:443/blog/2016/02/time-series-forecasting-codes-python/">web魚拓</a></p>
+</div>
+<div class="section" id="id2">
+<h2>概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>時系列予測を作成する手順を学びます。</p></li>
+<li><p>Dickey-Fuller検定とARIMA (Autoregressive, moving average)モデルにも焦点を当てています。</p></li>
+<li><p>pythonでの実装と同様に、理論的な概念を学びます。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>序文<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>時系列（Time Series、以降TS）は、データサイエンスの世界ではあまり知られていないスキルの一つと考えられています。私は時系列問題を解決するための基本的な手順を学ぶために旅に出ましたが、ここではあなたと同じことを共有しています。これらは間違いなく、あなたが取り上げる任意の将来のプロジェクトでまともなモデルを取得するのに役立ちます</p>
+<p>この記事を読む前に、<a class="reference external" href="https://www.analyticsvidhya.com/blog/2015/12/complete-tutorial-time-series-modeling/">A Complete Tutorial on Time Series Modeling in R</a>を読んで、<a class="reference external" href="http://courses.analyticsvidhya.com/courses/creating-time-series-forecast-using-python?utm_source=blog&amp;utm_medium=TimeSeriesForecastComprehensivearticle">無料のTime Series Forecastingコース</a>を受講することを強くお勧めします。これは基本的な概念に焦点を当てており、私はPythonのコードと一緒に問題を解決する際にこれらの概念をエンドツーエンドで使用することに焦点を当てています。Rでの時系列のための多くのリソースは存在しますが、<a class="reference external" href="http://courses.analyticsvidhya.com/courses/introduction-to-data-science-2?utm_source=blog&amp;utm_medium=TimeSeriesForecastComprehensivearticle">Pythonのためのリソース</a>は非常に少ないので、この記事ではPythonを使用します。</p>
+<p>私たちの旅は、次のようなステップを経ることになるでしょう。</p>
+<ol class="simple">
+<li><p>時系列を特別なものにしているのは何か？</p></li>
+<li><p>pandasでの時系列の読み込みと処理</p></li>
+<li><p>時系列の定常性を確認するには？</p></li>
+<li><p>時系列の定常性を確認するには？</p></li>
+<li><p>時系列を予測する</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>1.何が時系列を特徴付けるか？<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>その名が示すように、TSは一定の時間間隔で収集されたデータ点の集合です。これらは、将来を予測したり、他の形式の分析を行うために、長期的な傾向を決定するために分析されます。しかし、TSは通常の回帰問題と何が違うのでしょうか？次の2つのことがあります。</p>
+<ol class="simple">
+<li><p><strong>時間依存性</strong>：したがって、観測者が独立しているという線形回帰モデルの基本的な仮定は、このケースでは保持されない。</p></li>
+<li><p><strong>季節性</strong>：増加または減少傾向とともに、ほとんどのTSは、ある種の季節性傾向、すなわち、特定の時間枠に固有の変動を持っています。たとえば、ウールのジャケットの販売が時間の経過とともに変化するのを見ると、冬の季節には必ずより高い販売価格もしくは販売量が見られるでしょう。</p></li>
+</ol>
+<p>TSには固有の特徴があるため、TSの分析には様々なステップがあります。これらについては以下で詳しく説明します。まず、PythonでTSオブジェクトを読み込むことから始めましょう。ここでは人気のある<a class="reference external" href="https://www.analyticsvidhya.com/wp-content/uploads/2016/02/AirPassengers.csv">AirPassengers</a>のデータセットを使用します。</p>
+<p>この記事の目的は、一般的にTSで使用される様々なテクニックに慣れることであることに注意してください。ここで考えた例は説明のためのものであり、私は幅広いトピックをカバーすることに焦点を当て、あまり正確な予測はしません。</p>
+</div>
+<div class="section" id="pandas">
+<h2>2. pandasで時系列の読み込みと処理<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<p>pandasには TSオブジェクトを扱うための専用ライブラリがあり、特に datatime64[ns] クラスは時間情報を保存し、いくつかの操作を高速に実行できるようにしてくれます。まずは必要なライブラリを起動してみましょう。
+データは1949年１月〜1960年12月までの月毎の飛行機の乗客数のデータセットであるAirport Passengersです。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/var/pyenv/versions/3.7.5/lib/python3.7/site-packages/pandas/compat/__init__.py:85: UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
+  warnings.warn(msg)
+/usr/local/var/pyenv/versions/3.7.5/lib/python3.7/site-packages/pandas/compat/__init__.py:85: UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
+  warnings.warn(msg)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># さて、データセットをロードして、いくつかの初期の行と列のデータ型を見てみましょう。</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;./data/AirPassengers.csv&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Data Types:&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Data Shape:&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Data Head:&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Data Types:
+Month          object
+#Passengers     int64
+dtype: object
+
+ Data Shape:
+(144, 2)
+
+ Data Head:
+     Month  #Passengers
+0  1949-01          112
+1  1949-02          118
+2  1949-03          132
+3  1949-04          129
+4  1949-05          121
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データには、特定の月とその月に旅行した乗客の数が含まれています。データを時系列として読み込むためには, read_csvコマンドに特別な引数を渡す必要があります.</span>
+<span class="n">dateparse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">dates</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span><span class="n">date_parser</span><span class="o">=</span><span class="n">dateparse</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Parsed Data:&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Parsed Data:
+            #Passengers
+Month                  
+1949-01-01          112
+1949-02-01          118
+1949-03-01          132
+1949-04-01          129
+1949-05-01          121
+</pre></div>
+</div>
+</div>
+</div>
+<p>引数を一つずつ理解していきましょう。</p>
+<ul class="simple">
+<li><p><strong>parse_dates</strong>：これは日付と時刻の情報を格納するカラムを指定します。上で言ったように、カラム名は’Month’です。</p></li>
+<li><p><strong>index_col</strong>：TSデータにPandasを使用する際の重要な考え方は、インデックスが日付時間情報を表す変数でなければならないということです。そのため、この引数は’Month’カラムをインデックスとして使用するようにpandasに指示します。</p></li>
+<li><p><strong>date_parser</strong>:これは入力文字列をdatetime変数に変換する関数を指定します。デフォルトでは、pandasは’YYYY-MM-DD HH:MM:SS’形式でデータを読み込みます。もしデータがこのフォーマットでない場合は、フォーマットを手動で定義しなければなりません。この目的のために、ここで定義されているdataparse関数に似たものを使用することができます。</p></li>
+</ul>
+<p>これで、データのインデックスがTimeオブジェクト、列が#Passengersであることがわかります。次のコマンドでインデックスのデータ型を照合することができます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;1949-01-01&#39;, &#39;1949-02-01&#39;, &#39;1949-03-01&#39;, &#39;1949-04-01&#39;,
+               &#39;1949-05-01&#39;, &#39;1949-06-01&#39;, &#39;1949-07-01&#39;, &#39;1949-08-01&#39;,
+               &#39;1949-09-01&#39;, &#39;1949-10-01&#39;,
+               ...
+               &#39;1960-03-01&#39;, &#39;1960-04-01&#39;, &#39;1960-05-01&#39;, &#39;1960-06-01&#39;,
+               &#39;1960-07-01&#39;, &#39;1960-08-01&#39;, &#39;1960-09-01&#39;, &#39;1960-10-01&#39;,
+               &#39;1960-11-01&#39;, &#39;1960-12-01&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;Month&#39;, length=144, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>indexのデータ型dtype=’datetime[ns]’ となっていることに注目してください。
+個人的な好みとして、私はTSを使用するたびに列の名前を参照するのを防ぐために、列をSeriesオブジェクトに変換します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;#Passengers&#39;</span><span class="p">]</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Month
+1949-01-01    112
+1949-02-01    118
+1949-03-01    132
+1949-04-01    129
+1949-05-01    121
+Name: #Passengers, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>先に進む前に、TSデータのインデックス作成のテクニックについて説明します。まず、Seriesオブジェクトで特定の値を選択することから始めましょう。これは以下の2つの方法で行うことができます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. 特定のindexを文字列で指定します。</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="p">[</span><span class="s1">&#39;1949-01-01&#39;</span><span class="p">])</span>
+
+<span class="c1">#2. datetime ライブラリをインポートして &#39;datetime&#39; 関数を使用します。</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="p">[</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1949</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112
+112
+</pre></div>
+</div>
+</div>
+</div>
+<p>どちらも、以前の出力からも確認できる値’112’を返すことになります。1949年5月までのすべてのデータが欲しいとします。これには2つの方法があります。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. 範囲を指定します:</span>
+<span class="n">ts</span><span class="p">[</span><span class="s1">&#39;1949-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;1949-05-01&#39;</span><span class="p">]</span>
+
+<span class="c1">#2. &#39;:&#39; を使用して始端から指定日までを指定します:</span>
+<span class="n">ts</span><span class="p">[:</span><span class="s1">&#39;1949-05-01&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Month
+1949-01-01    112
+1949-02-01    118
+1949-03-01    132
+1949-04-01    129
+1949-05-01    121
+Name: #Passengers, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>ここで注意すべき点が2つあります。</p>
+<ol class="simple">
+<li><p>数値インデキシングとは異なり、ここでは終了インデックスが含まれています。例えば、リストにa[:5]というインデックスを付けた場合、インデックス-[0,1,2,3,4]の値を返すことになります。しかし、ここではインデックス ‘1949-05-01’ が出力に含まれています。</p></li>
+<li><p>インデックスをソートしないと範囲が機能しません。インデックスをランダムにシャッフルした場合、これは動作しません。</p></li>
+</ol>
+<p>別の例として、1949年のすべての値が必要な場合を考えてみましょう。これは次のようにすることができます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="p">[</span><span class="s1">&#39;1949&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Month
+1949-01-01    112
+1949-02-01    118
+1949-03-01    132
+1949-04-01    129
+1949-05-01    121
+1949-06-01    135
+1949-07-01    148
+1949-08-01    148
+1949-09-01    136
+1949-10-01    119
+1949-11-01    104
+1949-12-01    118
+Name: #Passengers, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>月の部分が省略されています。同様に、特定の月のすべての日の場合は、日の部分を省略することができます。</p>
+<p>さて、TSを分析する上で移動することができます。</p>
+</div>
+<div class="section" id="id5">
+<h2>3. どのようにして時系列の定常性を判定するか？<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>平均や分散などの統計的特性が時間の経過とともに一定である場合、TSは定常であると言われています。しかし、なぜそれが重要なのでしょうか？ほとんどのTSモデルは、TSが定常であるという前提で動作します。直感的には、あるTSがある時間内に特定の振る舞いをしている場合、将来的にも同じ振る舞いをする確率が非常に高いということがわかります。また、定常系列に関連する理論は、非定常系列に比べて成熟しており、実装が容易です。</p>
+<p>定常性は非常に厳しい基準で定義されています。しかし、実用的な目的のためには、次のような統計的特性が一定であれば、その系列は定常であると仮定することができます。</p>
+<ol class="simple">
+<li><p>平均が一定</p></li>
+<li><p>分散が一定</p></li>
+<li><p>自己共分散が時間に依存しない</p></li>
+</ol>
+<p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2015/12/complete-tutorial-time-series-modeling/">この記事</a>で明確に定義されているので、詳細は省きます。それでは、定常性をテストする方法に移りましょう。まず第一に、データを簡単にプロットして視覚的に分析することです。データは以下のコマンドでプロットすることができます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TStutorial_19_0.png" src="../../../_images/TStutorial_19_0.png" />
+</div>
+</div>
+<p>データには季節的な変動もありますが、全体的に増加傾向にあることは明らかです。しかし、必ずしもそのような視覚的な推論ができるとは限りません（後ほどそのようなケースを見てみましょう）。そこで、より正式には、以下のような方法で定常性を確認することができます。</p>
+<ol class="simple">
+<li><p>ローリング統計を可視化します。移動平均や移動分散をプロットして、それが時間とともに変化するかどうかを見ることができます。移動平均/分散とは、任意の瞬間’t’において、昨年の平均/分散、すなわち過去12ヶ月の平均/分散を取ることを意味します。つまりはこれも視覚的なテクニックです。</p></li>
+<li><p>ディッキー・フラー検定. これは、定常性をチェックするための統計的検定の1つです。ここでは、帰無仮説は、TSが非定常であるということです。検定結果は，検定統計量と信頼度の差の臨界値で構成される．検定統計量」が「臨界値」よりも小さければ、帰無仮説を棄却し、系列が定常であると言えます。詳細は<a class="reference external" href="https://www.analyticsvidhya.com/blog/2015/12/complete-tutorial-time-series-modeling/">こちらの記事</a>を参照してください。</p></li>
+</ol>
+<p>この時点では、これらの概念はあまり直感的には聞こえないかもしれません。参照先の記事を読むことをお勧めします。理論的な統計学に興味があるのであれば、<strong>Brockwell and DavisのIntroduction to Time Series and Forecasting</strong>を参照してください。この本は少し統計学的な内容が多いですが、行間を読むスキルがあれば、概念を理解して統計学に触れることができます。</p>
+<p>静止性のチェックに戻りますが、我々はDickey-Fuller検定の結果と一緒にローリング統計量のプロットを多く使用するでしょう。平均に近い単位を保つために、分散の代わりに標準偏差をプロットしたことに注意してください。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import statsmodels</span>
+<span class="c1"># from statsmodels.tsa.stattools import adfuller</span>
+
+
+<span class="c1"># def test_stationarity(ts):</span>
+    
+<span class="c1">#     # ローリング統計の決定</span>
+<span class="c1">#     rolmean = pd.rolling_mean(ts, window=12)</span>
+<span class="c1">#     rolstd = pd.rolling_std(ts, window=12)</span>
+    
+<span class="c1">#     # ローリング統計のプロット</span>
+<span class="c1">#     arig = plt.plot(ts, color=&#39;blue&#39;, label=&#39;Original&#39;)</span>
+<span class="c1">#     mean = plt.plot(rolmean, color=&#39;red&#39;, label=&#39;Rolling Mean&#39;)</span>
+<span class="c1">#     std = plt.plot(rolstd, color=&#39;black&#39;, label=&#39;Rolling Std&#39;)</span>
+<span class="c1">#     plt.legend(loc=&#39;best&#39;)</span>
+<span class="c1">#     plt.title(&#39;Rolling Mean &amp; Standard Deviation&#39;)</span>
+<span class="c1">#     plt.show(block=False)</span>
+    
+<span class="c1">#     # ディッキーフラー検定</span>
+<span class="c1">#     print(&#39;Results of Dickey-Fuller Test&#39;)</span>
+<span class="c1">#     dftest = adfuller(ts, autolog=&#39;AIC&#39;)</span>
+<span class="c1">#     dfoutput = pd.Series(dftest[0:4], index=[&#39;Test Statistic&#39;, &#39;p-value&#39;, &#39;#Lags Used&#39;, &#39;Number of Observations Used&#39;])</span>
+<span class="c1">#     for key, value in dftest[4].items():</span>
+<span class="c1">#         dfoutput[&#39;Critical Value (%s)&#39;%key] = value</span>
+<span class="c1">#     print(dfoutput)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python37564bit375pyenva7ba0993404d4e8f9a8d177ae4693875",
+            path: "./contents/translation/da_AirPassengers"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python37564bit375pyenva7ba0993404d4e8f9a8d177ae4693875'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../trans.html" title="previous page">記事翻訳</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By ironball<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
