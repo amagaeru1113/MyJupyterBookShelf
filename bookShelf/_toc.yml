@@ -11,6 +11,6 @@
     - file: contents/spaCy
 
 - file: contents/translation/trans
-  sections:
-    - file: contents/translation/da_AirPassengers/TStutorial
+  # sections:
+  #   - file: contents/translation/da_AirPassengers/TStutorial
 
