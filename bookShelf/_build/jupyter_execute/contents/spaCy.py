@@ -88,7 +88,7 @@
 # In[1]:
 
 
-# !pip install ginzaå
+# !pip install ginza
 # !python -m spacy download en_core_web_lg
 
 
