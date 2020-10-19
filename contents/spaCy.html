@@ -57,6 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="記事翻訳" href="translation/trans.html" />
     <link rel="prev" title="What is GINZA?" href="IntroToGINZA.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,84 +104,91 @@
    Content in Jupyter Book
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="IntroToGINZA.html">
    What is GINZA?
   </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   GINZAとspaCy
-  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     GINZAとspaCy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#ref">
+     Ref
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id3">
+     言語アノテーション
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#token">
+     Token化
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id4">
+     品詞タグと依存関係
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id5">
+     固有表現
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id6">
+     単語ベクトルと類似度
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id8">
+     パイプライン
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#vocab-hashe-lexeme">
+     語彙(Vocab)、ハッシュ(hashe)、見出し(lexeme)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id9">
+     ナレッジベース
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id10">
+     候補生成
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id11">
+     シリアライズ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id12">
+     訓練
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id13">
+     言語データ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id14">
+     アーキテクチャ
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#ref">
-   Ref
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id3">
-   言語アノテーション
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#token">
-   Token化
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id4">
-   品詞タグと依存関係
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id5">
-   固有表現
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id6">
-   単語ベクトルと類似度
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id8">
-   パイプライン
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#vocab-hashe-lexeme">
-   語彙(Vocab)、ハッシュ(hashe)、見出し(lexeme)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id9">
-   ナレッジベース
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id10">
-   候補生成
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id11">
-   シリアライズ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id12">
-   訓練
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id13">
-   言語データ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id14">
-   アーキテクチャ
+  <a class="reference internal" href="translation/trans.html">
+   記事翻訳
   </a>
  </li>
 </ul>
@@ -507,7 +515,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install ginzaå</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install ginza</span>
 <span class="c1"># !python -m spacy download en_core_web_lg</span>
 </pre></div>
 </div>
@@ -1176,6 +1184,7 @@ Number of aliases in KB: 2
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="IntroToGINZA.html" title="previous page">What is GINZA?</a>
+    <a class='right-next' id="next-link" href="translation/trans.html" title="next page">記事翻訳</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
