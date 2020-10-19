@@ -11,6 +11,6 @@
     - file: contents/spaCy
 
 - file: contents/translation/trans
-  sections:
-    - file: contents/translation/AirPassengers
+  # sections:
+  #   - file: contents/translation/AirPassengers
 
