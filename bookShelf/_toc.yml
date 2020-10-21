@@ -13,4 +13,9 @@
 - file: contents/translation/trans
 
 
+- file: contents/software_testing/intro
+  sections: 
+    - file: contents/software_testing/01
+
+
 
