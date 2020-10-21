@@ -16,6 +16,7 @@
 - file: contents/software_testing/intro
   sections: 
     - file: contents/software_testing/01
+    - file: contents/software_testing/02
 
 
 
