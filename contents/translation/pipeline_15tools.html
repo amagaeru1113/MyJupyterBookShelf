@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>機械学習実験管理のための15のツール &#8212; Iron Ball Run</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ソフトウェアテスト技法について" href="../software_testing/intro.html" />
+    <link rel="prev" title="記事翻訳" href="trans.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/ironball.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iron Ball Run</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroAndContentsInJB/intro.html">
+   Welcome to Iron Ball Run
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroAndContentsInJB/content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroToGINZA.html">
+   What is GINZA?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="trans.html">
+   記事翻訳
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     機械学習実験管理のための15のツール
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../software_testing/intro.html">
+   ソフトウェアテスト技法について
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/translation/pipeline_15tools.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   機械学習実験を追跡するためのツールを誰が、なぜ必要としているのか？
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   機械学習実験の追跡に最適なツール
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   <strong>
+    15ツールの比較表
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neptune">
+   1.Neptune
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weights-biases">
+   2.Weights &amp; Biases
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comet">
+   3.Comet
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sacred-omniboard">
+   4.Sacred + Omniboard
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mlflow">
+   5.MLflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorboard">
+   6.TensorBoard
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guild-ai">
+   7.Guild AI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polyaxon">
+   8.Polyaxon
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trains">
+   9.Trains
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valohai">
+   10.Valohai
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pachyderm">
+   11.Pachyderm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kubeflow">
+   12.Kubeflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verta-ai">
+   13.Verta.ai
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sagemaker-srudio">
+   14.SageMaker Srudio
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dvc">
+   15.DVC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     メリット
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id20">
+   結論
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>機械学習実験管理のための15のツール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>これはneptune.aiの記事(<a class="reference external" href="https://neptune.ai/blog/best-ml-experiment-tracking-tools">15 Best Tools for Tracking Machine Learning Experiments</a>, Author <a class="reference external" href="https://www.linkedin.com/in/pawel-kijko">Pawel Kijko</a>)の自分用翻訳です。
+DeepL翻訳を多用します。</p>
+<p><img alt="midashi" src="../../_images/pipeline_tools.png" /></p>
+<p>機械学習プロジェクトに取り組むにあたって、1回のモデルトレーニングの実行から良い結果を得ることと、全ての機械学習実験を整理し、それらから有効な結論を導き出すためのプロセスを持つことは全く別のことです。後者の機械学習実験管理の助けとなるツールがあります。</p>
+<p>この記事では、データサイエンティストや機械学習エンジニアとして、機械学習実験を追跡するためのツールが必要な理由と、そのために使用できる最高のソフトウェアは何かを説明します。</p>
+<div class="section" id="id2">
+<h2>機械学習実験を追跡するためのツールを誰が、なぜ必要としているのか？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>データサイエンティスト：多くの組織では、機械学習エンジニアやデータサイエンティストは一人で仕事をする傾向があります。そのため、最後の1つのモデルを提供できる限り、実験プロセスを追跡することはそれほど重要ではないと考える人もいます。しかし、あるアイデアに戻ってきたり、数ヶ月前のモデルを再実行したり、あるいは単に実行間の違いを比較して可視化したりする場合、ML実験を追跡するためのシステムやツールの必要性が（痛いほど）明らかになります。</p></li>
+<li><p>分析チーム：ML実験のトラッキングに特化したツールは、データサイエンティストのチーム全体にとってさらに便利です。他のメンバーが何をしているかを見たり、アイデアや洞察を共有したり、実験のメタデータを保存したり、必要なときにいつでもそれを取り出して分析したりすることができます。チームワークをより効率的にし、複数の人が同じタスクの作業する状況を防ぎ、新しいメンバーのオンボーディングをより簡単にします。</p></li>
+<li><p>マネージャー/ビジネス：トラッキングソフトウェアは、機械学習プロジェクトのマネージャーやビジネスの利害関係者のような他のチームメンバーを巻き込む機会を作ります。ビジュアライゼーションを準備し、コメントを追加し、作業を共有する可能性のおかげで、マネージャーや同僚は簡単に進捗状況を追跡し、機械学習チームと協力することができます。</p></li>
+</ul>
+<p>もっと詳しく知りたい方のために、<a class="reference external" href="https://neptune.ai/blog/experiment-management">実験管理</a>についての掘り下げた記事をご紹介します。</p>
+</div>
+<div class="section" id="id3">
+<h2>機械学習実験の追跡に最適なツール<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>ベスト15の実験管理ツールの機能や統合性を比較しました。</p>
+<p>この比較表の最終更新日は2020年4月29日です。一部の情報は今日では古くなっている可能性があります。誤った情報がありますか？-&gt; 更新しますので、ご連絡ください。</p>
+</div>
+<div class="section" id="id4">
+<h2><strong>15ツールの比較表</strong><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>{%pdf https://neptune.ai/wp-content/uploads/best-machine-learning-experiment-tracking-apps.pdf %}</p>
+</div>
+<div class="section" id="neptune">
+<h2>1.<a class="reference external" href="https://neptune.ai/">Neptune</a><a class="headerlink" href="#neptune" title="Permalink to this headline">¶</a></h2>
+<p>Neptuneは、市販されている中で最も軽量な実験管理ツールです。あらゆるデータサイエンティストに最適なトラッキングプラットフォームです。このソフトウェアは、あなたのワークフローに簡単に統合でき、トラッキング機能を幅広く提供しています。実験を追跡、検索、分析するだけでなく、チームや管理者と共有することもできます。さらに、Neptuneは非常に柔軟性が高く、他の多くのフレームワークと連携し、安定したユーザーインターフェースのおかげで、（数百万回の実行）大きなスケーラビリティを実現しています。</p>
+<div class="section" id="id5">
+<h3>メリット<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>大量のデータの保存、検索、分析が可能</p></li>
+<li><p>効率的なチームコラボレーションとプロジェクト管理のためのツール</p></li>
+<li><p>Jupyter Notebookのトラッキングも含まれる</p></li>
+</ul>
+<p>詳細は<a class="reference external" href="https://neptune.ai/">neptune.ai</a></p>
+</div>
+</div>
+<div class="section" id="weights-biases">
+<h2>2.<a class="reference external" href="https://www.wandb.com/">Weights &amp; Biases</a><a class="headerlink" href="#weights-biases" title="Permalink to this headline">¶</a></h2>
+<p>Weight &amp; Biasesは、最先端のディープラーニングチームを対象としています。実験を記録し、研究のあらゆる部分を可視化することができます。Weight &amp; Biasesは、データサイエンティスト間のコラボレーションを促進するために作成されており、この問題に関して多くの有用な機能を提供しています。そのすべてが、よく設計されたユーザーエクスペリエンスで実現されています。</p>
+<div class="section" id="id6">
+<h3>メリット<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>深層学習実験のトラッキング用に作成</p></li>
+<li><p>簡単な総合プロセス</p></li>
+<li><p>カスタマイズ可能な可視化とレポート作成ツール</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/vs/wandb">Weights &amp; Biases and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="comet">
+<h2>3.<a class="reference external" href="https://www.comet.ml/">Comet</a><a class="headerlink" href="#comet" title="Permalink to this headline">¶</a></h2>
+<p>前述のツールと同様に、Cometは機械学習プロジェクトのトラッキングを可能にするために構築されました。このソフトウェアの背後にあるチームは、データサイエンティストが実験をよりよく整理し、管理できるようにすることを使命としています。Cometは、実験を簡単に比較したり、収集したデータの記録を残したり、他のチームメンバーと協力したりすることができます。</p>
+<div class="section" id="id7">
+<h3>メリット<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>どのようなマシンも素早く簡単に適応</p></li>
+<li><p>既存のMLライブラリと相性が良い</p></li>
+<li><p>IP保護</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sacred-omniboard">
+<h2>4.<a class="reference external" href="https://github.com/IDSIA/sacred#sacred">Sacred + Omniboard</a><a class="headerlink" href="#sacred-omniboard" title="Permalink to this headline">¶</a></h2>
+<p>“すべての実験は神聖なものである… “とSacredのツール説明にあるように。Sacredはオープンソースのソフトウェアで、機械学習エンジニアが実験の設定、整理、ログの記録、再現を行うことができます。SacredにはきちんとしたUIは付属していませんが、OmniboardやSacredboard、Neptuneなどの<a class="reference external" href="https://neptune-contrib.readthedocs.io/examples/observer_sacred.html">ダッシュボードツール</a>がいくつか用意されていて、そこに接続して使うことができます。また、これまでのツールのようなスケーラビリティはなく、チームでの共同作業には適応されていませんが、個人での研究となると大きな可能性を秘めています。</p>
+<div class="section" id="id8">
+<h3>メリット<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>OSS</p></li>
+<li><p>豊富な実験パラメータのカスタマイズオプション</p></li>
+<li><p>簡単な統合</p></li>
+</ul>
+<p>比較記事  <a class="reference external" href="https://neptune.ai/vs/sacred-omniboard">Sacred + Omniboard and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="mlflow">
+<h2>5.<a class="reference external" href="https://mlflow.org/">MLflow</a><a class="headerlink" href="#mlflow" title="Permalink to this headline">¶</a></h2>
+<p>MLflowは、機械学習のライフサイクル全体を管理するのに役立つオープンソースのプラットフォームです。これには実験だけでなく、再現性やデプロイメントも含まれます。これらの3つの要素をそれぞれ1つのMLflowコンポーネントで表現しています。トラッキング、プロジェクト、モデル。つまり、MLflowで作業するデータサイエンティストは、実験を追跡し、それを整理し、他のMLエンジニアのためにそれを記述し、機械学習モデルに詰め込むことができるということです。一人から大きな組織へのスケーラビリティを可能にするように設計されていますが、個人ユーザーには最適に機能します。</p>
+<div class="section" id="id9">
+<h3>メリット<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>機械学習プロセスのライフサイクル全体に焦点を当てている</p></li>
+<li><p>多くの追加ツールやプラットフォームとの互換性</p></li>
+<li><p>あらゆるMLライブラリや言語と統合されたオープンなインターフェース</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/mlflow">MLflow and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="tensorboard">
+<h2>6.<a class="reference external" href="https://www.tensorflow.org/tensorboard/">TensorBoard</a><a class="headerlink" href="#tensorboard" title="Permalink to this headline">¶</a></h2>
+<p>TensorBoardは、もう一つの実験トラッキングツールです。これはオープンソースで、機械学習モデルの可視化とデバッグのためのツール群を提供しています。TensorBoardは市場で最も人気のあるソリューションであるため、他の多くのツールやアプリケーションと広く統合されています。さらに、このソフトウェアを使用しているエンジニアの広範なネットワークがあり、彼らの経験やアイデアを共有しています。これは、あらゆる問題を解決する準備ができている強力なコミュニティになります。ソフトウェアは、しかし、それ自体は、最高の個人ユーザーのために適しています。</p>
+<div class="section" id="id10">
+<h3>メリット<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>事前い構築されたトラッキングツールの大規模なライブラリ</p></li>
+<li><p>他の多くのツールやアプリケーションとの統合</p></li>
+<li><p>問題解決のための資料とコミュニティ</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/vs/tensorboard">TensorBoard and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="guild-ai">
+<h2>7.<a class="reference external" href="https://guild.ai/">Guild AI</a><a class="headerlink" href="#guild-ai" title="Permalink to this headline">¶</a></h2>
+<p>Guild AIの背後にあるチームは、”実験をより早く、より効果的に適用することができれば、作業をより早く完了させることができる “と述べています。このプロセスをうまく整理するために、彼らは個々のプロジェクトに最適なオープンソースの実験追跡ソフトウェアを作成しました。軽量で、多くの便利な機能を備えており、機械学習実験の実行、分析、最適化、再現を容易にしてくれます。さらに、Guild AIには様々な分析ツールが含まれており、実験の比較プロセスをより簡単にすることができます。</p>
+<div class="section" id="id11">
+<h3>メリット<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>自動化された機械学習プロセス</p></li>
+<li><p>任意の言語やライブラリと統合可能</p></li>
+<li><p>リモートトレーニングとバックアップの可能性</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/vs/guild">Guild AI and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="polyaxon">
+<h2>8.<a class="reference external" href="https://polyaxon.com/">Polyaxon</a><a class="headerlink" href="#polyaxon" title="Permalink to this headline">¶</a></h2>
+<p>Polyaxonは、機械学習プロジェクトのライフサイクル全体の管理と、MLチームのコラボレーションを促進することの両方に焦点を当てたプラットフォームです。実験のトラッキングや最適化からモデル管理、法規制への対応まで、幅広い機能を備えています。その開発者の主な目標は、コストを節約しながら結果と生産性を最大化することです。ただし、Polyaxonを使用するには、事前にインフラ/クラウドに統合する必要があります。</p>
+<div class="section" id="id12">
+<h3>メリット<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>最も一般的な深層学習フレームワークやMLライブラリとの統合</p></li>
+<li><p>データサイエンティスト、チームリーダー、アーキテクトなどのグループに対応できるような設計</p></li>
+<li><p>チームコラボレーションが可能</p></li>
+</ul>
+<p>比較記事　<a class="reference external" href="https://neptune.ai/vs/polyaxon">Polyaxon and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="trains">
+<h2>9.<a class="reference external" href="https://github.com/allegroai/trains">Trains</a><a class="headerlink" href="#trains" title="Permalink to this headline">¶</a></h2>
+<p>Trainsは、その作成者が述べているように、「本番レベルのディープラーニングモデルを訓練するという「栄光に満ちた、しかし厄介なプロセス」を追跡するために構築されました。このソフトウェアの主な焦点は、機械学習やディープラーニングの実験を楽に、かつ効果的な方法で追跡できるようにすることです。Trainsはオープンソースのプラットフォームで、まだベータ段階ですが、常に開発とアップグレードが行われています。</p>
+<div class="section" id="id13">
+<h3>メリット<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>迅速かつ簡単な導入プロセス</p></li>
+<li><p>チームコラボレーションを後押しすることが可能</p></li>
+<li><p>実験プロセスを追跡し、データを1つの集中サーバーに保存するために設計された機能</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="valohai">
+<h2>10.<a class="reference external" href="https://valohai.com/">Valohai</a><a class="headerlink" href="#valohai" title="Permalink to this headline">¶</a></h2>
+<p>Valohaiはデータサイエンティストを念頭に置いて設計されており、その主な利点はモデル構築プロセスを高速化することです。大規模な自動化を行いますが、まずはインフラ/プライベートクラウドと統合する必要があります。Valohaiは、あらゆる言語やフレームワークに対応しているだけでなく、多くの異なるツールやアプリにも対応しています。また、チームワークを重視したソフトウェアであり、それを促進する多くの機能を備えています。</p>
+<div class="section" id="id14">
+<h3>メリット<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>モデル構築プロセスを大幅に加速する</p></li>
+<li><p>親切なカスタマーサービスと月1回のチェックアップ</p></li>
+<li><p>機械学習のライフサイクル全体にフォーカス</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="pachyderm">
+<h2>11.<a class="reference external" href="https://www.pachyderm.com/">Pachyderm</a><a class="headerlink" href="#pachyderm" title="Permalink to this headline">¶</a></h2>
+<p>Pachydermは、ユーザーがエンドツーエンドの機械学習サイクルを制御することを可能にするツールです。データの系統から、実験の構築やトラッキング、スケーラビリティのオプションに至るまで、Pachydermではすべてがカバーされています。ソフトウェアには3つの異なるバージョンがあり、Community Edition（オープンソース、どこでも使用可能）、Enterprise Edition（完全なバージョン管理されたプラットフォーム）、Hub Edition（前の2つのバージョンの特徴を組み合わせた、まだベータ版）があります。インフラ/プライベートクラウドとの統合が必要なため、前に述べた他のツールほど軽量ではありません。</p>
+<div class="section" id="id15">
+<h3>メリット<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>お客様のニーズに合わせてソフトウェアのバージョンを変更することができる</p></li>
+<li><p>エンドツーエンドのプロセスサポート</p></li>
+<li><p>設立され、専門家の強力なコミュニティに支えられている</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/vs/pachyderm">Pachyderm and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="kubeflow">
+<h2>12.<a class="reference external" href="https://www.kubeflow.org/">Kubeflow</a><a class="headerlink" href="#kubeflow" title="Permalink to this headline">¶</a></h2>
+<p>Kubeflowは、ランオーケストレーションと機械学習ワークフローのデプロイを容易にすることを主な目的としたソフトウェアです。Kubernetes用の機械学習ツールキットとして知られており、Kubernetesのポテンシャルを利用して機械学習モデルのスケーリングを容易にすることを目的としています。Kubeflowの背後にあるチームは常に機能を開発しており、データサイエンティストの生活を楽にするために最善を尽くしている。トラッキング機能はいくつかあるが、プロジェクトのメインではない。補完的なツールとして、このリストの他のツールと簡単に併用することができます。</p>
+<div class="section" id="id16">
+<h3>メリット<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>マルチフレームワークの統合</p></li>
+<li><p>Kubernetesユーザーに最適</p></li>
+<li><p>Open Sorce character</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/vs/kubeflow">Kubeflow and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="verta-ai">
+<h2>13.<a class="reference external" href="http://verta.ai/">Verta.ai</a><a class="headerlink" href="#verta-ai" title="Permalink to this headline">¶</a></h2>
+<p>Vertaの主な機能は、4つの言葉で要約することができます：トラック、コラボレーション、デプロイ、モニター。ご覧のように、このソフトウェアは機械学習のライフサイクル全体の管理を容易にするために作られています。そして、プロセスの各段階でMLチームを支援するために必要なツールを備えています。しかし、様々な機能を備えているため、プラットフォームがより複雑になり、我々が言及している他のオプションほど軽量化されていません。</p>
+<div class="section" id="id17">
+<h3>メリット<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>他のMLフレームワークとの互換性</p></li>
+<li><p>エンドツーエンドの機械学習プロセスの支援</p></li>
+<li><p>ユーザーフレンドリーなデザイン</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sagemaker-srudio">
+<h2>14.<a class="reference external" href="https://aws.amazon.com/sagemaker/">SageMaker Srudio</a><a class="headerlink" href="#sagemaker-srudio" title="Permalink to this headline">¶</a></h2>
+<p>SageMaker Studioは、データサイエンティストが機械学習のライフサイクル全体を管理できるAmazonのツールです。MLモデルの構築やトレーニングからデプロイまで。このソフトウェアの背後にあるアイデアは、高品質の実験を開発するために、より簡単に、より時間をかけずに開発できるようにすることです。ウェブベースのツールで、データサイエンティストのパフォーマンス向上を支援するために設計されたツールセット全体が付属しています。</p>
+<div class="section" id="id18">
+<h3>メリット<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>何千もの実験を追跡することが可能</p></li>
+<li><p>ML関連のタスクのための様々なAmazonツールとの統合</p></li>
+<li><p>完全な管理</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/vs/sagemakerstudio">SageMaker Studio and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="dvc">
+<h2>15.<a class="reference external" href="https://dvc.org/">DVC</a><a class="headerlink" href="#dvc" title="Permalink to this headline">¶</a></h2>
+<p>最後のプロジェクトは、機械学習プロジェクトのために特別に作成されたオープンソースのバージョン管理システムです。その目的は、データサイエンティストがMLモデルを共有し、再現性のあるものにすることです。DVCのユーザーインターフェースは、大量のデータのバージョン管理と組織化に対応し、よく組織化されたアクセス可能な方法でデータを保存することができます。データとパイプラインのバージョニングと管理に焦点を当てていますが、実験の追跡機能をいくつか（限定的に）持っています。補完的なツールとして、このリストの他のツールと簡単に併用することができます。</p>
+<div class="section" id="id19">
+<h3>メリット<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>あらゆる言語やフレームワークに適応可能</p></li>
+<li><p>大量のデータをバージョン化する可能</p></li>
+<li><p>Open Sorce character</p></li>
+</ul>
+<p>比較記事 <a class="reference external" href="https://neptune.ai/vs/dvc">DVC and Neptune</a></p>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>結論<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<p>機械学習の実験を追跡することは、MLの開発プロセスにおいて常に重要な要素となっていますが、過去にはデータサイエンティストの努力が必要とされていました。トラッキングツールが限られていたため、手作業での作業となり、時間がかかっていました。</p>
+<p>このため、データサイエンティストやエンジニアは、機械学習ライフサイクルのこの部分を軽視したり、自作のソリューションを作成したりすることが多かった。しかし、もうそうではないはずです。</p>
+<p>ここ数年で、機械学習実験を追跡するためのツールは大きく成熟し、非常にアクセスしやすく使いやすいものになりました。今日リストアップしたアプリやプラットフォームは、その最たる例だ。うまくいけば、すべてのデータサイエンティストがここで自分の人生を楽にしてくれるソフトウェアを見つけることができるだろう。</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/translation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="trans.html" title="previous page">記事翻訳</a>
+    <a class='right-next' id="next-link" href="../software_testing/intro.html" title="next page">ソフトウェアテスト技法について</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By ironball<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-180974113-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
