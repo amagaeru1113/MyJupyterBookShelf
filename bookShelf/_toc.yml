@@ -1,4 +1,3 @@
-# - file: contents/intro/intro
 - file: contents/IntroAndContentsInJB/intro
 
 - file: contents/IntroAndContentsInJB/content
@@ -11,7 +10,8 @@
     - file: contents/spaCy
 
 - file: contents/translation/trans
-
+  sections:
+    - file: contents/translation/pipeline_15tools
 
 - file: contents/software_testing/intro
   sections: 
