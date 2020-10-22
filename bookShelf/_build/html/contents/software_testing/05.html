@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル &#8212; Iron Ball Run</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="06.演習（ドメイン分析テスト、デシジョンテーブル）" href="06.html" />
+    <link rel="prev" title="03.同値クラステストと境界値テスト" href="03.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/ironball.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iron Ball Run</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroAndContentsInJB/intro.html">
+   Welcome to Iron Ball Run
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroAndContentsInJB/content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroToGINZA.html">
+   What is GINZA?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../translation/trans.html">
+   記事翻訳
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="intro.html">
+   ソフトウェアテスト技法について
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01.html">
+     01.ソフトウェアテスト技法とは何か？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.html">
+     02.基本的な概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.html">
+     03.同値クラステストと境界値テスト
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.html">
+     06.演習（ドメイン分析テスト、デシジョンテーブル）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07.html">
+     07.ペア構成テスト
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08.html">
+     演習（ペア構成テスト）
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/software_testing/05.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   ドメイン分析テストとは？
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   ドメイン分析テストで重要な4つのポイント
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   ドメインテストマトリクス
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   デシジョンテーブルとは？
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   デシジョンテーブルの注意点
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>これまでは数値のみのシンプル条件分岐を例で見てきましたが、実際にはより複雑な処理のテストを行うことがあります。</p>
+<p>この場合、複雑な処理は「複数の種類、複数の変数を考慮する条件分岐」を意味します。
+説明変数が1つなら単回帰、説明変数が2つ以上なら重回帰といった趣です。</p>
+<p>複雑な処理の例として、映画のチケット発券を例にとると、最低限必要な入力は「人数(数値)」「映画タイトル(文字列)」「席の位置(座標：（数値,数値）)」となります。</p>
+<p>このように条件が増えてくると、考慮すべきテストケースが多くなり抜け漏れが生じやすくなります。
+その際に役立つ技法が<strong>ドメイン分析テスト</strong>と<strong>デシジョンテーブル</strong>です。</p>
+<div class="section" id="id2">
+<h2>ドメイン分析テストとは？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>ドメイン分析テストとは、相互作用する複数の変数に対して行うテスト手法です。
+筆者は「変数が増えた同値テスト・境界値テスト」という大雑把な解釈です。
+また、ここでのドメインの意味は「条件で使用する値の組」として捉えています。</p>
+<p>以下に例題をあげます</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>田中さんはある資格Aをとりたいと考えています。
+資格Aを取得するには理論、実践の2つの試験で以下の条件を満たす必要があります。
+各試験は100点満点です。
+- 理論 &gt;= 60
+- 理論 + 実践 &gt;= 100
+</pre></div>
+</div>
+<p>この試験の場合、資格取得に対して変数同士（理論、実践）は相互作用しています。
+言い換えると、理論の点数によって取得に必要な実践の点数が変化します。</p>
+<p><img alt="exam_field" src="../../_images/exam_field.png" /></p>
+<p>上の図のような領域が合格の領域であることが想定できます。
+判定したいのは理論と実践の点数の関係を考慮した上での合格不合格ですので、
+このような場合にドメイン分析テストが有効です。</p>
+<p>◆(個人的な所感)テストケースに限らず、値の関係性をグラフにすることは重要</p>
+</div>
+<div class="section" id="id3">
+<h2>ドメイン分析テストで重要な4つのポイント<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>ドメイン分析テストの理解には4つのポイントが重要になってきます。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ポイント</p></th>
+<th class="head"><p>意味</p></th>
+<th class="head"><p>x &gt; 5</p></th>
+<th class="head"><p>x &gt;= 5</p></th>
+<th class="head"><p>10 &lt;= x &lt;= 15</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>on</p></td>
+<td><p>境界上の値</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>10,15</p></td>
+</tr>
+<tr class="row-odd"><td><p>off</p></td>
+<td><p>onポイントとは逆の結果にとなる、境界と隣接する値</p></td>
+<td><p>6</p></td>
+<td><p>4</p></td>
+<td><p>9,16</p></td>
+</tr>
+<tr class="row-even"><td><p>in</p></td>
+<td><p>条件を満たすが、onポイントではない値</p></td>
+<td><p>7,8,…</p></td>
+<td><p>7,8,…</p></td>
+<td><p>11~14</p></td>
+</tr>
+<tr class="row-odd"><td><p>out</p></td>
+<td><p>条件を満たさないが、onポイントではない値</p></td>
+<td><p>4,3,…</p></td>
+<td><p>4,3,…</p></td>
+<td><p>5,20,…</p></td>
+</tr>
+</tbody>
+</table>
+<p>offポイントはonポイントに応じて変わります。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>onポイントが条件を満たす値なら(境界が’&lt;=’もしくは’&gt;=’)、offポイントは条件を満たさない値</p></li>
+<li><p>onポイントが条件を満たさない値なら(境界が’&lt;’もしくは’&gt;’)、offポイントは条件を満たす値
+引用：<a class="reference external" href="https://qiita.com/yokoc1322/items/d7b4ad158698fd80f827">ソフトウェア機能テスト手法まとめ</a>より</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>ドメインテストマトリクス<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>今回行いたいのは次の条件を組み合わせての検証です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">理論</span> <span class="o">&gt;=</span> <span class="mi">60</span>
+<span class="o">-</span> <span class="n">理論</span> <span class="o">+</span> <span class="n">実践</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>「検証は一つずつ」行うことで欠陥が他の欠陥を隠すことを避けたいです。
+そこで、着目する変数の一つだけでonポイントとoffポイントを動かして、その他の変数をinポイントに入れておけば一つずつ検証する事ができます。
+これを網羅的に行う際に作成するのが<strong>ドメインテストマトリクス</strong>です。</p>
+<p><img alt="domain_test_matrix" src="../../_images/domain_test_matrix.png" /></p>
+<p>ドメインテストマトリクスを作成することで、列にテストケースを整理できます。</p>
+<p>◆(推奨)ドメインテストマトリクスの優しい解説はudemy動画推奨</p>
+</div>
+<div class="section" id="id5">
+<h2>デシジョンテーブルとは？<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>デシジョンテーブルとは、論理関係を表形式で整理した物です。
+システム設計の文書化や今回のようなテストに用いることができるツールです。</p>
+<p>デシジョンテーブルを理解するために<a class="reference external" href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201911210">Amazonの配送料</a>を例にしてテストケースを考えてみます。
+Amazonでは「2000円以上の買い物をした離島以外に住む人は基本送料無料」です。</p>
+<p>上記の例は論理式で表すことができます。
+-&gt; 2000円以上買い物をした and 離島に住んでいない</p>
+<p><img alt="decision_table" src="../../_images/decision_table.png" /></p>
+<p>今回の例をデシジョンテーブルに起こすと上記のような表になります。
+作成方法は実行するアクションとアクションの実行条件をはじめに整理し、条件の状態をYes/Noで埋めていきます。</p>
+<p>Amazonの例では条件が2つでYes/Noの2値の状態があるので2の2乗で4通りのテストケースができます。</p>
+</div>
+<div class="section" id="id6">
+<h2>デシジョンテーブルの注意点<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>デシジョンテーブルは解釈性た良く、テストケースが作成しやすいですが、メリットデメリットは当然あります。</p>
+<ul class="simple">
+<li><p>メリット</p>
+<ul>
+<li><p>複数の条件の組み合わせ表であるため、どの条件がどんな状態かが明確である</p></li>
+<li><p>網羅性が定量化できる -&gt; 網羅率 = 実地したテストケース数 / 全テストケース数</p></li>
+</ul>
+</li>
+<li><p>デメリット</p>
+<ul>
+<li><p>順序は考慮されない</p></li>
+<li><p>条件が増えるとテストケース数が発散する</p></li>
+</ul>
+</li>
+</ul>
+<p>上記のようなデメリットはあるものの、場合によってはテストケースの圧縮が可能です。
+条件の判定順序でテストケースを整理した時、条件が満たされなかったら後ろの条件判定をしなくていい物についてはそれ以降の判定を行わないようにできます。</p>
+<p>前節のAmazon配送料のデシジョンテーブルでは、case3・4は2000以上購入を満たしていないためその時点以降の判定を行わなくて良くなります。そこで2000円以上購入Noのテストケース（case3）として実行すれば良いのです。</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/software_testing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="03.html" title="previous page">03.同値クラステストと境界値テスト</a>
+    <a class='right-next' id="next-link" href="06.html" title="next page">06.演習（ドメイン分析テスト、デシジョンテーブル）</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By ironball<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-180974113-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

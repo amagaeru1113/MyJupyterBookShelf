@@ -1,4 +1,4 @@
 .venv
 sampleBook
 temp
-bookShelf/_build
+bookShelf/contents/software_testing/.pytest_cache/README.md

@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル &#8212; Iron Ball Run</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/ironball.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iron Ball Run</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contents/IntroAndContentsInJB/intro.html">
+   Welcome to Iron Ball Run
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contents/IntroAndContentsInJB/content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contents/IntroToGINZA.html">
+   What is GINZA?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contents/translation/trans.html">
+   記事翻訳
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contents/software_testing/intro.html">
+   ソフトウェアテスト技法について
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/images/software_testing/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     ドメイン分析テストとは？
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     ドメイン分析テストで重要な4つのポイント
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     ドメインテストマトリクス
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     演習
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   条件が論理式で表せる場合のテスト：デシジョンテーブル
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     デシジョンテーブルの注意点
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     演習
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   組み合わせによる効率的なテスト：ペア構成テスト
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     ペア構成テストとは？
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     直行表
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     直行表の作り方
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     演習
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id14">
+   状態変化に対応するテスト:状態遷移テスト
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     状態遷移図
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     状態遷移表
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#n">
+     Nスイッチカバレッジ
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     演習
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><a id="anchor4"></a></p>
+<p>これまでは数値のみのシンプル条件分岐を例で見てきましたが、実際にはより複雑な処理のテストを行うことがあります。</p>
+<p>この場合、複雑な処理は「複数の種類、複数の変数を考慮する条件分岐」を意味します。
+説明変数が1つなら単回帰、説明変数が2つ以上なら重回帰といった趣です。</p>
+<p>複雑な処理の例として、映画のチケット発券を例にとると、最低限必要な入力は「人数(数値)」「映画タイトル(文字列)」「席の位置(座標：（数値,数値）)」となります。</p>
+<p>このように条件が増えてくると、考慮すべきテストケースが多くなり抜け漏れが生じやすくなります。
+その際に役立つ技法が<strong>ドメイン分析テスト</strong>と<strong>デシジョンテーブル</strong>です。</p>
+<div class="section" id="id2">
+<h2>ドメイン分析テストとは？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>ドメイン分析テストとは、相互作用する複数の変数に対して行うテスト手法です。
+筆者は「変数が増えた同値テスト・境界値テスト」という大雑把な解釈です。
+また、ここでのドメインの意味は「条件で使用する値の組」として捉えています。</p>
+<p>以下に例題をあげます</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>田中さんはある資格Aをとりたいと考えています。
+資格Aを取得するには理論、実践の2つの試験で以下の条件を満たす必要があります。
+各試験は100点満点です。
+- 理論 &gt;= 60
+- 理論 + 実践 &gt;= 100
+</pre></div>
+</div>
+<p>この試験の場合、資格取得に対して変数同士（理論、実践）は相互作用しています。
+言い換えると、理論の点数によって取得に必要な実践の点数が変化します。</p>
+<p><img alt="" src="https://i.imgur.com/Ao2Z2nJ.png" /></p>
+<p>上の図のような領域が合格の領域であることが想定できます。
+判定したいのは理論と実践の点数の関係を考慮した上での合格不合格ですので、
+このような場合にドメイン分析テストが有効です。</p>
+<p>◆(個人的な所感)テストケースに限らず、値の関係性をグラフにすることは重要</p>
+</div>
+<div class="section" id="id3">
+<h2>ドメイン分析テストで重要な4つのポイント<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>ドメイン分析テストの理解には4つのポイントが重要になってきます。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ポイント</p></th>
+<th class="head"><p>意味</p></th>
+<th class="head"><p>x &gt; 5</p></th>
+<th class="head"><p>x &gt;= 5</p></th>
+<th class="head"><p>10 &lt;= x &lt;= 15</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>on</p></td>
+<td><p>境界上の値</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>10,15</p></td>
+</tr>
+<tr class="row-odd"><td><p>off</p></td>
+<td><p>onポイントとは逆の結果にとなる、境界と隣接する値</p></td>
+<td><p>6</p></td>
+<td><p>4</p></td>
+<td><p>9,16</p></td>
+</tr>
+<tr class="row-even"><td><p>in</p></td>
+<td><p>条件を満たすが、onポイントではない値</p></td>
+<td><p>7,8,…</p></td>
+<td><p>7,8,…</p></td>
+<td><p>11~14</p></td>
+</tr>
+<tr class="row-odd"><td><p>out</p></td>
+<td><p>条件を満たさないが、onポイントではない値</p></td>
+<td><p>4,3,…</p></td>
+<td><p>4,3,…</p></td>
+<td><p>5,20,…</p></td>
+</tr>
+</tbody>
+</table>
+<p>offポイントはonポイントに応じて変わります。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>onポイントが条件を満たす値なら(境界が’&lt;=’もしくは’&gt;=’)、offポイントは条件を満たさない値</p></li>
+<li><p>onポイントが条件を満たさない値なら(境界が’&lt;’もしくは’&gt;’)、offポイントは条件を満たす値
+引用：<a class="reference external" href="https://qiita.com/yokoc1322/items/d7b4ad158698fd80f827">ソフトウェア機能テスト手法まとめ</a>より</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>ドメインテストマトリクス<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>今回行いたいのは次の条件を組み合わせての検証です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">理論</span> <span class="o">&gt;=</span> <span class="mi">60</span>
+<span class="o">-</span> <span class="n">理論</span> <span class="o">+</span> <span class="n">実践</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>「検証は一つずつ」行うことで欠陥が他の欠陥を隠すことを避けたいです。
+そこで、着目する変数の一つだけでonポイントとoffポイントを動かして、その他の変数をinポイントに入れておけば一つずつ検証する事ができます。
+これを網羅的に行う際に作成するのが<strong>ドメインテストマトリクス</strong>です。</p>
+<p>表：資格試験のテストケース
+<img alt="" src="https://i.imgur.com/pnrZiFX.png" /></p>
+<p>ドメインテストマトリクスを作成することで、列にテストケースを整理できます。</p>
+<p>◆(推奨)ドメインテストマトリクスの優しい解説はudemy動画推奨</p>
+</div>
+<div class="section" id="id5">
+<h2>演習<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>考え方の定着を目的として、演習問題を作って回答してみます。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h1>条件が論理式で表せる場合のテスト：デシジョンテーブル<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<p><a id="anchor5"></a></p>
+<p>デシジョンテーブルとは、論理関係を表形式で整理した物です。
+システム設計の文書化や今回のようなテストに用いることができるツールです。</p>
+<p>デシジョンテーブルを理解するために<a class="reference external" href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201911210">Amazonの配送料</a>を例にしてテストケースを考えてみます。
+Amazonでは「2000円以上の買い物をした離島以外に住む人は基本送料無料」です。</p>
+<p>上記の例は論理式で表すことができます。
+-&gt; 2000円以上買い物をした and 離島に住んでいない</p>
+<p><img alt="" src="https://i.imgur.com/KFT7MRY.png" /></p>
+<p>今回の例をデシジョンテーブルに起こすと上記のような表になります。
+作成方法は実行するアクションとアクションの実行条件をはじめに整理し、条件の状態をYes/Noで埋めていきます。</p>
+<p>Amazonの例では条件が2つでYes/Noの2値の状態があるので2の2乗で4通りのテストケースができます。</p>
+<div class="section" id="id7">
+<h2>デシジョンテーブルの注意点<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>デシジョンテーブルは解釈性た良く、テストケースが作成しやすいですが、メリットデメリットは当然あります。</p>
+<ul class="simple">
+<li><p>メリット</p>
+<ul>
+<li><p>複数の条件の組み合わせ表であるため、どの条件がどんな状態かが明確である</p></li>
+<li><p>網羅性が定量化できる -&gt; 網羅率 = 実地したテストケース数 / 全テストケース数</p></li>
+</ul>
+</li>
+<li><p>デメリット</p>
+<ul>
+<li><p>順序は考慮されない</p></li>
+<li><p>条件が増えるとテストケース数が発散する</p></li>
+</ul>
+</li>
+</ul>
+<p>上記のようなデメリットはあるものの、場合によってはテストケースの圧縮が可能です。
+条件の判定順序でテストケースを整理した時、条件が満たされなかったら後ろの条件判定をしなくていい物についてはそれ以降の判定を行わないようにできます。</p>
+<p>前節のAmazon配送料のデシジョンテーブルでは、case3・4は2000以上購入を満たしていないためその時点以降の判定を行わなくて良くなります。そこで2000円以上購入Noのテストケース（case3）として実行すれば良いのです。</p>
+</div>
+<div class="section" id="id8">
+<h2>演習<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>考え方の定着を目的として、演習問題を作って回答してみます。</p>
+<p>プログラミングの練習で有名なFizzBuzz問題についてのテストケースを考えてみます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FizzBuzz問題
+
+ある数字入力xが与えられた時、以下の条件で戻り値を返せ。
+- xが3の倍数： Fizz
+- xが5の倍数: Buzz
+- xが3、5の倍数: FizzBuzz
+- 上記のどれでもない: 入力値
+</pre></div>
+</div>
+<p>デシジョンテーブルは以下のような表になります。
+xは計算上あり得ないケースのため除外すると、テストケースは4つになります。
+<img alt="" src="https://i.imgur.com/BnfKWc4.png" /></p>
+<p>テスト設計アプローチをここで考えてみます。
+デシジョンテーブルで有効なテストケース（caseが割り振られている列）のみについて考える場合は契約テスト、無効なケース（caseが割り振られていない列）も含めて考える場合は防御的テストを選択することになります。</p>
+<p>しかし、今回は無効なケースは計算上存在しないため、防御的テストを行えるテストケースが存在しません。そのため、今回は契約テストでアプローチすることになります。</p>
+<p>ただし、論理上あり得ないことがプログラム上でもあり得ないかは別にチェックが必要であるため、ソースコードの確認はしましょう。</p>
+<p>また、判定として「15の倍数は3と5の公倍数である」ことから別のデシジョンテーブルを作成できます。</p>
+<p><img alt="" src="https://i.imgur.com/A38Ewqd.png" /></p>
+</div>
+</div>
+<div class="section" id="id9">
+<h1>組み合わせによる効率的なテスト：ペア構成テスト<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
+<p><a id="anchor6"></a></p>
+<p>これまでいくつかテスト技法、有用なツールを見てきました。
+以下にテスト技法とその時想定する変数の数の個人的な感覚を整理します。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>テスト技法</p></th>
+<th class="head"><p>変数（x）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>同値クラステスト</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>境界値テスト</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>ドメイン分析テスト</p></td>
+<td><p>x&lt;5</p></td>
+</tr>
+<tr class="row-odd"><td><p>デシジョンテーブル</p></td>
+<td><p>x&lt;5</p></td>
+</tr>
+</tbody>
+</table>
+<p>より多くの変数の組み合わせのテストを行う場合、テストケースは膨大になっていきます。
+全てを網羅するのは現実的ではなく、方針の切替が必要です。
+-&gt; 少ないテストケースである程度の網羅性を確保する方針
+-&gt; 重要な組み合わせやバグがありそうな組み合わせを重点的にテスト</p>
+<div class="section" id="id10">
+<h2>ペア構成テストとは？<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>ペア構成テストとは、変数の全ての入力の組み合わせをテストするのではなく、変数の全てのペアをテストするテスト技法です。</p>
+<p>全てのペアについて以下に例をあげます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3枚のコイン(C1、C2、C3)で表裏（2値条件）について考える場合
+- 全ての組み合わせ　2 * 2 * 2 = 8通り
+- 全てのペア (C1, C2)、(C2, C3)、(C1, C3)それぞれにコインの表裏のパターン（4通り）が入る
+</pre></div>
+</div>
+<p>上記のように全てのペアをテストすることである程度の網羅性が確保できるだろうと言えるのには理由があります。多くの欠陥は次の二つに大別できます。</p>
+<ol class="simple">
+<li><p>モジュール単体が正常動作しない</p></li>
+<li><p>2つのモジュールを組み合わせた時正常動作しない</p></li>
+</ol>
+<p>上のように大別すると、ペアにしてテストした際には2番目について検出でき、検出した欠陥を精査することでモジュール単体の異常動作についても発見できるというわけです。</p>
+<p>詳しくはこちらの記事(<a class="reference external" href="https://dev.classmethod.jp/articles/introduction-to-combination-testing-methods/">ペアワイズ法は本当に有効なのか？組み合わせテスト技法と上手に付き合う方法</a>)が参考になります。</p>
+</div>
+<div class="section" id="id11">
+<h2>直行表<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>直行表とは、全てのペアを抜け漏れなく網羅するためのツールです。</p>
+<p>コインを例にすると直行表は以下のようになります。
+行がテストケースで、列に条件が入ります。
+<img alt="" src="https://i.imgur.com/xqjKUv8.png" /></p>
+<p>直行表をAとB、AとC、BとCに限定してみた時、状態の組み合わせが揃っていることがわかります。</p>
+<p>直行表を見てパッと作るのは難しそうですが、そもそも作る必要はありません。
+テスト実行者は既存の直行表から適切なものを選べれば大丈夫です。</p>
+<p>直行表の表記法がわかれば選ぶのも難しくないと思います。
+コインの例で出した直行表は4行で2値条件が3つなので「L4(2^3)」と表現されます。</p>
+<p>8行で2値条件が1つならばL8(2^1)
+5行で3値条件が4つならばL5(3^4)
+9行で2値条件が4つ　3値条件が2つならばL9(2^4 3^2)</p>
+<p>また調べる際には「<a class="reference external" href="https://support.minitab.com/ja-jp/minitab/18/help-and-how-to/modeling-statistics/doe/supporting-topics/taguchi-designs/catalogue-of-taguchi-designs/">タグチ計画のカタログ</a>」が参考になると思います。</p>
+</div>
+<div class="section" id="id12">
+<h2>直行表の作り方<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>直行表の作り方を整理すると次のようになります。</p>
+<ol class="simple">
+<li><p>条件を全て把握する</p></li>
+<li><p>各条件の取り得る値を出す</p></li>
+<li><p>1と2の条件に合う直交表を選ぶ（完全一致がない場合少し大きめを選ぶ）</p></li>
+<li><p>直交表にテスト対象の条件をいれる</p></li>
+</ol>
+<p>しかし、今回は<a class="reference external" href="https://github.com/microsoft/pict">PICT</a>というツールを使って直行表を作成してみます。~~直行表を探すのが面倒~~</p>
+<p>例として開発で使用するパソコンの設定でOS、言語、エディタの3条件についてのテストケースを考えてみます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OS</span><span class="p">:</span> <span class="n">Windows</span><span class="p">,</span> <span class="n">macOS</span><span class="p">,</span> <span class="n">Linux</span>
+<span class="n">言語</span><span class="p">:</span> <span class="n">Python</span><span class="p">,</span> <span class="n">Scala</span><span class="p">,</span> <span class="n">Typescript</span>
+<span class="n">エディタ</span><span class="p">:</span> <span class="n">Emacs</span><span class="p">,</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">Vim</span>
+</pre></div>
+</div>
+<p>PICTで作成して直行表が次の表です。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>OS</p></th>
+<th class="head"><p>言語</p></th>
+<th class="head"><p>エディタ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Python</p></td>
+<td><p>Emacs</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p>Scala</p></td>
+<td><p>Atom</p></td>
+</tr>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Typescript</p></td>
+<td><p>Vim</p></td>
+</tr>
+<tr class="row-odd"><td><p>macOS</p></td>
+<td><p>Python</p></td>
+<td><p>Vim</p></td>
+</tr>
+<tr class="row-even"><td><p>macOS</p></td>
+<td><p>Scala</p></td>
+<td><p>Emacs</p></td>
+</tr>
+<tr class="row-odd"><td><p>macOS</p></td>
+<td><p>Typescript</p></td>
+<td><p>Atom</p></td>
+</tr>
+<tr class="row-even"><td><p>Linux</p></td>
+<td><p>Python</p></td>
+<td><p>Atom</p></td>
+</tr>
+<tr class="row-odd"><td><p>Linux</p></td>
+<td><p>Scala</p></td>
+<td><p>Vim</p></td>
+</tr>
+<tr class="row-even"><td><p>Linux</p></td>
+<td><p>Typescript</p></td>
+<td><p>Emacs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h2>演習<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>考え方の定着を目的として、演習問題を作って回答してみます。
+直行表カタログは<a class="reference external" href="https://support.sas.com/techsup/technote/ts723_Designs.txt">こちら</a>参照しました</p>
+<p>以下の問題でテストケースを作成しましょう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>あるECサイトで1ヶ月後に小規模なアウトドア品セールを行う。
+複数の条件で割引がされるかのテストしたいのでテストケースを洗い出して欲しい。
+
+条件が次の通り。
+- 対象カテゴリ
+    リュックサック、靴、アウトドアウェア、携帯食糧、キャンプ用品、登山用品
+- 消耗品かどうか
+    Yes No
+- 重量は5kg以上か
+    Yes No
+</pre></div>
+</div>
+<p>流れにそってやっていきます。</p>
+<ol class="simple">
+<li><p>条件は対象カテゴリ、消耗品かどうか、重量は5kg以上かの3つである。</p></li>
+<li><p>対象カテゴリが6値条件で、他が2値条件である。</p></li>
+<li><p>1と2の条件に合う直交表はL?(2^2 6^1)であるが、当てはまるのはL12(2^2 6^1)</p></li>
+<li><p>直交表にテスト対象の条件をいれる</p></li>
+</ol>
+<p>直行表よりテストケースは全部で12個になります。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>消耗品</p></th>
+<th class="head"><p>重量5kg以上</p></th>
+<th class="head"><p>対象カテゴリ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+</tbody>
+</table>
+<p>ちなみに以下の表はPICTを使用して作成したテストケースです。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>消耗品</p></th>
+<th class="head"><p>重量5kg以上</p></th>
+<th class="head"><p>対象カテゴリ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+</tbody>
+</table>
+<p>カタログを元に作成したテストケースとPICTで作成したテストケースはほぼ同じになりました。
+違う点は2,11行目重量5kg以上の値が反転しているところですが、これでも網羅できています。</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h1>状態変化に対応するテスト:状態遷移テスト<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
+<p><a id="anchor7"></a></p>
+<p>これまでは条件とその取る値によって振る舞いが変わるシステムに関するテストを見てきました。
+より発展的なものとして、現在の状態とその遷移（状態Aから状態Bに変化すること）によって振る舞いが変わるシステムに関するテストについて見ていきます。</p>
+<p>状態遷移テストは二つのツールを使って次の流れで進めていきます。</p>
+<ol class="simple">
+<li><p>状態遷移図を描いて、全体を俯瞰する</p></li>
+<li><p>状態遷移表を作成して、詳細を確認する</p></li>
+</ol>
+<p>今回はストップウォッチを例にして考えます。</p>
+<p>ストップウォッチは次のような振る舞い（仕様）をします。
+ここでスタート/ストップボタンをSB、ストップウォッチ機能をSW、リセットボタンをRBと表します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- 初期状態でSWは作動していない
+- 初期状態でSBを押すと、SWが作動する（時間計測が始まる）
+- 作動状態でSBを押すと、SWが停止する（時間計測が停止され、その時点での秒数が表示される）
+- 停止状態でSBを押すと、再びSWが作動する（時間計測が再開される）
+- 停止状態でRBを押すと、初期状態になる
+</pre></div>
+</div>
+<div class="section" id="id15">
+<h2>状態遷移図<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<p>ストップウォッチの仕様について改めて確認します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ストップウォッチの仕様
+スタート/ストップボタン-&gt;SB、ストップウォッチ機能-&gt;SW、リセットボタン-&gt;RB
+
+- 初期状態でSWは作動していない
+- 初期状態でSBを押すと、SWが作動する（時間計測が始まる）
+- 作動状態でSBを押すと、SWが停止する（時間計測が停止され、その時点での秒数が表示される）
+- 停止状態でSBを押すと、再びSWが作動する（時間計測が再開される）
+- 停止状態でRBを押すと、初期状態になる
+</pre></div>
+</div>
+<p>これを元に状態遷移図を描くと次のような図になります。
+<img alt="" src="https://i.imgur.com/eepUiQ1.png" /></p>
+<p>状態として初期状態、作動状態、停止状態があります。また状態遷移のトリガーイベントとしてSBとRBがあり、矢印によって状態遷移の数とトリガーイベントの始状態と終状態を示しています。</p>
+<p>状態遷移図は上手のように大雑把に状態間の関係性を描画するものです。
+これを元に状態遷移を表にしてテストケースを洗い出すことになります。
+テストに指針としてまずは「全ての遷移をテストすること」です。</p>
+<p>状態遷移図では矢印の数が状態遷移の数です。
+そこで最低限テストするケースは次の4つです。</p>
+<ul class="simple">
+<li><p>初期状態 + SB -&gt; 作動状態に遷移</p></li>
+<li><p>作動状態 + SB -&gt; 停止状態に遷移</p></li>
+<li><p>停止状態 + SB -&gt; 作動状態に遷移</p></li>
+<li><p>停止状態 + RB -&gt; 初期状態に遷移</p></li>
+</ul>
+<p>また、状態遷移図にはないが実際に操作可能な物もあります。
+例えば</p>
+<ul class="simple">
+<li><p>初期状態 + RB -&gt; ?</p></li>
+<li><p>作動状態 + RB -&gt; ?</p></li>
+</ul>
+<p>これらについては現実的に起こりうるかどうかを加味してテストケースに含めるかどうかは判断することになると思います。今回の例では誤操作として十分ありうるのでテストするべきです。
+このような例は適用不可能な遷移として、NA(Not Applicable)と呼びます。</p>
+</div>
+<div class="section" id="id16">
+<h2>状態遷移表<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>状態遷移図は状態遷移を俯瞰し、全体像を把握するのに有効ですがNAのようなケースも漏れなく見出すのは難しいです。</p>
+<p>そこで状態遷移表を使います。
+今回の例では状態遷移表は次のようになります。
+<img alt="" src="https://i.imgur.com/LTbjHFb.png" /></p>
+<p>状態遷移表は列の一番上が始状態を表し、イベントと直行する成分がそのイベントによる終状態を表します。NAはイベントに対応する終状態が存在しないことを示します。</p>
+<p>状態遷移表によって仕様の抜け漏れもチェックできるのが利点です。
+しかし、テストはこれで十分というわけではありません。
+なぜなら、2状態の遷移については状態遷移表で網羅できていますが、3状態については記載がされていないためです。3状態の遷移とは「停止状態-&gt; 初期状態 -&gt; 作動状態」のような遷移です。</p>
+<p>状態遷移に伴ってシステムの内部状態が変化してしまう場合も考慮して、状態遷移の組み合わせに関するテストも必要になります。このような場合には<strong>Nスイッチカバレッジテスト</strong>が有用です。</p>
+</div>
+<div class="section" id="n">
+<h2>Nスイッチカバレッジ<a class="headerlink" href="#n" title="Permalink to this headline">¶</a></h2>
+<p>Nスイッチカバレッジテストは、N+1回状態遷移を網羅するパスのテストです。</p>
+<p>今回のストップウォッチの例では、NAとなる部分は初期状態に戻るような仕様を考えることとします。</p>
+<p><img alt="" src="https://i.imgur.com/bbk8M4J.png" /></p>
+<p>作成した状態遷移表をNスイッチカバレッジのテストのために関係行列（状態の関係性を行列で表現したもの）に書き直します。この行列は始状態を行、終状態を列、トリガーイベントを成分に持ちます。</p>
+<p><img alt="" src="https://i.imgur.com/ZqoBGFM.png" /></p>
+<p>関係行列を二乗すると、</p>
+<p><img alt="" src="https://i.imgur.com/JoSiLYJ.png" /></p>
+<p>上の表の成分の表示と意味は次のように対応します。</p>
+<ul class="simple">
+<li><p>RS: リセットボタンを押した後、スタート/ストップボタンを押す</p></li>
+<li><p>RS + SR: リセットボタンを押してスタート/ストップボタンを押すか、スタート/ストップボタンを押してリセットボタンを押す</p></li>
+</ul>
+<p>上表は1スイッチカバレッジの表です。1スイッチとは始状態から終状態までに経由する中間状態の数を指します。スイッチの数Nに対して、N+1乗するとNスイッチカバレッジの表が得られます。
+今回の表では12のテストケースになります。</p>
+<p>注意点として、Nの数が大きくなるほどテストケースが増大します。まずは状態遷移表を使ったすべての遷移の確認を行い、 その上で必要に応じてNスイッチカバレッジをNが小さい順に段階的に必要なテストを行っていくのが望ましいです。</p>
+</div>
+<div class="section" id="id17">
+<h2>演習<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./images/software_testing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By ironball<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-180974113-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
