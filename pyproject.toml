@@ -13,6 +13,8 @@ jupyter-book = "^0.8.2"
 jupyterlab = "^2.2.8"
 statsmodels = "^0.12.0"
 ghp-import = "^1.0.0"
+pytest = "^6.1.1"
+pytest-ipynb = "^1.1.1"
 
 [tool.poetry.dev-dependencies]
 
