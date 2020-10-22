@@ -288,15 +288,23 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
- 
-<span class="n">currentdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
- 
-<span class="nb">print</span><span class="p">(</span><span class="n">currentdir</span><span class="p">)</span>
- 
-<span class="n">ls</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">currentdir</span><span class="p">)</span>
- 
-<span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/sample_func1_test.py
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">sample_func1</span> <span class="kn">import</span> <span class="n">func1</span>
+
+<span class="k">def</span> <span class="nf">test_func1_n3</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;3&#39;</span> <span class="o">==</span> <span class="n">func1</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_func1_n5</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;5&#39;</span> <span class="o">==</span> <span class="n">func1</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_func1_na</span><span class="p">():</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s1">&#39;none&#39;</span> <span class="o">==</span> <span class="n">func1</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
