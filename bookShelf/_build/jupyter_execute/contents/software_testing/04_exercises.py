@@ -17,19 +17,45 @@
 # In[1]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/sample_func1.py', "\ndef func1(x: int) -> str:    \n    if x == 3:\n        return '3'\n    elif x == 5:\n        return '5'\n    else:\n        return 'none'")
+# %%file software_testing/03/sample_func1.py
+
+# def func1(x: int) -> str:    
+#     if x == 3:
+#         return '3'
+#     elif x == 5:
+#         return '5'
+#     else:
+#         return 'none'
 
 
 # In[2]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/sample_func1_test.py', "\nimport random\n\nfrom sample_func1 import func1\n\ndef test_func1_n3():\n    assert '3' == func1(3)\n\ndef test_func1_n5():\n    assert '5' == func1(5)\n    \ndef test_func1_na():\n    l = list(range(100))\n    l.remove(3)\n    l.remove(5)\n    \n    num = random.choice(l)\n    assert 'none' == func1(num)")
+# %%file software_testing/03/sample_func1_test.py
+
+# import random
+
+# from sample_func1 import func1
+
+# def test_func1_n3():
+#     assert '3' == func1(3)
+
+# def test_func1_n5():
+#     assert '5' == func1(5)
+    
+# def test_func1_na():
+#     l = list(range(100))
+#     l.remove(3)
+#     l.remove(5)
+    
+#     num = random.choice(l)
+#     assert 'none' == func1(num)
 
 
 # In[3]:
 
 
-get_ipython().system('python -m pytest software_testing/03/sample_func1_test.py')
+# !poetry run python -m pytest software_testing/03/sample_func1_test.py
 
 
 # ## 境界値テスト（境界値分析/限界値分析/boundary value analysis)
@@ -39,19 +65,49 @@ get_ipython().system('python -m pytest software_testing/03/sample_func1_test.py'
 # In[4]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/sample_func2.py', "\ndef func2(x: int) -> str:    \n    if x <= 2:\n        return '2 ika'\n    elif x >= 7:\n        return '7 ijo'\n    else:\n        return 'none'")
+# %%file software_testing/03/sample_func2.py
+
+# def func2(x: int) -> str:    
+#     if x <= 2:
+#         return '2 ika'
+#     elif x >= 7:
+#         return '7 ijo'
+#     else:
+#         return 'none'
 
 
 # In[5]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/sample_func2_test.py', "\nimport random\n\nfrom sample_func2 import func2\n\ndef test_func2_1():\n    assert '2 ika' == func2(1)\n\ndef test_func2_2():\n    assert '2 ika' == func2(2)\n    \ndef test_func2_3():\n    assert 'none' == func2(3)\n    \ndef test_func2_6():\n    assert 'none' == func2(6)\n    \ndef test_func2_7():\n    assert '7 ijo' == func2(7)\n    \ndef test_func2_8():\n    assert '7 ijo' == func2(8)")
+# %%file software_testing/03/sample_func2_test.py
+
+# import random
+
+# from sample_func2 import func2
+
+# def test_func2_1():
+#     assert '2 ika' == func2(1)
+
+# def test_func2_2():
+#     assert '2 ika' == func2(2)
+    
+# def test_func2_3():
+#     assert 'none' == func2(3)
+    
+# def test_func2_6():
+#     assert 'none' == func2(6)
+    
+# def test_func2_7():
+#     assert '7 ijo' == func2(7)
+    
+# def test_func2_8():
+#     assert '7 ijo' == func2(8)
 
 
 # In[6]:
 
 
-get_ipython().system('python -m pytest software_testing/03/sample_func2_test.py')
+# !python -m pytest software_testing/03/sample_func2_test.py
 
 
 # ## 演習問題
@@ -85,19 +141,44 @@ get_ipython().system('python -m pytest software_testing/03/sample_func2_test.py'
 # In[7]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/exercises_1.py', "\ndef func_exe(order: str) -> int:\n\n    if order == 'セットA':\n        return 300\n    elif order == 'セットB':\n        return 500\n    elif order == 'セットC':\n        return 800\n    else:\n        return 0")
+# %%file software_testing/03/exercises_1.py
+
+# def func_exe(order: str) -> int:
+
+#     if order == 'セットA':
+#         return 300
+#     elif order == 'セットB':
+#         return 500
+#     elif order == 'セットC':
+#         return 800
+#     else:
+#         return 0
 
 
 # In[8]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/exercises_1_test.py', "\nfrom exercises_1 import func_exe\n\ndef test_exercises_1():\n    assert 300 == func_exe('セットA')\n\ndef test_exercises_2():\n    assert 500 == func_exe('セットB')\n\ndef test_exercises_3():\n    assert 800 == func_exe('セットC')\n    \ndef test_exercises_4():\n    assert 0 == func_exe('セットD')")
+# %%file software_testing/03/exercises_1_test.py
+
+# from exercises_1 import func_exe
+
+# def test_exercises_1():
+#     assert 300 == func_exe('セットA')
+
+# def test_exercises_2():
+#     assert 500 == func_exe('セットB')
+
+# def test_exercises_3():
+#     assert 800 == func_exe('セットC')
+    
+# def test_exercises_4():
+#     assert 0 == func_exe('セットD')
 
 
 # In[9]:
 
 
-get_ipython().system('python -m pytest software_testing/03/exercises_1_test.py')
+# !python -m pytest software_testing/03/exercises_1_test.py
 
 
 # ### 2. 大食いチャレンジ
@@ -122,19 +203,48 @@ get_ipython().system('python -m pytest software_testing/03/exercises_1_test.py')
 # In[10]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/exercises_2.py', '\ndef func_exe(dishes: int) -> int:  \n\n    if 20 <= dishes < 40:\n        return 2000\n    elif dishes >= 40:\n        return 5000\n    else:\n        return 0')
+# %%file software_testing/03/exercises_2.py
+
+# def func_exe(dishes: int) -> int:  
+
+#     if 20 <= dishes < 40:
+#         return 2000
+#     elif dishes >= 40:
+#         return 5000
+#     else:
+#         return 0
 
 
 # In[11]:
 
 
-get_ipython().run_cell_magic('file', 'software_testing/03/exercises_2_test.py', '\nfrom exercises_2 import func_exe\n\ndef test_exercises_1():\n    assert 0 == func_exe(19)\n\ndef test_exercises_2():\n    assert 2000 == func_exe(20)\n    \ndef test_exercises_3():\n    assert 2000 == func_exe(21)\n    \ndef test_exercises_4():\n    assert 2000 == func_exe(39)\n\ndef test_exercises_5():\n    assert 5000 == func_exe(40)\n    \ndef test_exercises_5():\n    assert 5000 == func_exe(41)')
+# %%file software_testing/03/exercises_2_test.py
+
+# from exercises_2 import func_exe
+
+# def test_exercises_1():
+#     assert 0 == func_exe(19)
+
+# def test_exercises_2():
+#     assert 2000 == func_exe(20)
+    
+# def test_exercises_3():
+#     assert 2000 == func_exe(21)
+    
+# def test_exercises_4():
+#     assert 2000 == func_exe(39)
+
+# def test_exercises_5():
+#     assert 5000 == func_exe(40)
+    
+# def test_exercises_5():
+#     assert 5000 == func_exe(41)
 
 
 # In[12]:
 
 
-get_ipython().system('python -m pytest software_testing/03/exercises_2_test.py')
+# !python -m pytest software_testing/03/exercises_2_test.py 
 
 
 # In[ ]:

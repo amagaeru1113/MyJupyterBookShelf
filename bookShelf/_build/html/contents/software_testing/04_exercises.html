@@ -151,12 +151,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="07.html">
-     07.条件が論理式で表せる場合のテスト：デシジョンテーブル
+     07.ペア構成テスト
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="08.html">
-     演習
+     演習（ペア構成テスト）
     </a>
    </li>
   </ul>
@@ -314,72 +314,47 @@
 <h3>例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/sample_func1.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/sample_func1.py</span>
 
-<span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>    
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;3&#39;</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;5&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;none&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/sample_func1.py
+<span class="c1"># def func1(x: int) -&gt; str:    </span>
+<span class="c1">#     if x == 3:</span>
+<span class="c1">#         return &#39;3&#39;</span>
+<span class="c1">#     elif x == 5:</span>
+<span class="c1">#         return &#39;5&#39;</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         return &#39;none&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/sample_func1_test.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/sample_func1_test.py</span>
 
-<span class="kn">import</span> <span class="nn">random</span>
+<span class="c1"># import random</span>
 
-<span class="kn">from</span> <span class="nn">sample_func1</span> <span class="kn">import</span> <span class="n">func1</span>
+<span class="c1"># from sample_func1 import func1</span>
 
-<span class="k">def</span> <span class="nf">test_func1_n3</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;3&#39;</span> <span class="o">==</span> <span class="n">func1</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># def test_func1_n3():</span>
+<span class="c1">#     assert &#39;3&#39; == func1(3)</span>
 
-<span class="k">def</span> <span class="nf">test_func1_n5</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;5&#39;</span> <span class="o">==</span> <span class="n">func1</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># def test_func1_n5():</span>
+<span class="c1">#     assert &#39;5&#39; == func1(5)</span>
     
-<span class="k">def</span> <span class="nf">test_func1_na</span><span class="p">():</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-    <span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># def test_func1_na():</span>
+<span class="c1">#     l = list(range(100))</span>
+<span class="c1">#     l.remove(3)</span>
+<span class="c1">#     l.remove(5)</span>
     
-    <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="s1">&#39;none&#39;</span> <span class="o">==</span> <span class="n">func1</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/sample_func1_test.py
+<span class="c1">#     num = random.choice(l)</span>
+<span class="c1">#     assert &#39;none&#39; == func1(num)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m pytest software_testing/03/sample_func1_test.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform darwin -- Python 3.7.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
-rootdir: /Users/apple/Documents/github/MyJupyterBookShelf/bookShelf/contents/software_testing
-plugins: ipynb-1.1.1
-<span class=" -Color -Color-Bold">collecting ... </span>
-<span class=" -Color -Color-Bold">collected 3 items                                                              </span>
-
-software_testing/03/sample_func1_test.py <span class=" -Color -Color-Green">...                             [100%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">============================== </span><span class=" -Color -Color-Bold -Color-Bold-Green">3 passed</span><span class=" -Color -Color-Green"> in 0.01s ===============================</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !poetry run python -m pytest software_testing/03/sample_func1_test.py</span>
 </pre></div>
 </div>
 </div>
@@ -392,78 +367,51 @@ software_testing/03/sample_func1_test.py <span class=" -Color -Color-Green">... 
 <h3>例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/sample_func2.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/sample_func2.py</span>
 
-<span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>    
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;2 ika&#39;</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;7 ijo&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;none&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/sample_func2.py
+<span class="c1"># def func2(x: int) -&gt; str:    </span>
+<span class="c1">#     if x &lt;= 2:</span>
+<span class="c1">#         return &#39;2 ika&#39;</span>
+<span class="c1">#     elif x &gt;= 7:</span>
+<span class="c1">#         return &#39;7 ijo&#39;</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         return &#39;none&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/sample_func2_test.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/sample_func2_test.py</span>
 
-<span class="kn">import</span> <span class="nn">random</span>
+<span class="c1"># import random</span>
 
-<span class="kn">from</span> <span class="nn">sample_func2</span> <span class="kn">import</span> <span class="n">func2</span>
+<span class="c1"># from sample_func2 import func2</span>
 
-<span class="k">def</span> <span class="nf">test_func2_1</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;2 ika&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># def test_func2_1():</span>
+<span class="c1">#     assert &#39;2 ika&#39; == func2(1)</span>
 
-<span class="k">def</span> <span class="nf">test_func2_2</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;2 ika&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># def test_func2_2():</span>
+<span class="c1">#     assert &#39;2 ika&#39; == func2(2)</span>
     
-<span class="k">def</span> <span class="nf">test_func2_3</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;none&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># def test_func2_3():</span>
+<span class="c1">#     assert &#39;none&#39; == func2(3)</span>
     
-<span class="k">def</span> <span class="nf">test_func2_6</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;none&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1"># def test_func2_6():</span>
+<span class="c1">#     assert &#39;none&#39; == func2(6)</span>
     
-<span class="k">def</span> <span class="nf">test_func2_7</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;7 ijo&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="c1"># def test_func2_7():</span>
+<span class="c1">#     assert &#39;7 ijo&#39; == func2(7)</span>
     
-<span class="k">def</span> <span class="nf">test_func2_8</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s1">&#39;7 ijo&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/sample_func2_test.py
+<span class="c1"># def test_func2_8():</span>
+<span class="c1">#     assert &#39;7 ijo&#39; == func2(8)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m pytest software_testing/03/sample_func2_test.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform darwin -- Python 3.7.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
-rootdir: /Users/apple/Documents/github/MyJupyterBookShelf/bookShelf/contents/software_testing
-plugins: ipynb-1.1.1
-<span class=" -Color -Color-Bold">collecting ... </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-<span class=" -Color -Color-Bold">collected 6 items                                                              </span>
-
-software_testing/03/sample_func2_test.py <span class=" -Color -Color-Green">......                          [100%]</span>
-
-<span class=" -Color -Color-Green">============================== </span><span class=" -Color -Color-Bold -Color-Bold-Green">6 passed</span><span class=" -Color -Color-Green"> in 0.02s ===============================</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m pytest software_testing/03/sample_func2_test.py</span>
 </pre></div>
 </div>
 </div>
@@ -497,70 +445,46 @@ software_testing/03/sample_func2_test.py <span class=" -Color -Color-Green">....
 期待される出力は[300, 500, 800 0]です。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_1.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/exercises_1.py</span>
 
-<span class="k">def</span> <span class="nf">func_exe</span><span class="p">(</span><span class="n">order</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="c1"># def func_exe(order: str) -&gt; int:</span>
 
-    <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="s1">&#39;セットA&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">300</span>
-    <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="s1">&#39;セットB&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">500</span>
-    <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="s1">&#39;セットC&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">800</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/exercises_1.py
+<span class="c1">#     if order == &#39;セットA&#39;:</span>
+<span class="c1">#         return 300</span>
+<span class="c1">#     elif order == &#39;セットB&#39;:</span>
+<span class="c1">#         return 500</span>
+<span class="c1">#     elif order == &#39;セットC&#39;:</span>
+<span class="c1">#         return 800</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         return 0</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_1_test.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/exercises_1_test.py</span>
 
-<span class="kn">from</span> <span class="nn">exercises_1</span> <span class="kn">import</span> <span class="n">func_exe</span>
+<span class="c1"># from exercises_1 import func_exe</span>
 
-<span class="k">def</span> <span class="nf">test_exercises_1</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">300</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットA&#39;</span><span class="p">)</span>
+<span class="c1"># def test_exercises_1():</span>
+<span class="c1">#     assert 300 == func_exe(&#39;セットA&#39;)</span>
 
-<span class="k">def</span> <span class="nf">test_exercises_2</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">500</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットB&#39;</span><span class="p">)</span>
+<span class="c1"># def test_exercises_2():</span>
+<span class="c1">#     assert 500 == func_exe(&#39;セットB&#39;)</span>
 
-<span class="k">def</span> <span class="nf">test_exercises_3</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">800</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットC&#39;</span><span class="p">)</span>
+<span class="c1"># def test_exercises_3():</span>
+<span class="c1">#     assert 800 == func_exe(&#39;セットC&#39;)</span>
     
-<span class="k">def</span> <span class="nf">test_exercises_4</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットD&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/exercises_1_test.py
+<span class="c1"># def test_exercises_4():</span>
+<span class="c1">#     assert 0 == func_exe(&#39;セットD&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m pytest software_testing/03/exercises_1_test.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform darwin -- Python 3.7.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
-rootdir: /Users/apple/Documents/github/MyJupyterBookShelf/bookShelf/contents/software_testing
-plugins: ipynb-1.1.1
-<span class=" -Color -Color-Bold">collecting ... </span>
-<span class=" -Color -Color-Bold">collected 4 items                                                              </span>
-
-software_testing/03/exercises_1_test.py <span class=" -Color -Color-Green">....                             [100%]</span>
-
-<span class=" -Color -Color-Green">============================== </span><span class=" -Color -Color-Bold -Color-Bold-Green">4 passed</span><span class=" -Color -Color-Green"> in 0.01s ===============================</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m pytest software_testing/03/exercises_1_test.py</span>
 </pre></div>
 </div>
 </div>
@@ -584,75 +508,50 @@ software_testing/03/exercises_1_test.py <span class=" -Color -Color-Green">.... 
 期待される出力は[0, 2000,2000, 2000, 5000,5000]です。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_2.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/exercises_2.py</span>
 
-<span class="k">def</span> <span class="nf">func_exe</span><span class="p">(</span><span class="n">dishes</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>  
+<span class="c1"># def func_exe(dishes: int) -&gt; int:  </span>
 
-    <span class="k">if</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">dishes</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">2000</span>
-    <span class="k">elif</span> <span class="n">dishes</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">5000</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/exercises_2.py
+<span class="c1">#     if 20 &lt;= dishes &lt; 40:</span>
+<span class="c1">#         return 2000</span>
+<span class="c1">#     elif dishes &gt;= 40:</span>
+<span class="c1">#         return 5000</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         return 0</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_2_test.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%file software_testing/03/exercises_2_test.py</span>
 
-<span class="kn">from</span> <span class="nn">exercises_2</span> <span class="kn">import</span> <span class="n">func_exe</span>
+<span class="c1"># from exercises_2 import func_exe</span>
 
-<span class="k">def</span> <span class="nf">test_exercises_1</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+<span class="c1"># def test_exercises_1():</span>
+<span class="c1">#     assert 0 == func_exe(19)</span>
 
-<span class="k">def</span> <span class="nf">test_exercises_2</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">2000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="c1"># def test_exercises_2():</span>
+<span class="c1">#     assert 2000 == func_exe(20)</span>
     
-<span class="k">def</span> <span class="nf">test_exercises_3</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">2000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="c1"># def test_exercises_3():</span>
+<span class="c1">#     assert 2000 == func_exe(21)</span>
     
-<span class="k">def</span> <span class="nf">test_exercises_4</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">2000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span>
+<span class="c1"># def test_exercises_4():</span>
+<span class="c1">#     assert 2000 == func_exe(39)</span>
 
-<span class="k">def</span> <span class="nf">test_exercises_5</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">5000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="c1"># def test_exercises_5():</span>
+<span class="c1">#     assert 5000 == func_exe(40)</span>
     
-<span class="k">def</span> <span class="nf">test_exercises_5</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">5000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting software_testing/03/exercises_2_test.py
+<span class="c1"># def test_exercises_5():</span>
+<span class="c1">#     assert 5000 == func_exe(41)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m pytest software_testing/03/exercises_2_test.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform darwin -- Python 3.7.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
-rootdir: /Users/apple/Documents/github/MyJupyterBookShelf/bookShelf/contents/software_testing
-plugins: ipynb-1.1.1
-<span class=" -Color -Color-Bold">collecting ... </span>
-<span class=" -Color -Color-Bold">collected 5 items                                                              </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>software_testing/03/exercises_2_test.py <span class=" -Color -Color-Green">.....                            [100%]</span>
-
-<span class=" -Color -Color-Green">============================== </span><span class=" -Color -Color-Bold -Color-Bold-Green">5 passed</span><span class=" -Color -Color-Green"> in 0.01s ===============================</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m pytest software_testing/03/exercises_2_test.py </span>
 </pre></div>
 </div>
 </div>
