@@ -17,6 +17,13 @@
   sections: 
     - file: contents/software_testing/01
     - file: contents/software_testing/02
+    - file: contents/software_testing/03
+    - file: contents/software_testing/04_exercises
+    - file: contents/software_testing/05
+    - file: contents/software_testing/06
+    - file: contents/software_testing/07
+    - file: contents/software_testing/08
+
 
 
 
