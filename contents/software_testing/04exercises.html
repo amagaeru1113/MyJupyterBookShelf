@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Iron Ball Run</title>
+    <title>境界値テスト（境界値分析/限界値分析/boundary value analysis) &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -98,7 +98,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroAndContentsInJB/content.html">
    Content in Jupyter Book
@@ -114,10 +114,52 @@
    記事翻訳
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="intro.html">
    ソフトウェアテスト技法について
   </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01.html">
+     01.ソフトウェアテスト技法とは何か？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.html">
+     02.基本的な概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.html">
+     03.同値クラステストと境界値テスト
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     境界値テスト（境界値分析/限界値分析/boundary value analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.html">
+     05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.html">
+     06.演習（ドメイン分析テスト、デシジョンテーブル）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07.html">
+     07.ペア構成テスト
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08.html">
+     演習（ペア構成テスト）
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -207,7 +249,12 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   例
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -273,7 +320,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/sample/sample.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/sample/sample_func1.py
 
 <span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -313,6 +360,63 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>poetry run python -m pytest software_testing/03/sample_func1_test.py
 </pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="boundary-value-analysis">
+<h1>境界値テスト（境界値分析/限界値分析/boundary value analysis)<a class="headerlink" href="#boundary-value-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/sample_func2.py
+
+<span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>    
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;2 ika&#39;</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;7 ijo&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;none&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/sample_func2_test.py
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">sample_func2</span> <span class="kn">import</span> <span class="n">func2</span>
+
+<span class="k">def</span> <span class="nf">test_func2_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;2 ika&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_func2_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;2 ika&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_func2_3</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;none&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_func2_6</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;none&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_func2_7</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;7 ijo&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_func2_8</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s1">&#39;7 ijo&#39;</span> <span class="o">==</span> <span class="n">func2</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>poetry run python -m pytest software_testing/03/sample_func2_test.py
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
