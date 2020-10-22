@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>07.条件が論理式で表せる場合のテスト：デシジョンテーブル &#8212; Iron Ball Run</title>
+    <title>07.ペア構成テスト &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,7 +57,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="演習" href="08.html" />
+    <link rel="next" title="演習（ペア構成テスト）" href="08.html" />
     <link rel="prev" title="06.演習（ドメイン分析テスト、デシジョンテーブル）" href="06.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -151,12 +151,12 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     07.条件が論理式で表せる場合のテスト：デシジョンテーブル
+     07.ペア構成テスト
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="08.html">
-     演習
+     演習（ペア構成テスト）
     </a>
    </li>
   </ul>
@@ -228,25 +228,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   デシジョンテーブルとは？
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   デシジョンテーブルの注意点
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -255,41 +236,7 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>07.条件が論理式で表せる場合のテスト：デシジョンテーブル<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>デシジョンテーブルとは？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>デシジョンテーブルとは、論理関係を表形式で整理した物です。
-システム設計の文書化や今回のようなテストに用いることができるツールです。</p>
-<p>デシジョンテーブルを理解するために<a class="reference external" href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201911210">Amazonの配送料</a>を例にしてテストケースを考えてみます。
-Amazonでは「2000円以上の買い物をした離島以外に住む人は基本送料無料」です。</p>
-<p>上記の例は論理式で表すことができます。
--&gt; 2000円以上買い物をした and 離島に住んでいない</p>
-<p><img alt="decision_table" src="../../_images/decision_table.png" /></p>
-<p>今回の例をデシジョンテーブルに起こすと上記のような表になります。
-作成方法は実行するアクションとアクションの実行条件をはじめに整理し、条件の状態をYes/Noで埋めていきます。</p>
-<p>Amazonの例では条件が2つでYes/Noの2値の状態があるので2の2乗で4通りのテストケースができます。</p>
-</div>
-<div class="section" id="id3">
-<h2>デシジョンテーブルの注意点<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>デシジョンテーブルは解釈性た良く、テストケースが作成しやすいですが、メリットデメリットは当然あります。</p>
-<ul class="simple">
-<li><p>メリット</p>
-<ul>
-<li><p>複数の条件の組み合わせ表であるため、どの条件がどんな状態かが明確である</p></li>
-<li><p>網羅性が定量化できる -&gt; 網羅率 = 実地したテストケース数 / 全テストケース数</p></li>
-</ul>
-</li>
-<li><p>デメリット</p>
-<ul>
-<li><p>順序は考慮されない</p></li>
-<li><p>条件が増えるとテストケース数が発散する</p></li>
-</ul>
-</li>
-</ul>
-<p>上記のようなデメリットはあるものの、場合によってはテストケースの圧縮が可能です。
-条件の判定順序でテストケースを整理した時、条件が満たされなかったら後ろの条件判定をしなくていい物についてはそれ以降の判定を行わないようにできます。</p>
-<p>前節のAmazon配送料のデシジョンテーブルでは、case3・4は2000以上購入を満たしていないためその時点以降の判定を行わなくて良くなります。そこで2000円以上購入Noのテストケース（case3）として実行すれば良いのです。</p>
-</div>
+<h1>07.ペア構成テスト<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -321,7 +268,7 @@ Amazonでは「2000円以上の買い物をした離島以外に住む人は基�
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="06.html" title="previous page">06.演習（ドメイン分析テスト、デシジョンテーブル）</a>
-    <a class='right-next' id="next-link" href="08.html" title="next page">演習</a>
+    <a class='right-next' id="next-link" href="08.html" title="next page">演習（ペア構成テスト）</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
