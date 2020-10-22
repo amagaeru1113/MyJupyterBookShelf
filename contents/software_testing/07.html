@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ソフトウェアテスト技法について &#8212; Iron Ball Run</title>
+    <title>07.ペア構成テスト &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="01.ソフトウェアテスト技法とは何か？" href="01.html" />
-    <link rel="prev" title="機械学習実験管理のための15のツール" href="../translation/pipeline_15tools.html" />
+    <link rel="next" title="演習（ペア構成テスト）" href="08.html" />
+    <link rel="prev" title="06.演習（ドメイン分析テスト、デシジョンテーブル）" href="06.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -115,10 +115,10 @@
   </a>
  </li>
  <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="intro.html">
    ソフトウェアテスト技法について
   </a>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01.html">
      01.ソフトウェアテスト技法とは何か？
@@ -144,8 +144,8 @@
      06.演習（ドメイン分析テスト、デシジョンテーブル）
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      07.ペア構成テスト
     </a>
    </li>
@@ -198,7 +198,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/software_testing/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/contents/software_testing/07.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -223,25 +223,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   参考文献
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   目次
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -250,43 +231,7 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>ソフトウェアテスト技法について<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>このページはソフトウェアテスト技法についての個人的なメモです。
-<a class="reference external" href="https://www.udemy.com/course/software-test-design/">udemy はじめてのソフトウェアテスト技法【全てのエンジニアが知るべき最重要テスト技法を、丁寧な解説と演習問題で身につけよう】</a>で勉強した内容をおさらいしています。</p>
-<div class="section" id="id2">
-<h2>参考文献<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>メイン</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.udemy.com/course/software-test-design/">udemy はじめてのソフトウェアテスト技法【全てのエンジニアが知るべき最重要テスト技法を、丁寧な解説と演習問題で身につけよう】</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/yokoc1322/items/d7b4ad158698fd80f827">ソフトウェア機能テスト手法まとめ</a></p></li>
-</ul>
-<p>サブ</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://note.com/suhahide/n/ncd4c46433bcb">テスト技法：ドメイン分析の話</a></p></li>
-<li><p><a class="reference external" href="https://softest.jp/?p=72">デシジョンテーブルの解説</a></p></li>
-<li><p><a class="reference external" href="https://dev.classmethod.jp/articles/introduction-to-combination-testing-methods/">ペアワイズ法は本当に有効なのか？組み合わせテスト技法と上手に付き合う方法</a></p></li>
-<li><p><a class="reference external" href="https://gihyo.jp/dev/feature/01/sp-test/0001?page=1">組み合わせテストをオールペア法でスピーディに！ 第1回　組み合わせテストの技法</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/suin/items/1561024218cadde67488">All-Pairs法でテストケースを生成するツール「PICT」をMacで使う方法</a></p></li>
-<li><p><a class="reference external" href="https://webrage.jp/techblog/transition_test_of_the_state_of_the_system/">WRブログ システムの状態遷移テスト</a></p></li>
-<li><p><a class="reference external" href="https://www.qbook.jp/column/20180615_629.html">テストを変える2つのコツ「状態遷移図」と「状態遷移表」</a></p></li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="id3">
-<h2>目次<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p><a class="reference internal" href="01.html"><span class="doc std std-doc">ソフトウェアテスト技法とは何か？</span></a></p></li>
-<li><p><a class="reference internal" href="02.html"><span class="doc std std-doc">基本的な概念</span></a></p></li>
-<li><p><a class="reference external" href="#anchor3">同値クラステストと境界値テスト</a></p></li>
-<li><p><a class="reference external" href="#anchor4">変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル</a></p></li>
-<li><p><a class="reference external" href="#anchor5">条件が論理式で表せる場合のテスト：デシジョンテーブル</a></p></li>
-<li><p><a class="reference external" href="#anchor6">組み合わせによる効率的なテスト：ペア構成テスト</a></p></li>
-<li><p><a class="reference external" href="#anchor7">状態変化に対応するテスト:状態遷移テスト</a></p></li>
-</ol>
-<hr class="docutils" />
-<div class="toctree-wrapper compound">
-</div>
-</div>
+<h1>07.ペア構成テスト<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -317,8 +262,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../translation/pipeline_15tools.html" title="previous page">機械学習実験管理のための15のツール</a>
-    <a class='right-next' id="next-link" href="01.html" title="next page">01.ソフトウェアテスト技法とは何か？</a>
+    <a class='left-prev' id="prev-link" href="06.html" title="previous page">06.演習（ドメイン分析テスト、デシジョンテーブル）</a>
+    <a class='right-next' id="next-link" href="08.html" title="next page">演習（ペア構成テスト）</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

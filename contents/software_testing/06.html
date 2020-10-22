@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ソフトウェアテスト技法について &#8212; Iron Ball Run</title>
+    <title>06.演習（ドメイン分析テスト、デシジョンテーブル） &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="01.ソフトウェアテスト技法とは何か？" href="01.html" />
-    <link rel="prev" title="機械学習実験管理のための15のツール" href="../translation/pipeline_15tools.html" />
+    <link rel="next" title="07.ペア構成テスト" href="07.html" />
+    <link rel="prev" title="05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル" href="05.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -115,10 +115,10 @@
   </a>
  </li>
  <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="intro.html">
    ソフトウェアテスト技法について
   </a>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01.html">
      01.ソフトウェアテスト技法とは何か？
@@ -139,8 +139,8 @@
      05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      06.演習（ドメイン分析テスト、デシジョンテーブル）
     </a>
    </li>
@@ -198,7 +198,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/software_testing/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/contents/software_testing/06.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -230,12 +230,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   参考文献
+   ドメイン分析テスト演習
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   目次
+   デシジョンテーブル演習
   </a>
  </li>
 </ul>
@@ -250,42 +250,32 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>ソフトウェアテスト技法について<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>このページはソフトウェアテスト技法についての個人的なメモです。
-<a class="reference external" href="https://www.udemy.com/course/software-test-design/">udemy はじめてのソフトウェアテスト技法【全てのエンジニアが知るべき最重要テスト技法を、丁寧な解説と演習問題で身につけよう】</a>で勉強した内容をおさらいしています。</p>
+<h1>06.演習（ドメイン分析テスト、デシジョンテーブル）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>考え方の定着を目的として、演習問題を作って回答してみます。</p>
 <div class="section" id="id2">
-<h2>参考文献<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>メイン</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.udemy.com/course/software-test-design/">udemy はじめてのソフトウェアテスト技法【全てのエンジニアが知るべき最重要テスト技法を、丁寧な解説と演習問題で身につけよう】</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/yokoc1322/items/d7b4ad158698fd80f827">ソフトウェア機能テスト手法まとめ</a></p></li>
-</ul>
-<p>サブ</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://note.com/suhahide/n/ncd4c46433bcb">テスト技法：ドメイン分析の話</a></p></li>
-<li><p><a class="reference external" href="https://softest.jp/?p=72">デシジョンテーブルの解説</a></p></li>
-<li><p><a class="reference external" href="https://dev.classmethod.jp/articles/introduction-to-combination-testing-methods/">ペアワイズ法は本当に有効なのか？組み合わせテスト技法と上手に付き合う方法</a></p></li>
-<li><p><a class="reference external" href="https://gihyo.jp/dev/feature/01/sp-test/0001?page=1">組み合わせテストをオールペア法でスピーディに！ 第1回　組み合わせテストの技法</a></p></li>
-<li><p><a class="reference external" href="https://qiita.com/suin/items/1561024218cadde67488">All-Pairs法でテストケースを生成するツール「PICT」をMacで使う方法</a></p></li>
-<li><p><a class="reference external" href="https://webrage.jp/techblog/transition_test_of_the_state_of_the_system/">WRブログ システムの状態遷移テスト</a></p></li>
-<li><p><a class="reference external" href="https://www.qbook.jp/column/20180615_629.html">テストを変える2つのコツ「状態遷移図」と「状態遷移表」</a></p></li>
-</ul>
+<h2>ドメイン分析テスト演習<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 </div>
-<hr class="docutils" />
 <div class="section" id="id3">
-<h2>目次<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p><a class="reference internal" href="01.html"><span class="doc std std-doc">ソフトウェアテスト技法とは何か？</span></a></p></li>
-<li><p><a class="reference internal" href="02.html"><span class="doc std std-doc">基本的な概念</span></a></p></li>
-<li><p><a class="reference external" href="#anchor3">同値クラステストと境界値テスト</a></p></li>
-<li><p><a class="reference external" href="#anchor4">変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル</a></p></li>
-<li><p><a class="reference external" href="#anchor5">条件が論理式で表せる場合のテスト：デシジョンテーブル</a></p></li>
-<li><p><a class="reference external" href="#anchor6">組み合わせによる効率的なテスト：ペア構成テスト</a></p></li>
-<li><p><a class="reference external" href="#anchor7">状態変化に対応するテスト:状態遷移テスト</a></p></li>
-</ol>
-<hr class="docutils" />
-<div class="toctree-wrapper compound">
+<h2>デシジョンテーブル演習<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>プログラミングの練習で有名なFizzBuzz問題についてのテストケースを考えてみます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FizzBuzz問題
+
+ある数字入力xが与えられた時、以下の条件で戻り値を返せ。
+- xが3の倍数： Fizz
+- xが5の倍数: Buzz
+- xが3、5の倍数: FizzBuzz
+- 上記のどれでもない: 入力値
+</pre></div>
 </div>
+<p>デシジョンテーブルは以下のような表になります。
+xは計算上あり得ないケースのため除外すると、テストケースは4つになります。
+<img alt="FIzzBuzz" src="../../_images/FizzBuzz.png" /></p>
+<p>テスト設計アプローチをここで考えてみます。
+デシジョンテーブルで有効なテストケース（caseが割り振られている列）のみについて考える場合は契約テスト、無効なケース（caseが割り振られていない列）も含めて考える場合は防御的テストを選択することになります。</p>
+<p>しかし、今回は無効なケースは計算上存在しないため、防御的テストを行えるテストケースが存在しません。そのため、今回は契約テストでアプローチすることになります。</p>
+<p>ただし、論理上あり得ないことがプログラム上でもあり得ないかは別にチェックが必要であるため、ソースコードの確認はしましょう。</p>
+<p>また、判定として「15の倍数は3と5の公倍数である」ことから別のデシジョンテーブルを作成できます。</p>
+<p><img alt="decision_table" src="../../_images/FizzBuzz2.png" /></p>
 </div>
 </div>
 
@@ -317,8 +307,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../translation/pipeline_15tools.html" title="previous page">機械学習実験管理のための15のツール</a>
-    <a class='right-next' id="next-link" href="01.html" title="next page">01.ソフトウェアテスト技法とは何か？</a>
+    <a class='left-prev' id="prev-link" href="05.html" title="previous page">05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル</a>
+    <a class='right-next' id="next-link" href="07.html" title="next page">07.ペア構成テスト</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
