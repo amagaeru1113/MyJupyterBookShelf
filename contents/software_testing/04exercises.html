@@ -140,6 +140,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="#id2">
+     演習問題
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="05.html">
      05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル
     </a>
@@ -250,10 +255,34 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   例
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   境界値テスト（境界値分析/限界値分析/boundary value analysis)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     例
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   演習問題
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.　喫茶店での注文
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     2. 大食いチャレンジ
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -414,6 +443,146 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>poetry run python -m pytest software_testing/03/sample_func2_test.py
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h1>演習問題<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id3">
+<h2>1.　喫茶店での注文<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>喫茶店でセットA、B、Cのうちどれかを選びます。
+注文に応じて料金を出力するシステムをテストします。</p>
+<ul class="simple">
+<li><p>セットA: 300円</p></li>
+<li><p>セットB: 500円</p></li>
+<li><p>セットC: 800円</p></li>
+</ul>
+<p>上記のシステムのテストケースを考えます。
+また、取り扱いしていないメニューについては0円を出力します。</p>
+<p>同値クラスは3つです。（A,B,C）
+ここでクラスを数値(A -&gt; 0, B -&gt; 1, C -&gt; 2)に置き換えます。
+必要なテストケースは以下が考えられます。</p>
+<ul class="simple">
+<li><p>x: 注文されたセット(A -&gt; 0, B -&gt; 1, C -&gt; 2)</p></li>
+<li><p>x = ‘セットA’ -&gt; 300</p></li>
+<li><p>x = ‘セットB’ -&gt; 500</p></li>
+<li><p>x = ‘セットC’ -&gt; 800</p></li>
+<li><p>x = ‘セットD’ -&gt; 0</p></li>
+</ul>
+<p>より、 x = [‘セットA’,’セットB’,’セットC’, ‘セットD’]
+期待される出力は[300, 500, 800 0]です。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_1.py
+
+<span class="k">def</span> <span class="nf">func_exe</span><span class="p">(</span><span class="n">order</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="s1">&#39;セットA&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">300</span>
+    <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="s1">&#39;セットB&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">500</span>
+    <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="s1">&#39;セットC&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">800</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_1_test.py
+
+<span class="kn">from</span> <span class="nn">exercises_1</span> <span class="kn">import</span> <span class="n">func_exe</span>
+
+<span class="k">def</span> <span class="nf">test_exercises_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">300</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットA&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_exercises_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">500</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットB&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_exercises_3</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">800</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットC&#39;</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_exercises_4</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="s1">&#39;セットD&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>poetry run python -m pytest software_testing/03/exercises_1_test.py
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>2. 大食いチャレンジ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>お寿司の大食いチャレンジの結果に応じて賞金を出力する条件分岐をテストします。
+- 20皿以上食べた人には賞金2000円
+- 40皿以上食べた人には賞金5000円
+皿の枚数に応じて賞金を出力するシステムのテストケースを考えましょう。</p>
+<p>同値クラスは2つです。（0円、2000円、5000円）
+境界値は2つ（20皿、40皿）なので、必要なテストケースの例は次の物が考えられます。</p>
+<ul class="simple">
+<li><p>x : 皿の枚数</p></li>
+<li><p>x &lt; 20 -&gt; 0円</p></li>
+<li><p>x &gt;= 20 -&gt; 2000円</p></li>
+<li><p>x &gt;= 40 -&gt; 5000円</p></li>
+</ul>
+<p>より、x = [19, 20, 21, 39, 40, 41]
+期待される出力は[0, 2000,2000, 2000, 5000,5000]です。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_2.py
+
+<span class="k">def</span> <span class="nf">func_exe</span><span class="p">(</span><span class="n">dishes</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>  
+
+    <span class="k">if</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">dishes</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2000</span>
+    <span class="k">elif</span> <span class="n">dishes</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">5000</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> software_testing/03/exercises_2_test.py
+
+<span class="kn">from</span> <span class="nn">exercises_2</span> <span class="kn">import</span> <span class="n">func_exe</span>
+
+<span class="k">def</span> <span class="nf">test_exercises_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_exercises_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_exercises_3</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_exercises_4</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_exercises_5</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">5000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">test_exercises_5</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">5000</span> <span class="o">==</span> <span class="n">func_exe</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>poetry run python -m pytest software_testing/03/exercises_2_test.py
 </pre></div>
 </div>
 </div>
