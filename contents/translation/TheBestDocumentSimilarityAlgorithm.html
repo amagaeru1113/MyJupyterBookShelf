@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2020年のベストな文書類似度アルゴリズム：初心者ガイド &#8212; Iron Ball Run</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ソフトウェアテスト技法について" href="../software_testing/intro.html" />
+    <link rel="prev" title="機械学習実験管理のための15のツール" href="pipeline_15tools.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/ironball.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iron Ball Run</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroAndContentsInJB/intro.html">
+   Welcome to Iron Ball Run
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroAndContentsInJB/content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroToGINZA.html">
+   What is GINZA?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="trans.html">
+   記事翻訳
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pipeline_15tools.html">
+     機械学習実験管理のための15のツール
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2020年のベストな文書類似度アルゴリズム：初心者ガイド
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../software_testing/intro.html">
+   ソフトウェアテスト技法について
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/translation/TheBestDocumentSimilarityAlgorithm.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-best-document-similarity-algorithm-in-2020-a-beginners-guide">
+   The Best Document Similarity Algorithm in 2020: A Beginner’s Guide
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-scientists-argue-for-the-absolute-best">
+     Data Scientists Argue For The Absolute Best
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diverse-algorithms-full-length-popular-articles-pretrained-models">
+     Diverse algorithms, full-length popular articles, pretrained models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-setup-5-base-articles">
+     Data Setup — 5 base articles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#judgment-criteria">
+     Judgment Criteria
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithm-candidates">
+     5 Algorithm Candidates
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jaccard">
+       Jaccard
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tf-idf">
+       TF-IDF
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#doc2vec">
+       Doc2vec
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#universal-sentence-encoder-use">
+       Universal Sentence Encoder (USE)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bidirectional-encoder-representations-from-transformers-bert">
+       Bidirectional Encoder Representations from Transformers (BERT)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#winner-algorithms">
+     Winner Algorithms
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-my-worst-date-ever-became-my-best">
+       1. How My Worst Date Ever Became My Best
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-deep-sea-magma-monster-gets-a-body-scan">
+       2. A Deep-Sea Magma Monster Gets a Body Scan
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#renault-and-nissan-try-a-new-way-after-years-when-carlos-ghosn-ruled">
+       3. Renault and Nissan Try a New Way After Years When Carlos Ghosn Ruled
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dominic-thiem-beats-rafael-nadal-in-australian-open-quarterfinal">
+       4. Dominic Thiem Beats Rafael Nadal in Australian Open Quarterfinal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#democrats-seek-voters-in-an-unusual-spot-fox-news">
+       5. 2020 Democrats Seek Voters in an Unusual Spot: Fox News
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#king-of-speed">
+     King Of Speed
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#heres-the-winner-algorithms-from-each-article">
+       Here’s the winner algorithms from each article.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recommendation-for-starters">
+     Recommendation For Starters
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#implement-tf-idf-first">
+       1. Implement TF-IDF first
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#accumulate-better-data">
+       2. Accumulate Better Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#upgrade-to-deep-learning">
+       3. Upgrade to Deep Learning
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tweak-the-deep-learning-algorithm">
+       4. Tweak the Deep Learning Algorithm
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#document-similarity-is-one-of-many-nlp-tasks">
+     Document Similarity Is One Of Many NLP Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further Reading
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>2020年のベストな文書類似度アルゴリズム：初心者ガイド<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><strong>これは投稿記事(<a class="reference external" href="https://towardsdatascience.com/the-best-document-similarity-algorithm-in-2020-a-beginners-guide-a01b9ef8cf05">The Best Document Similarity Algorithm in 2020: A Beginner’s Guide</a>, Author <a class="reference external" href="https://medium.com/&#64;Massanishi?source=post_page-----a01b9ef8cf05--------------------------------">Masatoshi Nishimura</a>)の自分用翻訳です。
+DeepL翻訳を多用します。</strong></p>
+<div class="section" id="the-best-document-similarity-algorithm-in-2020-a-beginners-guide">
+<h2>The Best Document Similarity Algorithm in 2020: A Beginner’s Guide<a class="headerlink" href="#the-best-document-similarity-algorithm-in-2020-a-beginners-guide" title="Permalink to this headline">¶</a></h2>
+<p>Picking the winner from 5 popular algorithms based on an experiment</p>
+<hr class="docutils" />
+<p>2020年の文書類似性タスクに関する最高のアルゴリズムを知りたいなら、あなたは正しい場所に来ています。</p>
+<p>33,914のニューヨークタイムズの記事で、私は文書の類似性の品質のための5つの人気のあるアルゴリズムをテストしました。それらは伝統的な統計的アプローチから現代的なディープラーニングのアプローチまで多岐にわたっています。</p>
+<p>それぞれの実装は50行以下のコードです。そして、使用されているモデルはすべてインターネットから取得しています。そのため、同様の結果を期待しながら、データサイエンスの予備知識がなくても、すぐに使用することができるようになります。</p>
+<p>この投稿では、各アルゴリズムをどのように使い、最適なものを選ぶ方法を学びます。以下はアジェンダです。</p>
+<ol class="simple">
+<li><p>Defining the best:</p></li>
+<li><p>Experiment goal statement:</p></li>
+<li><p>Data setup</p></li>
+<li><p>Comparison</p></li>
+<li><p>Algorithm setup:</p></li>
+<li><p>Picking the winner:</p></li>
+<li><p>Seuggestion for starters:</p></li>
+</ol>
+<p>あなたが自然言語処理やAIに手を出したい、関連性のある提案でユーザー体験にスパイスを与えたい、古い既存のアルゴリズムをアップグレードしたいと考えている場合、この記事は最適です。</p>
+<div class="section" id="data-scientists-argue-for-the-absolute-best">
+<h3>Data Scientists Argue For The Absolute Best<a class="headerlink" href="#data-scientists-argue-for-the-absolute-best" title="Permalink to this headline">¶</a></h3>
+<p>あなたは「最高の文書類似性アルゴリズム」という用語を検索することにしました。</p>
+<p>すると、学術論文、ブログ、Q&amp;Aなどの検索結果が表示されます。特定のアルゴリズムのチュートリアルに焦点を当てたものもあれば、理論的な概要に焦点を当てたものもあります。</p>
+<p>学術論文の見出しには、このアルゴリズムは80%の精度で75%しか達成していない他のすべてのアルゴリズムを打ち負かしたと書かれています。いいでしょう。しかし、その違いは、私たちの目には顕著に見えるようにするのに十分なのでしょうか？2%の増加についてはどうでしょうか? そのアルゴリズムを実装するのはどのくらい簡単なのでしょうか？科学者達は、実用的な意味合いを除いて、与えられたテストセットの中で最高のものを求めて行くことに偏っています。</p>
+<p>System | MultiNLI | Question NLI | SWAG
+BERT | 86.7 | 91.1 | 86.3
+OpenAI GPT(Prev. SOTA) | 82.2 | 88.1 | 75.0</p>
+<p>Q&amp;Aでは、誇大妄想マニアが会話を支配しています。今日の最高のアルゴリズムはBERTだと言う人もいます。そのアルゴリズムのコンセプトは、他のすべてのものを打ち負かすほどの革命的なものです。一方、皮肉屋は、すべては仕事に依存していると言う。いくつかの答えは、ディープラーニングを先取りした数年前のものです。この<a class="reference external" href="https://stackoverflow.com/questions/8897593/how-to-compute-the-similarity-between-two-text-documents">Stackoverflow</a>を見てみましょう。最も投票されたのが2012年に書かれたとき、それが本当に私たちにとって何を意味しているのかを判断するのは難しいでしょう。</p>
+<p>Googleは、検索を1%改善するためだけに、何百万ドルものエンジニアパワーと最新の計算能力を投入して喜んでいるだろう。それはおそらく実用的ではないだろうし、私たちにとっても意味のあることではないだろう。</p>
+<p>性能の向上と実装に必要な技術的な専門知識のトレードオフは何ですか？どのくらいのメモリを必要としますか？最小限の前処理でどれくらいの速度で実行できるか？</p>
+<p>あなたが見たいのは、あるアルゴリズムが実用的な意味で他のアルゴリズムよりも優れているということです。</p>
+<p>この記事はあなたがの文書類似度問題のための道具として、どのアルゴリズムが良いかのガイドラインを示します。</p>
+</div>
+<div class="section" id="diverse-algorithms-full-length-popular-articles-pretrained-models">
+<h3>Diverse algorithms, full-length popular articles, pretrained models<a class="headerlink" href="#diverse-algorithms-full-length-popular-articles-pretrained-models" title="Permalink to this headline">¶</a></h3>
+<p>この実験でのゴールは四つです。</p>
+<ol class="simple">
+<li><p>同じデータセット上で複数のアルゴリズムを実行することで、どのアルゴリズムが他のアルゴリズムとどの程度の差があるのかを知ることができます。</p></li>
+<li><p>人気のあるメディアの記事をデータセットとして使用することで、実際のアプリケーションの有効性を発見することができます。</p></li>
+<li><p>記事のURLにアクセスすることで、結果の質の違いを比較することができます。</p></li>
+<li><p>公開されている事前学習済みのモデルのみを使用することで、独自の文書類似度を設定し、類似した出力を期待することができます。</p></li>
+</ol>
+<blockquote>
+<div><p>“事前学習モデルはあなたの味方” <br>
+- Cathal Horan, machine learning engineer at Intercom</p>
+</div></blockquote>
+</div>
+<div class="section" id="data-setup-5-base-articles">
+<h3>Data Setup — 5 base articles<a class="headerlink" href="#data-setup-5-base-articles" title="Permalink to this headline">¶</a></h3>
+<p>この実験では、ニューヨーク・タイムズの記事33,914本を選びました。それらは2018年から2020年6月までのものです。データは、ほとんどがフルコンテンツで解析されたRSSフィードから収集されています。記事の平均長さは6,500文字です。</p>
+<p>そのプールから、類似性検索の基準として5つを選びました。それぞれが異なるカテゴリーを表しています。</p>
+<p>意味的なカテゴリの上に、我々は同様に書かれたフォーマットを測定します。より詳細な説明は以下の通りです。</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.nytimes.com/2020/02/14/style/modern-love-worst-date-of-my-life-became-best.html">How My Worst Date Ever Became My Best</a> (Lifestyle, Human Interest)</p></li>
+<li><p><a class="reference external" href="https://www.nytimes.com/2019/12/03/science/axial-volcano-mapping.html">A Deep-Sea Magma Monster Gets a Body Scan</a> (Science, Informational)</p></li>
+<li><p><a class="reference external" href="https://www.nytimes.com/2019/11/29/business/renault-nissan-mitsubishi-alliance.html">Renault and Nissan Try a New Way After Years When Carlos Ghosn Ruled</a> (Business, News)</p></li>
+<li><p><a class="reference external" href="https://www.nytimes.com/2020/01/29/sports/tennis/thiem-nadal-australian-open.html">Dominic Thiem Beats Rafael Nadal in Australian Open Quarterfinal</a> (Sports, News)</p></li>
+<li><p><a class="reference external" href="https://www.nytimes.com/2019/04/17/us/politics/fox-news-democrats-2020.html">2020 Democrats Seek Voters in an Unusual Spot: Fox News</a> (Politics, News)</p></li>
+</ol>
+</div>
+<div class="section" id="judgment-criteria">
+<h3>Judgment Criteria<a class="headerlink" href="#judgment-criteria" title="Permalink to this headline">¶</a></h3>
+<p>5つの基準で類似性の本質を判断します。結果を見たいだけの方はここを飛ばしてください。</p>
+<ol class="simple">
+<li><p>タグオーバーラップ</p></li>
+<li><p>セクション</p></li>
+<li><p>サブセクション</p></li>
+<li><p>ストーリースタイル</p></li>
+<li><p>テーマ</p></li>
+</ol>
+<p>タグは、コンテンツの類似性における人間の判断に最も近い代理人である。ジャーナリスト自身が手書きでタグを書き留めています。HTMLヘッダのnews_keywordsメタタグで調べることができます。タグを使う一番の利点は、2つのコンテンツがどれだけ重複しているかを客観的に測定できることです。それぞれのタグのサイズは1から12まであります。2つの記事の重複が多ければ多いほど、似ているということになります。</p>
+<p>第二に、セクションを見ます。これは、ニューヨークタイムズがどのように記事を最高レベルで分類しているかを示しています：科学、政治、スポーツなど。URLの最初の部分は、ドメイン（nytimes.com/…）の直後にセクション（またはスラッグ）を表示します。</p>
+<p>3つ目は小節です。例えば、オピニオンセクションはworldに細分化されていたり、worldはオーストラリアに細分化されていたりします。すべての記事に含まれているわけではありませんし、他の2つほどの意味はありません。</p>
+<p>4つ目は、文体です。文書比較の分析の多くは、意味論だけを見ています。しかし、実用的なユースケースでレコメンデーションを比較しているので、同じような書き方をしたいと考えています。例えば、学術誌の「ランニングシューズと装具」の直後に、「ランニングシューズのトップ10」という商業的にフォーカスした読み物を手に入れたいわけではありません。<a class="reference external" href="http://seduc.csdecou.qc.ca/sec-anglais/files/2015/01/MS_FeatArtWrtgPerRdg.pdf">ジェファーソンカントリースクール</a>で教えられている執筆ガイドラインに基づいて記事をグループ化します。リストは、人間の興味、性格、ベスト（ex:製品レビュー）、ニュース、ハウツー、過去の出来事、情報に従う。</p>
+</div>
+<div class="section" id="algorithm-candidates">
+<h3>5 Algorithm Candidates<a class="headerlink" href="#algorithm-candidates" title="Permalink to this headline">¶</a></h3>
+<p>アルゴリズムが以下のものが対象です。</p>
+<ol class="simple">
+<li><p>Jaccard</p></li>
+<li><p>TF-IDF</p></li>
+<li><p>Doc2vec</p></li>
+<li><p>USE</p></li>
+<li><p>BERT</p></li>
+</ol>
+<p>それぞれのアルゴリズムは、33,914記事に対して実行され、最も高いスコアを持つトップ3の記事を見つけた。このプロセスは、ベースとなる記事のそれぞれに対して繰り返されます。</p>
+<p>入力は記事の内容を全文で入力しました。タイトルは無視されました。</p>
+<p>アルゴリズムの中には、文書の類似性を考慮して作られていないものもあるので注意が必要です。しかし、インターネット上ではこのように多様な意見があるので、私たちは自分の目で結果を見てみましょう。</p>
+<p>私たちは概念的な理解や詳細なコードレビューに焦点を当てていません。むしろ目的は、セットアップがいかに簡単かを示すことです。ここで説明されているすべての詳細を理解していなくても心配しないでください。ポストに沿って進むことは重要ではありません。理論を理解するために、他の人が書いた優れたブログを読むために、下の方にある読書リストをチェックしてください。</p>
+<p>You can find the entire codebase in the <a class="reference external" href="https://github.com/massanishi/document_similarity_algorithms_experiments">Github repo</a>.</p>
+<div class="section" id="jaccard">
+<h4>Jaccard<a class="headerlink" href="#jaccard" title="Permalink to this headline">¶</a></h4>
+<p>ポール・ジャカードは<a class="reference external" href="https://en.wikipedia.org/wiki/Paul_Jaccard">1世紀以上前</a>にこの式を提案しました。そしてこの概念は長い間類似性タスクの標準的な手段となってきました</p>
+<p>幸いなことに、ジャカードが最も理解しやすいアルゴリズムであることがわかります。ベクトル化されていないので、数学は簡単です。そして、ゼロからコードを書くことができます。</p>
+<p>また、jaccardは余弦類似度を使用しない数少ないアルゴリズムの一つです。単語をトークン化し、和にまたがる交点を計算する。
+テキストの前処理にはNLTKを使用しています。</p>
+<p>ステップ</p>
+<ol class="simple">
+<li><p>全文章を小文字化</p></li>
+<li><p>トークン化</p></li>
+<li><p>ストップワードの除去</p></li>
+<li><p>句読点の除去</p></li>
+<li><p>2つの書類で交点・結合を計算</p></li>
+</ol>
+<p>コード</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_jaccard</span><span class="p">(</span><span class="n">word_tokens1</span><span class="p">,</span> <span class="n">word_tokens2</span><span class="p">):</span>
+	<span class="c1"># Combine both tokens to find union.</span>
+	<span class="n">both_tokens</span> <span class="o">=</span> <span class="n">word_tokens1</span> <span class="o">+</span> <span class="n">word_tokens2</span>
+	<span class="n">union</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">both_tokens</span><span class="p">)</span>
+
+	<span class="c1"># Calculate intersection.</span>
+	<span class="n">intersection</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+	<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokens1</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokens2</span><span class="p">:</span>
+			<span class="n">intersection</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+	<span class="n">jaccard_score</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">intersection</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">union</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">jaccard_score</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tf-idf">
+<h4>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this headline">¶</a></h4>
+<p>これも<a class="reference external" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">1972年</a>からある、確立されたアルゴリズムです。何十年にもわたって十分なテストが行われており、Elasticsearchのデフォルトの検索実装となっています。</p>
+<p>Scikit-learnはTF-IDFの素晴らしい実装を提供しています。TfidfVectorizerは誰でも一瞬でこれを試すことができます。</p>
+<p>TF-IDFの単語ベクトルの結果は、scikit-learnの余弦類似度によって計算されます。残りの例では、この余弦類似度を使用します。コサイン類似度は多くの機械学習タスクで使われるほど重要な概念なので、慣れ親しんでおくと良いかもしれません（<a class="reference external" href="https://www.sciencedirect.com/topics/computer-science/cosine-similarity">学術的な概要</a>）。</p>
+<p>コード</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+
+<span class="k">def</span> <span class="nf">process_tfidf_similarity</span><span class="p">():</span>
+	<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+
+	<span class="c1"># To make uniformed vectors, both documents need to be combined first.</span>
+	<span class="n">documents</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">base_document</span><span class="p">)</span>
+	<span class="n">embeddings</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+
+	<span class="n">cosine_similarities</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">embeddings</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">embeddings</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="doc2vec">
+<h4>Doc2vec<a class="headerlink" href="#doc2vec" title="Permalink to this headline">¶</a></h4>
+<p>Word2vecは2014年に登場し、当時の開発者の息の根を止めた。有名なデモを聞いたことがある人もいるかもしれません。</p>
+<blockquote>
+<div><p>King - Man == Queen</p>
+</div></blockquote>
+<p>Word2vecは個々の単語を理解するのに優れていますが、文章全体をベクトル化するには時間がかかります。文書全体のベクトル化はおろか、文書全体のベクトル化にも時間がかかります。</p>
+<p>代わりに、各単語の代わりに段落をベクトル化する類似の埋め込みアルゴリズムであるDoc2vecを使用します（<a class="reference external" href="https://cs.stanford.edu/~quocle/paragraph_vector.pdf">2014年、Google Inc</a>). より消化しやすい形では、Gidi Shperber氏による<a class="reference external" href="https://medium.com/wisio/a-gentle-introduction-to-doc2vec-db3e8c0cce5e">イントロブログ</a>をご覧ください。</p>
+<p>Doc2vecでは、残念ながら法人協賛のプリトレーニングモデルは公開されていません。そこで、<a class="reference external" href="https://github.com/jhlau/doc2vec">このリポジトリ</a>にある事前学習済みのenwiki_dbowモデルを使用します。英語版ウィキペディア（不特定多数ですが、モデルサイズは1.5GBとまともです）で学習されています。</p>
+<p>Doc2vecの公式ドキュメントには、どれだけの長さの入力を挿入しても良いと書かれています。トークン化されたら、gensim ライブラリを使ってドキュメント全体を投入します。</p>
+<p>コード</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models.doc2vec</span> <span class="kn">import</span> <span class="n">Doc2Vec</span>
+
+<span class="k">def</span> <span class="nf">process_doc2vec_similarity</span><span class="p">():</span>
+
+	<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;./models/enwiki_dbow/doc2vec.bin&#39;</span>
+	<span class="n">model</span><span class="o">=</span> <span class="n">Doc2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+	<span class="n">tokens</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">base_document</span><span class="p">)</span>
+
+	<span class="c1"># Only handle words that appear in the doc2vec pretrained vectors. enwiki_ebow model contains 669549 vocabulary size.</span>
+	<span class="n">tokens</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">tokens</span><span class="p">))</span>
+	<span class="n">base_vector</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">infer_vector</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="universal-sentence-encoder-use">
+<h4>Universal Sentence Encoder (USE)<a class="headerlink" href="#universal-sentence-encoder-use" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://arxiv.org/abs/1803.11175">2018年5月</a>にGoogleがかなり最近発表した人気のアルゴリズムです（この発表の背景には有名なレイ・カーツワイル氏がいました🙃）。実装の詳細は<a class="reference external" href="https://www.tensorflow.org/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder">GoogleのTensorflow</a>に詳しく書かれています。</p>
+<p>今回はGoogleの最新の公式プレトレーニング済みモデルを使用します。<a class="reference external" href="https://tfhub.dev/google/universal-sentence-encoder/4">Universal Sentence Encoder 4</a>です。</p>
+<p>その名の通り、文章を意識して作られています。しかし、公式文書では入力サイズに制約はありません。文書の比較作業に使うのを止めるようなことは何もありません。</p>
+<p>ドキュメント全体をそのままTensorflowに挿入します。トークン化は行いません。</p>
+<p>コード</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">hub</span>
+
+<span class="k">def</span> <span class="nf">process_use_similarity</span><span class="p">():</span>
+	<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./models/universal-sentence-encoder_4&quot;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+	<span class="n">base_embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="n">base_document</span><span class="p">])</span>
+
+	<span class="n">embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+
+	<span class="n">scores</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">base_embeddings</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bidirectional-encoder-representations-from-transformers-bert">
+<h4>Bidirectional Encoder Representations from Transformers (BERT)<a class="headerlink" href="#bidirectional-encoder-representations-from-transformers-bert" title="Permalink to this headline">¶</a></h4>
+<p>これは大物ですね。Googleは<a class="reference external" href="https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html">2018年11月</a>にBERTアルゴリズムをオープンソース化した。翌年、Googleの検索担当副社長は、過去5年間で最大の飛躍を遂げたBERTと称した<a class="reference external" href="https://blog.google/products/search/search-language-understanding-bert/">ブログ記事</a>を公開しました。</p>
+<p>これは、検索クエリを理解するために特別に構築されています。一文の文脈を理解することに関しては、BERTはここで言及されている他のすべてのものを凌駕しているようです。</p>
+<p>元々のBERTタスクは、大量のテキスト入力を扱うことを意図したものではありませんでした。複数文の埋め込みには、計算速度が優れているUKPLab（ドイツ大学）が公開している<a class="reference external" href="https://github.com/UKPLab/sentence-transformers">Sentence Transformers</a>というオープンソースのプロジェクトを使用する。また、<a class="reference external" href="https://github.com/UKPLab/sentence-transformers#performance">元のモデルと同等の事前学習済みモデル</a>も提供してくれます。</p>
+<p>そこで、各文書は文にトークン化されます。そして、その結果を平均化して1つのベクトルで文書を表現します。</p>
+<p>コード</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+
+<span class="k">def</span> <span class="nf">process_bert_similarity</span><span class="p">():</span>
+	<span class="c1"># This will download and load the pretrained model offered by UKPLab.</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;bert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+
+	<span class="n">sentences</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">base_document</span><span class="p">)</span>
+	<span class="n">base_embeddings_sentences</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+	<span class="n">base_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">base_embeddings_sentences</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="winner-algorithms">
+<h3>Winner Algorithms<a class="headerlink" href="#winner-algorithms" title="Permalink to this headline">¶</a></h3>
+<p>5つの異なるタイプの記事について、それぞれのアルゴリズムがどのように機能するか見てみましょう。比較のために、スコアの高い記事の上位3つを選択します。</p>
+<p>このブログ記事では、5つの記事のそれぞれについて、最もパフォーマンスの高いアルゴリズムの結果のみを見ていきます。個々の記事へのリンクとともに、完全な結果については、<a class="reference external" href="https://github.com/massanishi/document_similarity_algorithms_experiments">レポジトリ</a>のアルゴリズムディレクトリを参照してください。</p>
+<div class="section" id="how-my-worst-date-ever-became-my-best">
+<h4>1. <a class="reference external" href="https://www.nytimes.com/2020/02/14/style/modern-love-worst-date-of-my-life-became-best.html">How My Worst Date Ever Became My Best</a><a class="headerlink" href="#how-my-worst-date-ever-became-my-best" title="Permalink to this headline">¶</a></h4>
+<p>BERTの勝ち。</p>
+<p>記事は、50代のバツイチ女性の恋愛デートを題材にした人情話。</p>
+<p>この文体では、有名人の名前のような特定の名詞は載せません。時期的なものでもありません。2010年からの1つの人間の関心事の話は、今日と同じように関連性がある可能性が高いでしょう。したがって、比較において、1つのアルゴリズムが大きく外れているわけではありませんでした。</p>
+<p>それはUSEとの接戦だった。USEのストーリーがLGBTQなどの社会問題に遠回りしたのに対し、BERTは恋愛やデートにのみ焦点を当てていました。他のアルゴリズムは、おそらく「元夫」という言葉を見たことから、家族や子供に関する話題に分岐しました。</p>
+<p>Table:BERT Results For The 1st Article (dating) — Document Similarity Experiment</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Title</p></th>
+<th class="text-align:left head"><p>Tag Overlap</p></th>
+<th class="text-align:left head"><p>Section Overlap</p></th>
+<th class="text-align:left head"><p>Subsection Overlap</p></th>
+<th class="text-align:left head"><p>Style Overlap</p></th>
+<th class="text-align:left head"><p>Theme</p></th>
+<th class="text-align:left head"><p>Subjective</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference external" href="https://www.nytimes.com/2020/05/29/style/modern-love-coronavirus-why-are-all-the-exes-texting.html">Why Are All the Exes Texting?</a></p></td>
+<td class="text-align:left"><p>1</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Dating</p></td>
+<td class="text-align:left"><p>Related</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><a class="reference external" href="https://www.nytimes.com/2018/04/13/style/when-love-seems-too-easy-to-trust.html">When Love Seems Too Easy to Trust</a></p></td>
+<td class="text-align:left"><p>1</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Dating</p></td>
+<td class="text-align:left"><p>Related</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference external" href="https://www.nytimes.com/2020/03/06/style/modern-love-long-distance-dating-korea.html">He Saved His Last Lesson for Me</a></p></td>
+<td class="text-align:left"><p>1</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Y</p></td>
+<td class="text-align:left"><p>Dating</p></td>
+<td class="text-align:left"><p>Related</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="a-deep-sea-magma-monster-gets-a-body-scan">
+<h4>2. <a class="reference external" href="https://www.nytimes.com/2019/12/03/science/axial-volcano-mapping.html">A Deep-Sea Magma Monster Gets a Body Scan</a><a class="headerlink" href="#a-deep-sea-magma-monster-gets-a-body-scan" title="Permalink to this headline">¶</a></h4>
+<p>TF-IDFの勝利。</p>
+<p>この科学論文は、海の中の活火山を3Dスキャンすることについて語っています。</p>
+<p>3Dスキャン、火山、海洋というのは珍しい用語なので、簡単に手に取ることができます。すべてのアルゴリズムがうまくいっています。</p>
+<p>TF-IDFは、地球の海の中の火山の話しかしないものを正しく選んでいました。USEは海洋ではなく火星の火山に焦点を当てており、同様に良い候補となった。また、ロシアの軍用潜水艦についての記事は、科学とは関係がなく、話題から外れているものをピックアップしています。</p>
+<p>Tabl:TF-IDF Results For The 2nd Article (volcano) — Document Similarity Experiment</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Tag Overlap</p></th>
+<th class="head"><p>Section Overlap</p></th>
+<th class="head"><p>Subsection Overlap</p></th>
+<th class="head"><p>Style Overlap</p></th>
+<th class="head"><p>Theme</p></th>
+<th class="head"><p>Subjective</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/2019/12/18/science/volcano-3d-reunion-island.html">A 3D Encounter With a Violent Volcano’s Underbelly</a></p></td>
+<td><p>4</p></td>
+<td><p>Y</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+<td><p>3D Mapped Volcano</p></td>
+<td><p>Highly Related</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.nytimes.com/2015/01/06/science/predicting-what-a-volcano-may-or-may-not-do-is-as-tricky-as-it-is-crucial-as-iceland-well-knows.html">Pressure, and Mystery, on the Rise</a></p></td>
+<td><p>1</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Icelands’s Volcano</p></td>
+<td><p>Related</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/2018/05/14/us/us-active-volcanoes-hawaii.html">It’s Not Just Hawaii: The U.S. Has 169 Volcanoes That Could Erupt</a></p></td>
+<td><p>2</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+<td><p>Volcanos</p></td>
+<td><p>Related</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="renault-and-nissan-try-a-new-way-after-years-when-carlos-ghosn-ruled">
+<h4>3. Renault and Nissan Try a New Way After Years When Carlos Ghosn Ruled<a class="headerlink" href="#renault-and-nissan-try-a-new-way-after-years-when-carlos-ghosn-ruled" title="Permalink to this headline">¶</a></h4>
+<p>TF-IDFが勝利。</p>
+<p>カルロス・ゴーン前CEOが脱走した後、ルノーと日産に何が起こったのかが語られています。</p>
+<p>理想的な試合は、この3つのエンティティについて話すことでしょう。前の2つの記事に比べて、この記事ははるかにイベント駆動型で、時間に敏感です。関連するニュースは、この日に似たようなことが起こるはずです（2019年11月からです）。</p>
+<p>TF-IDFは、日産のCEOに焦点を当てた記事を正しく選んだ。他の人は、フィアット・クライスラーとプジョーの提携など、一般的な自動車業界のニュースについて話している記事を選んでいました。</p>
+<p>また、Doc2vecとUSEがまったく同じ結果につながったことも注目に値する。</p>
+<p>Table:TF-IDF Results For The 3rd Article (Nissan) — Document Similarity Experiment</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Tag Overlap</p></th>
+<th class="head"><p>Section Overlap</p></th>
+<th class="head"><p>Subsection Overlap</p></th>
+<th class="head"><p>Style Overlap</p></th>
+<th class="head"><p>Theme</p></th>
+<th class="head"><p>Subjective</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/reuters/2018/04/25/business/25reuters-renault-nissan-m-a.html">Nissan CEO Says ‘No Merit’ in Merger With Renault-Nikkei</a></p></td>
+<td><p>3</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+<td><p>Nissan and Renault</p></td>
+<td><p>Related</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.nytimes.com/2020/01/15/automobiles/nissan-carlos-ghosn-strategy.html">Carlos Ghosn and the Roots of Nissan’s Decline</a></p></td>
+<td><p>3</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>Carlos Ghosn</p></td>
+<td><p>Related</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/2020/01/28/business/renault-ceo-luca-de-meo.html">Renault Chooses Volkswagen Executive as New C.E.O.</a></p></td>
+<td><p>5</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Renault CEO</p></td>
+<td><p>Very Related</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dominic-thiem-beats-rafael-nadal-in-australian-open-quarterfinal">
+<h4>4. Dominic Thiem Beats Rafael Nadal in Australian Open Quarterfinal<a class="headerlink" href="#dominic-thiem-beats-rafael-nadal-in-australian-open-quarterfinal" title="Permalink to this headline">¶</a></h4>
+<p>ジャカード、TF-IDF、USEの間で同点。</p>
+<p>2020年の全豪オープン（テニスの試合）に出場するテニスプレーヤーのドミニク・ティエム選手についての記事です。</p>
+<p>ニュースはイベントドリブンであり、個人に非常に特化しています。そのため、理想的にはドミニクと全豪オープンについての試合になります。</p>
+<p>残念ながら、結果は十分なデータがないために苦しんだ。すべてテニスの話をしていました。しかし、いくつかの試合は、2018年から全仏オープンのドミニクについて話していた。または、全豪オープンからロジャー・フェデラーについてでした。</p>
+<p>結果は3つのアルゴリズムの間で同点となりました。このことが重要なことを物語っています: 最高の類似性マッチングの結果を得るためには、データプールの収集、多様化、拡張に最善を尽くす必要があります。</p>
+<p>Table:Jaccard Results For The 4th Article (tennis) — Document Similarity Experiment</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Tag Overlap</p></th>
+<th class="head"><p>Section Overlap</p></th>
+<th class="head"><p>Subsection Overlap</p></th>
+<th class="head"><p>Style Overlap</p></th>
+<th class="head"><p>Theme</p></th>
+<th class="head"><p>Subjective</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/2020/01/30/sports/tennis/djokovic-federer-australian-open.html">Djokovic vs. Federer, a Rivalry for the Ages, Is One-Sided This Time</a></p></td>
+<td><p>3</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Australian Open</p></td>
+<td><p>Related</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.nytimes.com/2020/02/02/sports/tennis/australian-open-djokovic-thiem.html">Novak Djokovic Wins the Australian Open</a></p></td>
+<td><p>4</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Dominic vs Novak in Australian Open</p></td>
+<td><p>Very Related</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/aponline/2018/05/20/sports/tennis/ap-ten-italian-open.html">With Rome Title, Nadal Back on Track Entering French Open</a></p></td>
+<td><p>1</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+<td><p>French Open</p></td>
+<td><p>Unrelated</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="democrats-seek-voters-in-an-unusual-spot-fox-news">
+<h4>5. 2020 Democrats Seek Voters in an Unusual Spot: Fox News<a class="headerlink" href="#democrats-seek-voters-in-an-unusual-spot-fox-news" title="Permalink to this headline">¶</a></h4>
+<p>USEが勝利。</p>
+<p>2020年の選挙に向けてフォックスニュースに登場するバーニー・サンダースを中心とした民主党の記事です。</p>
+<p>それぞれの話題は、それだけで大きなものになります。民主党候補と選挙に関する記事が豊富です。話の要旨が斬新なので、民主党候補とフォックスの関係を論じたものを優先しました。</p>
+<p>余談ですが、実際には政治の世界での提案には気をつけたいものです。リベラルと保守的なニュースを混ぜると、読者を簡単に動揺させることができます。我々はニューヨークタイムズだけを相手にしているので、それは我々の関心事ではないでしょう。</p>
+<p>USEでは、バーニー・サンダースやFox、MSNBCなどのテレビケーブルについて語った記事を見つけました。他には、2020年の選挙で他の民主党候補者を論じている記事を選んだ。これらはあまりにも一般的と考えられていた。</p>
+<p>Table:USE Results For The 5th Article (Fox) — Document Similarity Experiment</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Tag Overlap</p></th>
+<th class="head"><p>Section Overlap</p></th>
+<th class="head"><p>Subsection Overlap</p></th>
+<th class="head"><p>Style Overlap</p></th>
+<th class="head"><p>Theme</p></th>
+<th class="head"><p>Subjective</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/2020/03/05/business/media/msnbc-bernie-sanders-media.html">Bernie Sanders Had a Problem With MSNBC. Then Came Super Tuesday.</a></p></td>
+<td><p>7</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+<td><p>Sanders and MSNBC</p></td>
+<td><p>Very Related</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.nytimes.com/2019/03/08/opinion/fox-news-democrats-debate.html">Democrats, Don’t Abandon Fox News</a></p></td>
+<td><p>7</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>Democrats and Fox News</p></td>
+<td><p>Very Related</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.nytimes.com/2010/10/24/us/politics/24cable.html">Candidates Running Against, and With, Cable News</a></p></td>
+<td><p>4</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+<td><p>Fox, MSNBC and politics</p></td>
+<td><p>Related</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="king-of-speed">
+<h3>King Of Speed<a class="headerlink" href="#king-of-speed" title="Permalink to this headline">¶</a></h3>
+<p>勝者を結論づける前に、パフォーマンス時間について話をする必要があります。それぞれのアルゴリズムは、速度の点で非常に異なった性能を発揮しました。</p>
+<p>その結果、TF-IDFの実装は他のどのアルゴリズムよりもはるかに高速であった。最初から最後まで（トークン化、ベクトル化、比較）33,914文書を1つのCPUで計算するのにかかった。</p>
+<ul class="simple">
+<li><p>TF-IDF: 1.5min</p></li>
+<li><p>Jaccard: 13min</p></li>
+<li><p>Doc2vec: 43min</p></li>
+<li><p>USE: 62min</p></li>
+<li><p>BERT: 50+ hours(各文章はベクトル化)</p></li>
+</ul>
+<p>TF-IDFの所要時間はわずか1分半。これはUSEでかかった時間の2.5%です。もちろん、複数の効率化を取り入れることは可能です。しかし、潜在的な利得を最初に議論する必要があります。それは、開発の難易度のトレードオフを厳しく見極める別の理由を私たちに与えてくれるでしょう。</p>
+<div class="section" id="heres-the-winner-algorithms-from-each-article">
+<h4>Here’s the winner algorithms from each article.<a class="headerlink" href="#heres-the-winner-algorithms-from-each-article" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>BERT</p></li>
+<li><p>TF-IDF</p></li>
+<li><p>TF-IDF</p></li>
+<li><p>Jaccard, TF-IDF, USEで同位</p></li>
+<li><p>USE</p></li>
+</ol>
+<p>この結果から、ニュース記事でのドキュメントの類似性を考えると、TF-IDFが最有力候補だと言えます。これは、最小限のカスタマイズで使用する場合に特に当てはまります。また、TF-IDFが発明されてから2番目に古いアルゴリズムであることを考えると、これは驚くべきことです。むしろ、現代の最先端のAIディープラーニングがこのタスクでは何の意味もないことにがっかりするかもしれません。</p>
+<p>もちろん、それぞれの深層学習技術は、自分のモデルを訓練し、データをより良く前処理することで改善することができます。しかし、すべての手法には開発コストがかかります。その努力がナイーブTF-IDF法と比較してどれだけ良い結果をもたらすのか、よく考えてみる必要があります。</p>
+<p>最後に、文書の類似性において、Jaccard と Doc2vog を完全に忘れるべきだと言ってもいいでしょう。これらは今日の代替手段と比較して何のメリットもありません。</p>
+</div>
+</div>
+<div class="section" id="recommendation-for-starters">
+<h3>Recommendation For Starters<a class="headerlink" href="#recommendation-for-starters" title="Permalink to this headline">¶</a></h3>
+<p>あなたのアプリケーションにゼロから類似性アルゴリズムを実装することを決めたとしましょう。</p>
+<div class="section" id="implement-tf-idf-first">
+<h4>1. Implement TF-IDF first<a class="headerlink" href="#implement-tf-idf-first" title="Permalink to this headline">¶</a></h4>
+<p>ディープラーニングの誇大広告にもかかわらず、文書の類似性照合における最先端の技術はTF-IDFです。高品質の結果が得られます。そして何よりも高速です。</p>
+<p>これまで見てきたように、ディープラーニング手法にアップグレードすることで、より良いパフォーマンスが得られるかもしれませんし、得られないかもしれません。多くの思考は、トレードオフを計算するために事前に配置する必要があります。</p>
+</div>
+<div class="section" id="accumulate-better-data">
+<h4>2. Accumulate Better Data<a class="headerlink" href="#accumulate-better-data" title="Permalink to this headline">¶</a></h4>
+<p>アンドリュー・ンは2017年に「データは新しいオイル」という類推をしました。オイルなしで車が動くとは思えない。そして、そのオイルは良いものでなければならない。</p>
+<p>ドキュメントの類似性は、特定のアルゴリズムと同じくらいデータの多様性に依存している。類似性の結果を向上させるために、ユニークなデータを見つけることに最も力を注ぐべきです。</p>
+</div>
+<div class="section" id="upgrade-to-deep-learning">
+<h4>3. Upgrade to Deep Learning<a class="headerlink" href="#upgrade-to-deep-learning" title="Permalink to this headline">¶</a></h4>
+<p>TF-IDFの結果に不満がある場合のみ、USEまたはBERTに移行する。データパイプラインを設定し、インフラをアップグレードします。爆発的な計算時間を考慮する必要があります。おそらく、単語の埋め込みを前処理することになるだろうから、類似性マッチングを実行時間ではるかに速く処理できるようになる。Googleがこのトピックの<a class="reference external" href="https://cloud.google.com/solutions/machine-learning/building-real-time-embeddings-similarity-matching-system">チュートリアル</a>を書いています。</p>
+</div>
+<div class="section" id="tweak-the-deep-learning-algorithm">
+<h4>4. Tweak the Deep Learning Algorithm<a class="headerlink" href="#tweak-the-deep-learning-algorithm" title="Permalink to this headline">¶</a></h4>
+<p>ゆっくりと自分のモデルをアップグレードしていくことができます。自前のモデルを訓練したり、事前に訓練したものを特定の領域に当てはめたりなど また、今日では多くの異なる深層学習モデルが利用可能です。どれがあなたの特定の要件に最もフィットするかを確認するために、1つずつ試してみることができます。</p>
+</div>
+</div>
+<div class="section" id="document-similarity-is-one-of-many-nlp-tasks">
+<h3>Document Similarity Is One Of Many NLP Tasks<a class="headerlink" href="#document-similarity-is-one-of-many-nlp-tasks" title="Permalink to this headline">¶</a></h3>
+<p>様々なアルゴリズムで文書の類似性を達成することができます：あるものは伝統的な統計的アプローチであり、他のものは最先端のディープラーニング手法です。実際のニューヨークタイムズの記事で、それらがどのように比較されているかを見てきました。</p>
+<p>TF-IDFを使えば、ローカルのラップトップで簡単に文書の類似性の検証を始めることができます。派手なGPUは必要ありません。大容量のメモリも必要ありません。高品質のデータを使用しても、競争力のある結果を得ることができます。</p>
+<p>センチメント分析や分類などの他のタスクをしたい場合は、深層学習があなたの仕事に適しているはずです。しかし、研究者たちはディープラーニングの効率と性能の境界線を押し広げようとしているが、誇大広告のループの中で生活することは、私たち全員にとって健康的ではない。それは新参者にとってとてつもない不安と不安を生む。</p>
+<p>経験的であり続けることで、現実から目を離さないことができます。</p>
+<p>うまくいけば、このブログがあなた自身のNLPプロジェクトを始めるための励みになっていることを願っています。</p>
+<p>さあ、手を汚して始めましょう。</p>
+</div>
+<div class="section" id="further-reading">
+<h3>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>An article covering TF-IDF and Cosine similarity with examples: “<a class="reference external" href="https://towardsdatascience.com/overview-of-text-similarity-metrics-3397c4601f50">Overview of Text Similarity Metrics in Python</a>”.</p></li>
+<li><p>An academic paper discussing how cosine similarity is used in various NLP machine learning tasks: “<a class="reference external" href="https://www.sciencedirect.com/topics/computer-science/cosine-similarity">Cosine Similarity</a>”.</p></li>
+<li><p>Discussion of sentence similarity in different algorithms: “<a class="reference external" href="https://medium.com/&#64;adriensieg/text-similarities-da019229c894">Text Similarities : Estimate the degree of similarity between two texts</a>”.</p></li>
+<li><p>An examination of various deep learning models in text analysis: “<a class="reference external" href="https://blog.floydhub.com/when-the-best-nlp-model-is-not-the-best-choice/">When Not to Choose the Best NLP Model</a>”.</p></li>
+<li><p>Conceptual dive into BERT model: “<a class="reference external" href="https://towardsdatascience.com/a-review-of-bert-based-models-4ffdc0f15d58">A review of BERT based models</a>”.</p></li>
+<li><p>A literature review on document embeddings: “<a class="reference external" href="https://towardsdatascience.com/document-embedding-techniques-fed3e7a6a25d">Document Embedding Techniques</a>”</p></li>
+</ul>
+<p>記事著者の方が参画しているプロジェクトKaffeのリンク -&gt; https://kaffae.com/</p>
+<p>Chrome ウェブストア -&gt; https://chrome.google.com/webstore/detail/read-with-kaffae/cdopdmmkjbdmffleiaajlplpgfbikekc</p>
+<p>ウェブストアの概要説明</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>読んだことを忘れない。マインドフルな読書を簡単に。
+あなたが読んだものをもっと覚えよう。マインドフル・リーディングを簡単に。
+
+Kaffae extensionを使えば、毎日の読書の仕方を簡単に意識することができます。あなたの読書をバックグラウンドで自動的に追跡・分析します。
+
+ニューヨークタイムズ、BBC、ミディアム、ニューヨーカー、ウィキペディアなどの出版社の本を読む時間が長い人に最適です。
+
+日刊レポート ★デイリーレポート
+
+毎朝、ノートパソコンを開くと、毎日のように読書の様子が更新されます。私たちは読んだものの80％を、再び露出がない限り忘れてしまいます。この間隔をあけて繰り返すことが、情報を保持するための効果的な方法です。
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/translation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="pipeline_15tools.html" title="previous page">機械学習実験管理のための15のツール</a>
+    <a class='right-next' id="next-link" href="../software_testing/intro.html" title="next page">ソフトウェアテスト技法について</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By ironball<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-180974113-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
