@@ -12,6 +12,7 @@
 - file: contents/translation/trans
   sections:
     - file: contents/translation/pipeline_15tools
+    - file: contents/translation/TheBestDocumentSimilarityAlgorithm
 
 - file: contents/software_testing/intro
   sections: 

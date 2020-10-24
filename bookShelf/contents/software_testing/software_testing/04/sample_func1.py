@@ -1,5 +1,5 @@
 
-def func1(x: int) -> str:    
+def func1(x: int) -> str:
     if x == 3:
         return '3'
     elif x == 5:
