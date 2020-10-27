@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>07.ペア構成テスト &#8212; Iron Ball Run</title>
+    <title>07.組み合わせによる効率的なテスト：ペア構成テスト &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -151,7 +151,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     07.ペア構成テスト
+     07.組み合わせによる効率的なテスト：ペア構成テスト
     </a>
    </li>
    <li class="toctree-l2">
@@ -228,6 +228,32 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   ペア構成テストとは？
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   直行表
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     直行表の作り方
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -236,7 +262,131 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>07.ペア構成テスト<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>07.組み合わせによる効率的なテスト：ペア構成テスト<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>これまでいくつかテスト技法、有用なツールを見てきました。
+以下にテスト技法とその時想定する変数の数の個人的な感覚を整理します。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>テスト技法</p></th>
+<th class="head"><p>変数（x）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>同値クラステスト</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>境界値テスト</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>ドメイン分析テスト</p></td>
+<td><p>x&lt;5</p></td>
+</tr>
+<tr class="row-odd"><td><p>デシジョンテーブル</p></td>
+<td><p>x&lt;5</p></td>
+</tr>
+</tbody>
+</table>
+<p>より多くの変数の組み合わせのテストを行う場合、テストケースは膨大になっていきます。
+全てを網羅するのは現実的ではなく、方針の切替が必要です。
+-&gt; 少ないテストケースである程度の網羅性を確保する方針
+-&gt; 重要な組み合わせやバグがありそうな組み合わせを重点的にテスト</p>
+<div class="section" id="id2">
+<h2>ペア構成テストとは？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>ペア構成テストとは、変数の全ての入力の組み合わせをテストするのではなく、変数の全てのペアをテストするテスト技法です。</p>
+<p>全てのペアについて以下に例をあげます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3枚のコイン(C1、C2、C3)で表裏（2値条件）について考える場合
+- 全ての組み合わせ　2 * 2 * 2 = 8通り
+- 全てのペア (C1, C2)、(C2, C3)、(C1, C3)それぞれにコインの表裏のパターン（4通り）が入る
+</pre></div>
+</div>
+<p>上記のように全てのペアをテストすることである程度の網羅性が確保できるだろうと言えるのには理由があります。多くの欠陥は次の二つに大別できます。</p>
+<ol class="simple">
+<li><p>モジュール単体が正常動作しない</p></li>
+<li><p>2つのモジュールを組み合わせた時正常動作しない</p></li>
+</ol>
+<p>上のように大別すると、ペアにしてテストした際には2番目について検出でき、検出した欠陥を精査することでモジュール単体の異常動作についても発見できるというわけです。</p>
+<p>詳しくはこちらの記事(<a class="reference external" href="https://dev.classmethod.jp/articles/introduction-to-combination-testing-methods/">ペアワイズ法は本当に有効なのか？組み合わせテスト技法と上手に付き合う方法</a>)が参考になります。</p>
+</div>
+<div class="section" id="id3">
+<h2>直行表<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>直行表とは、全てのペアを抜け漏れなく網羅するためのツールです。</p>
+<p>コインを例にすると直行表は以下のようになります。
+行がテストケースで、列に条件が入ります。
+<img alt="orthogonal_table" src="../../_images/orthogonal_table.png" /></p>
+<p>直行表をAとB、AとC、BとCに限定してみた時、状態の組み合わせが揃っていることがわかります。</p>
+<p>直行表を見てパッと作るのは難しそうですが、そもそも作る必要はありません。
+テスト実行者は既存の直行表から適切なものを選べれば大丈夫です。</p>
+<p>直行表の表記法がわかれば選ぶのも難しくないと思います。
+コインの例で出した直行表は4行で2値条件が3つなので「L4(2^3)」と表現されます。</p>
+<p>8行で2値条件が1つならばL8(2^1)
+5行で3値条件が4つならばL5(3^4)
+9行で2値条件が4つ　3値条件が2つならばL9(2^4 3^2)</p>
+<p>また調べる際には「<a class="reference external" href="https://support.minitab.com/ja-jp/minitab/18/help-and-how-to/modeling-statistics/doe/supporting-topics/taguchi-designs/catalogue-of-taguchi-designs/">タグチ計画のカタログ</a>」が参考になると思います。</p>
+<div class="section" id="id4">
+<h3>直行表の作り方<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>直行表の作り方を整理すると次のようになります。</p>
+<ol class="simple">
+<li><p>条件を全て把握する</p></li>
+<li><p>各条件の取り得る値を出す</p></li>
+<li><p>1と2の条件に合う直交表を選ぶ（完全一致がない場合少し大きめを選ぶ）</p></li>
+<li><p>直交表にテスト対象の条件をいれる</p></li>
+</ol>
+<p>しかし、今回は<a class="reference external" href="https://github.com/microsoft/pict">PICT</a>というツールを使って直行表を作成してみます。~~直行表を探すのが面倒~~</p>
+<p>例として開発で使用するパソコンの設定でOS、言語、エディタの3条件についてのテストケースを考えてみます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OS</span><span class="p">:</span> <span class="n">Windows</span><span class="p">,</span> <span class="n">macOS</span><span class="p">,</span> <span class="n">Linux</span>
+<span class="n">言語</span><span class="p">:</span> <span class="n">Python</span><span class="p">,</span> <span class="n">Scala</span><span class="p">,</span> <span class="n">Typescript</span>
+<span class="n">エディタ</span><span class="p">:</span> <span class="n">Emacs</span><span class="p">,</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">Vim</span>
+</pre></div>
+</div>
+<p>PICTで作成して直行表が次の表です。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>OS</p></th>
+<th class="head"><p>言語</p></th>
+<th class="head"><p>エディタ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Python</p></td>
+<td><p>Emacs</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p>Scala</p></td>
+<td><p>Atom</p></td>
+</tr>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Typescript</p></td>
+<td><p>Vim</p></td>
+</tr>
+<tr class="row-odd"><td><p>macOS</p></td>
+<td><p>Python</p></td>
+<td><p>Vim</p></td>
+</tr>
+<tr class="row-even"><td><p>macOS</p></td>
+<td><p>Scala</p></td>
+<td><p>Emacs</p></td>
+</tr>
+<tr class="row-odd"><td><p>macOS</p></td>
+<td><p>Typescript</p></td>
+<td><p>Atom</p></td>
+</tr>
+<tr class="row-even"><td><p>Linux</p></td>
+<td><p>Python</p></td>
+<td><p>Atom</p></td>
+</tr>
+<tr class="row-odd"><td><p>Linux</p></td>
+<td><p>Scala</p></td>
+<td><p>Vim</p></td>
+</tr>
+<tr class="row-even"><td><p>Linux</p></td>
+<td><p>Typescript</p></td>
+<td><p>Emacs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
