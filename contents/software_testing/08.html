@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>演習（ペア構成テスト） &#8212; Iron Ball Run</title>
+    <title>08.演習（ペア構成テスト） &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -155,7 +155,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     演習（ペア構成テスト）
+     08.演習（ペア構成テスト）
     </a>
    </li>
   </ul>
@@ -235,7 +235,175 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>演習（ペア構成テスト）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>08.演習（ペア構成テスト）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>考え方の定着を目的として、演習問題を作って回答してみます。
+直行表カタログは<a class="reference external" href="https://support.sas.com/techsup/technote/ts723_Designs.txt">こちら</a>参照しました</p>
+<p>以下の問題でテストケースを作成しましょう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>あるECサイトで1ヶ月後に小規模なアウトドア品セールを行う。
+複数の条件で割引がされるかのテストしたいのでテストケースを洗い出して欲しい。
+
+条件が次の通り。
+- 対象カテゴリ
+    リュックサック、靴、アウトドアウェア、携帯食糧、キャンプ用品、登山用品
+- 消耗品かどうか
+    Yes No
+- 重量は5kg以上か
+    Yes No
+</pre></div>
+</div>
+<p>流れにそってやっていきます。</p>
+<ol class="simple">
+<li><p>条件は対象カテゴリ、消耗品かどうか、重量は5kg以上かの3つである。</p></li>
+<li><p>対象カテゴリが6値条件で、他が2値条件である。</p></li>
+<li><p>1と2の条件に合う直交表はL?(2^2 6^1)であるが、当てはまるのはL12(2^2 6^1)</p></li>
+<li><p>直交表にテスト対象の条件をいれる</p></li>
+</ol>
+<p>直行表よりテストケースは全部で12個になります。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>消耗品</p></th>
+<th class="head"><p>重量5kg以上</p></th>
+<th class="head"><p>対象カテゴリ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+</tbody>
+</table>
+<p>ちなみに以下の表はPICTを使用して作成したテストケースです。</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>消耗品</p></th>
+<th class="head"><p>重量5kg以上</p></th>
+<th class="head"><p>対象カテゴリ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>靴</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>携帯食糧</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>登山用品</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>リュックサック</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>アウトドアウェア</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>キャンプ用品</p></td>
+</tr>
+</tbody>
+</table>
+<p>カタログを元に作成したテストケースとPICTで作成したテストケースはほぼ同じになりました。
+違う点は2,11行目重量5kg以上の値が反転しているところですが、これでも網羅できています。</p>
 </div>
 
     <script type="text/x-thebe-config">
