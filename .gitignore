@@ -1,5 +1,10 @@
 .venv
 sampleBook
 temp
-bookShelf/_build/*
-bookShelf/contents/software_testing/softwaretestdesign-lecture.pdf
+
+/bookShelf/contents/software_testing/softwaretestdesign-lecture.pdf
+
+/bookShelf/_build/
+
+/.DS_Store
+/bookShelf/.DS_Store
