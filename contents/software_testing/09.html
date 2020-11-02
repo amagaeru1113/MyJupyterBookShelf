@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル &#8212; Iron Ball Run</title>
+    <title>09.状態変化に対応するテスト:状態遷移テスト &#8212; Iron Ball Run</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="06.演習（ドメイン分析テスト、デシジョンテーブル）" href="06.html" />
-    <link rel="prev" title="04.演習（同値クラステスト、境界値テスト）" href="04exercises.html" />
+    <link rel="prev" title="08.演習（ペア構成テスト）" href="08.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -139,8 +138,8 @@
      04.演習（同値クラステスト、境界値テスト）
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.html">
      05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル
     </a>
    </li>
@@ -159,8 +158,8 @@
      08.演習（ペア構成テスト）
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      09.状態変化に対応するテスト:状態遷移テスト
     </a>
    </li>
@@ -208,7 +207,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/software_testing/05.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/contents/software_testing/09.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -240,27 +239,17 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   ドメイン分析テストとは？
+   状態遷移図
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   ドメイン分析テストで重要な4つのポイント
+   状態遷移表
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   ドメインテストマトリクス
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   デシジョンテーブルとは？
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   デシジョンテーブルの注意点
+  <a class="reference internal nav-link" href="#n">
+   Nスイッチカバレッジ
   </a>
  </li>
 </ul>
@@ -275,129 +264,89 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>05.変数が複数ある場合のテスト：ドメイン分析テストとデジジョンテーブル<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>これまでは数値のみのシンプル条件分岐を例で見てきましたが、実際にはより複雑な処理のテストを行うことがあります。</p>
-<p>この場合、複雑な処理は「複数の種類、複数の変数を考慮する条件分岐」を意味します。
-説明変数が1つなら単回帰、説明変数が2つ以上なら重回帰といった趣です。</p>
-<p>複雑な処理の例として、映画のチケット発券を例にとると、最低限必要な入力は「人数(数値)」「映画タイトル(文字列)」「席の位置(座標：（数値,数値）)」となります。</p>
-<p>このように条件が増えてくると、考慮すべきテストケースが多くなり抜け漏れが生じやすくなります。
-その際に役立つ技法が<strong>ドメイン分析テスト</strong>と<strong>デシジョンテーブル</strong>です。</p>
-<div class="section" id="id2">
-<h2>ドメイン分析テストとは？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>ドメイン分析テストとは、相互作用する複数の変数に対して行うテスト手法です。
-筆者は「変数が増えた同値テスト・境界値テスト」という大雑把な解釈です。
-また、ここでのドメインの意味は「条件で使用する値の組」として捉えています。</p>
-<p>以下に例題をあげます</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>田中さんはある資格Aをとりたいと考えています。
-資格Aを取得するには理論、実践の2つの試験で以下の条件を満たす必要があります。
-各試験は100点満点です。
-- 理論 &gt;= 60
-- 理論 + 実践 &gt;= 100
+<h1>09.状態変化に対応するテスト:状態遷移テスト<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>これまでは条件とその取る値によって振る舞いが変わるシステムに関するテストを見てきました。
+より発展的なものとして、現在の状態とその遷移（状態Aから状態Bに変化すること）によって振る舞いが変わるシステムに関するテストについて見ていきます。</p>
+<p>状態遷移テストは二つのツールを使って次の流れで進めていきます。</p>
+<ol class="simple">
+<li><p>状態遷移図を描いて、全体を俯瞰する</p></li>
+<li><p>状態遷移表を作成して、詳細を確認する</p></li>
+</ol>
+<p>今回はストップウォッチを例にして考えます。</p>
+<p>ストップウォッチは次のような振る舞い（仕様）をします。
+ここでスタート/ストップボタンをSB、ストップウォッチ機能をSW、リセットボタンをRBと表します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- 初期状態でSWは作動していない
+- 初期状態でSBを押すと、SWが作動する（時間計測が始まる）
+- 作動状態でSBを押すと、SWが停止する（時間計測が停止され、その時点での秒数が表示される）
+- 停止状態でSBを押すと、再びSWが作動する（時間計測が再開される）
+- 停止状態でRBを押すと、初期状態になる
 </pre></div>
 </div>
-<p>この試験の場合、資格取得に対して変数同士（理論、実践）は相互作用しています。
-言い換えると、理論の点数によって取得に必要な実践の点数が変化します。</p>
-<p><img alt="exam_field" src="../../_images/exam_field.png" /></p>
-<p>上の図のような領域が合格の領域であることが想定できます。
-判定したいのは理論と実践の点数の関係を考慮した上での合格不合格ですので、
-このような場合にドメイン分析テストが有効です。</p>
-<p>◆(個人的な所感)テストケースに限らず、値の関係性をグラフにすることは重要</p>
+<div class="section" id="id2">
+<h2>状態遷移図<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>ストップウォッチの仕様について改めて確認します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ストップウォッチの仕様
+スタート/ストップボタン-&gt;SB、ストップウォッチ機能-&gt;SW、リセットボタン-&gt;RB
+
+- 初期状態でSWは作動していない
+- 初期状態でSBを押すと、SWが作動する（時間計測が始まる）
+- 作動状態でSBを押すと、SWが停止する（時間計測が停止され、その時点での秒数が表示される）
+- 停止状態でSBを押すと、再びSWが作動する（時間計測が再開される）
+- 停止状態でRBを押すと、初期状態になる
+</pre></div>
+</div>
+<p>これを元に状態遷移図を描くと次のような図になります。
+<img alt="state_transition_figure" src="../../_images/state_transition_figure.png" /></p>
+<p>状態として初期状態、作動状態、停止状態があります。また状態遷移のトリガーイベントとしてSBとRBがあり、矢印によって状態遷移の数とトリガーイベントの始状態と終状態を示しています。</p>
+<p>状態遷移図は上手のように大雑把に状態間の関係性を描画するものです。
+これを元に状態遷移を表にしてテストケースを洗い出すことになります。
+テストに指針としてまずは「全ての遷移をテストすること」です。</p>
+<p>状態遷移図では矢印の数が状態遷移の数です。
+そこで最低限テストするケースは次の4つです。</p>
+<ul class="simple">
+<li><p>初期状態 + SB -&gt; 作動状態に遷移</p></li>
+<li><p>作動状態 + SB -&gt; 停止状態に遷移</p></li>
+<li><p>停止状態 + SB -&gt; 作動状態に遷移</p></li>
+<li><p>停止状態 + RB -&gt; 初期状態に遷移</p></li>
+</ul>
+<p>また、状態遷移図にはないが実際に操作可能な物もあります。
+例えば</p>
+<ul class="simple">
+<li><p>初期状態 + RB -&gt; ?</p></li>
+<li><p>作動状態 + RB -&gt; ?</p></li>
+</ul>
+<p>これらについては現実的に起こりうるかどうかを加味してテストケースに含めるかどうかは判断することになると思います。今回の例では誤操作として十分ありうるのでテストするべきです。
+このような例は適用不可能な遷移として、NA(Not Applicable)と呼びます。</p>
 </div>
 <div class="section" id="id3">
-<h2>ドメイン分析テストで重要な4つのポイント<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>ドメイン分析テストの理解には4つのポイントが重要になってきます。</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>ポイント</p></th>
-<th class="head"><p>意味</p></th>
-<th class="head"><p>x &gt; 5</p></th>
-<th class="head"><p>x &gt;= 5</p></th>
-<th class="head"><p>10 &lt;= x &lt;= 15</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>on</p></td>
-<td><p>境界上の値</p></td>
-<td><p>5</p></td>
-<td><p>5</p></td>
-<td><p>10,15</p></td>
-</tr>
-<tr class="row-odd"><td><p>off</p></td>
-<td><p>onポイントとは逆の結果にとなる、境界と隣接する値</p></td>
-<td><p>6</p></td>
-<td><p>4</p></td>
-<td><p>9,16</p></td>
-</tr>
-<tr class="row-even"><td><p>in</p></td>
-<td><p>条件を満たすが、onポイントではない値</p></td>
-<td><p>7,8,…</p></td>
-<td><p>7,8,…</p></td>
-<td><p>11~14</p></td>
-</tr>
-<tr class="row-odd"><td><p>out</p></td>
-<td><p>条件を満たさないが、onポイントではない値</p></td>
-<td><p>4,3,…</p></td>
-<td><p>4,3,…</p></td>
-<td><p>5,20,…</p></td>
-</tr>
-</tbody>
-</table>
-<p>offポイントはonポイントに応じて変わります。</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>onポイントが条件を満たす値なら(境界が’&lt;=’もしくは’&gt;=’)、offポイントは条件を満たさない値</p></li>
-<li><p>onポイントが条件を満たさない値なら(境界が’&lt;’もしくは’&gt;’)、offポイントは条件を満たす値
-引用：<a class="reference external" href="https://qiita.com/yokoc1322/items/d7b4ad158698fd80f827">ソフトウェア機能テスト手法まとめ</a>より</p></li>
-</ul>
-</div></blockquote>
+<h2>状態遷移表<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>状態遷移図は状態遷移を俯瞰し、全体像を把握するのに有効ですがNAのようなケースも漏れなく見出すのは難しいです。</p>
+<p>そこで状態遷移表を使います。
+今回の例では状態遷移表は次のようになります。
+<img alt="state_transition_table" src="../../_images/state_transition_table.png" /></p>
+<p>状態遷移表は列の一番上が始状態を表し、イベントと直行する成分がそのイベントによる終状態を表します。NAはイベントに対応する終状態が存在しないことを示します。</p>
+<p>状態遷移表によって仕様の抜け漏れもチェックできるのが利点です。
+しかし、テストはこれで十分というわけではありません。
+なぜなら、2状態の遷移については状態遷移表で網羅できていますが、3状態については記載がされていないためです。3状態の遷移とは「停止状態-&gt; 初期状態 -&gt; 作動状態」のような遷移です。</p>
+<p>状態遷移に伴ってシステムの内部状態が変化してしまう場合も考慮して、状態遷移の組み合わせに関するテストも必要になります。このような場合には<strong>Nスイッチカバレッジテスト</strong>が有用です。</p>
 </div>
-<div class="section" id="id4">
-<h2>ドメインテストマトリクス<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>今回行いたいのは次の条件を組み合わせての検証です。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">理論</span> <span class="o">&gt;=</span> <span class="mi">60</span>
-<span class="o">-</span> <span class="n">理論</span> <span class="o">+</span> <span class="n">実践</span> <span class="o">&gt;=</span> <span class="mi">100</span>
-</pre></div>
-</div>
-<p>「検証は一つずつ」行うことで欠陥が他の欠陥を隠すことを避けたいです。
-そこで、着目する変数の一つだけでonポイントとoffポイントを動かして、その他の変数をinポイントに入れておけば一つずつ検証する事ができます。
-これを網羅的に行う際に作成するのが<strong>ドメインテストマトリクス</strong>です。</p>
-<p><img alt="domain_test_matrix" src="../../_images/domain_test_matrix.png" /></p>
-<p>ドメインテストマトリクスを作成することで、列にテストケースを整理できます。</p>
-<p>◆(推奨)ドメインテストマトリクスの優しい解説はudemy動画推奨</p>
-</div>
-<div class="section" id="id5">
-<h2>デシジョンテーブルとは？<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>デシジョンテーブルとは、論理関係を表形式で整理した物です。
-システム設計の文書化や今回のようなテストに用いることができるツールです。</p>
-<p>デシジョンテーブルを理解するために<a class="reference external" href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201911210">Amazonの配送料</a>を例にしてテストケースを考えてみます。
-Amazonでは「2000円以上の買い物をした離島以外に住む人は基本送料無料」です。</p>
-<p>上記の例は論理式で表すことができます。
--&gt; 2000円以上買い物をした and 離島に住んでいない</p>
-<p><img alt="decision_table" src="../../_images/decision_table.png" /></p>
-<p>今回の例をデシジョンテーブルに起こすと上記のような表になります。
-作成方法は実行するアクションとアクションの実行条件をはじめに整理し、条件の状態をYes/Noで埋めていきます。</p>
-<p>Amazonの例では条件が2つでYes/Noの2値の状態があるので2の2乗で4通りのテストケースができます。</p>
-</div>
-<div class="section" id="id6">
-<h2>デシジョンテーブルの注意点<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<p>デシジョンテーブルは解釈性た良く、テストケースが作成しやすいですが、メリットデメリットは当然あります。</p>
+<div class="section" id="n">
+<h2>Nスイッチカバレッジ<a class="headerlink" href="#n" title="Permalink to this headline">¶</a></h2>
+<p>Nスイッチカバレッジテストは、N+1回状態遷移を網羅するパスのテストです。</p>
+<p>今回のストップウォッチの例では、NAとなる部分は初期状態に戻るような仕様を考えることとします。
+<img alt="state_transition_table_re" src="../../_images/state_transition_table_re.png" /></p>
+<p>作成した状態遷移表をNスイッチカバレッジのテストのために関係行列（状態の関係性を行列で表現したもの）に書き直します。この行列は始状態を行、終状態を列、トリガーイベントを成分に持ちます。
+<img alt="relation_matrix" src="../../_images/relation_matrix.png" /></p>
+<p>関係行列を二乗すると、
+<img alt="one_switch_coverage" src="../../_images/one_switch_coverage.png" /></p>
+<p>上の表の成分の表示と意味は次のように対応します。</p>
 <ul class="simple">
-<li><p>メリット</p>
-<ul>
-<li><p>複数の条件の組み合わせ表であるため、どの条件がどんな状態かが明確である</p></li>
-<li><p>網羅性が定量化できる -&gt; 網羅率 = 実地したテストケース数 / 全テストケース数</p></li>
+<li><p>RS: リセットボタンを押した後、スタート/ストップボタンを押す</p></li>
+<li><p>RS + SR: リセットボタンを押してスタート/ストップボタンを押すか、スタート/ストップボタンを押してリセットボタンを押す</p></li>
 </ul>
-</li>
-<li><p>デメリット</p>
-<ul>
-<li><p>順序は考慮されない</p></li>
-<li><p>条件が増えるとテストケース数が発散する</p></li>
-</ul>
-</li>
-</ul>
-<p>上記のようなデメリットはあるものの、場合によってはテストケースの圧縮が可能です。
-条件の判定順序でテストケースを整理した時、条件が満たされなかったら後ろの条件判定をしなくていい物についてはそれ以降の判定を行わないようにできます。</p>
-<p>前節のAmazon配送料のデシジョンテーブルでは、case3・4は2000以上購入を満たしていないためその時点以降の判定を行わなくて良くなります。そこで2000円以上購入Noのテストケース（case3）として実行すれば良いのです。</p>
+<p>上表は1スイッチカバレッジの表です。1スイッチとは始状態から終状態までに経由する中間状態の数を指します。スイッチの数Nに対して、N+1乗するとNスイッチカバレッジの表が得られます。
+今回の表では12のテストケースになります。</p>
+<p>注意点として、Nの数が大きくなるほどテストケースが増大します。まずは状態遷移表を使ったすべての遷移の確認を行い、 その上で必要に応じてNスイッチカバレッジをNが小さい順に段階的に必要なテストを行っていくのが望ましいです。</p>
 </div>
 </div>
 
@@ -429,8 +378,7 @@ Amazonでは「2000円以上の買い物をした離島以外に住む人は基�
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="04exercises.html" title="previous page">04.演習（同値クラステスト、境界値テスト）</a>
-    <a class='right-next' id="next-link" href="06.html" title="next page">06.演習（ドメイン分析テスト、デシジョンテーブル）</a>
+    <a class='left-prev' id="prev-link" href="08.html" title="previous page">08.演習（ペア構成テスト）</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
