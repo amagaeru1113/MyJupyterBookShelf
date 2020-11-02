@@ -1,6 +1,7 @@
 .venv
 sampleBook
 temp
+*.pdf
 
 /bookShelf/contents/software_testing/softwaretestdesign-lecture.pdf
 
