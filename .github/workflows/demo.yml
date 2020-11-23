@@ -21,7 +21,8 @@ jobs:
   
       # PATH to Poetry
       - name: Add path for Poetry
-        run: echo "::add-path::$HOME/.poetry/bin"
+        # run: echo "::add-path::$HOME/.poetry/bin"
+        run: echo "$HOME/.poetry/bin" >> $GITHUB_PATH
   
       # Install Dependencies
       - name: Install Dependencies
