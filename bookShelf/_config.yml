@@ -1,14 +1,14 @@
 # Book settings
-title: Iron Ball Run
-author: ironball
+title: amagaeru Memo
+author: amagaeru
 logo: contents/images/amagaeru.jpg
 
 #######################################################################################
 # Book settings
-title                       : Iron Ball Run  # The title of the book. Will be placed in the left navbar.
-author                      : ironball  # The author of the book
+title                       : amagaeru Memo  # The title of the book. Will be placed in the left navbar.
+author                      : amagaeru  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
-logo                        : contents/images/ironball.png  # A path to the book logo
+logo                        : contents/images/amagaeru.png  # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 
