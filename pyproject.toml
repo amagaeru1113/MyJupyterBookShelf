@@ -2,7 +2,7 @@
 name = "jupyterbook"
 version = "0.1.0"
 description = ""
-authors = ["ironball"]
+authors = ["amagaeru"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
