@@ -3,22 +3,21 @@
 
 # # Content with notebooks
 # 
-# You can also create content with Jupyter Notebooks. This means that you can include
-# code blocks and their outputs in your book.
+# また、Jupyter Notebooksを使ってコンテンツを作成することもできます。つまり、コードブロックとその出力を本に含めることができます。
 # 
 # ## Markdown + notebooks
 # 
-# As it is markdown, you can embed images, HTML, etc into your posts!
+# マークダウンなので、画像やHTMLなどを投稿に埋め込むことができます!
 # 
 # ![](https://myst-parser.readthedocs.io/en/latest/_static/logo.png)
 # 
-# You an also $add_{math}$ and
+# また、数学も記述（$add_{math}$）できます。
 # 
 # $$
 # math^{blocks}
 # $$
 # 
-# or
+# とか
 # 
 # $$
 # \begin{aligned}
@@ -27,18 +26,20 @@
 # \end{aligned}
 # $$
 # 
+# しかし、ダラーマークの書き方については注意してください。
 # But make sure you \$Escape \$your \$dollar signs \$you want to keep!
 # 
 # ## MyST markdown
 # 
-# MyST markdown works in Jupyter Notebooks as well. For more information about MyST markdown, check
-# out [the MyST guide in Jupyter Book](https://jupyterbook.org/content/myst.html),
-# or see [the MyST markdown documentation](https://myst-parser.readthedocs.io/en/latest/).
+# MyST markdownはJupyterノートブックでも動作します。
+# MyST markdownの詳細については、[the MyST guide in Jupyter Book](https://jupyterbook.org/content/myst.html)をチェックするか、
+# [the MyST markdown documentation](https://myst-parser.readthedocs.io/en/latest/)を参照してください。
+# 
 # 
 # ## Code blocks and outputs
 # 
-# Jupyter Book will also embed your code blocks and output in your book.
-# For example, here's some sample Matplotlib code:
+# Jupyter Bookは、あなたのコードブロックと出力をあなたのブックにも埋め込みます。
+# 例えば、以下に Matplotlib のサンプルコードを示します。
 
 # In[1]:
 
@@ -72,5 +73,10 @@ lines = ax.plot(data)
 ax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);
 
 
-# There is a lot more that you can do with outputs (such as including interactive outputs)
-# with your book. For more information about this, see [the Jupyter Book documentation](https://executablebooks.github.io/cli/start/overview.html)
+# ブックでできることは、出力 (インタラクティブな出力を含むなど) 以外にもたくさんあります。これについての詳細は、[the Jupyter Book documentation](https://executablebooks.github.io/cli/start/overview.html)を参照してください。
+
+# In[ ]:
+
+
+
+

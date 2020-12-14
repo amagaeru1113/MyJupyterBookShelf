@@ -1,8 +1,7 @@
 
 # MyJupyterBookShelf
 
-[作成したサイトリンク](https://ironball1113.github.io/MyJupyterBookShelf/contents/IntroAndContentsInJB/intro.html)
-
+[作成したサイトリンク](https://amagaeru1113.github.io/MyJupyterBookShelf/contents/IntroAndContentsInJB/intro.html)
 
 JupyterLabの実行
 `poetry run jupyter lab --ip=0.0.0.0`
